@@ -1,0 +1,34 @@
+#ifndef INIMIGO_h
+#define INIMIGO_h
+
+#include "initException.h"
+#include "constantes.h"
+#include "sprite.h"
+#include "fileNotFoundException.h"
+
+class Inimigo
+{
+protected:
+	int HP;
+	int dano;
+	int vel;
+	int hp_restante;
+	Sprite *img;
+public:
+	//inicializa os valores do inimigo
+	virtual void init() throw (InitException, FileNotFoundException) = 0;
+	//retorna o quanto de vida resta
+	int getHp() const;
+	//retorna o dano que o inimigo causa
+	int getDano() const;
+	//retorna o numero de quadrados que o inimigo anda
+	int getVel() const;
+	//movimenta o inimigo
+	void mover(Direcao dir);
+	void mover();
+	Direcao direcao_a_ser_movido(int dirX, int dirY);
+};
+
+
+#endif
+
