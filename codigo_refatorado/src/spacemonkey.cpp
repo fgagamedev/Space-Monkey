@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <SDL/SDL.h>
+#include "mapa1.h"
 
 int main()
 {
@@ -52,9 +53,18 @@ int main()
 	SDL_FillRect(screen, &retangulo, valorCor);
 	SDL_UpdateRect(screen, 0, 0, 0, 0);
 
-	printf("Tela Inicial do jogo - Duracao: 10seg!\n");
+	printf("Tela Inicial do jogo - Duracao: 3seg!\n");
 
-	SDL_Delay(10000);
+	SDL_Delay(3000);
+
+	printf("Chamando Primeiro Mapa!\n");
+
+	int mp1 = iniciarMapa1();
+
+	if(mp1!=0){
+		fprintf(stdout, "Erro ao iniciar mapa 1");
+		return -3;
+	}
 
 	return 0;
 }

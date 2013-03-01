@@ -7,6 +7,7 @@ rm -f *~
 rm -f aclocal.m4 configure Makefile.in Makefile
 rm -f config.log config.status libtool
 rm -rf config autom4te.cache
+rm -rf m4
 rm -f *.tar.gz
 
 # include
@@ -19,6 +20,8 @@ cd ..
 cd src
 rm -f *~
 rm -f *.o
+rm -f *.lo
+rm -f *.la
 rm -f Makefile.in Makefile
 cd ..
 
