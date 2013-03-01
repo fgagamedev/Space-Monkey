@@ -1,3 +1,9 @@
 Estes códigos foram desenvolvidos com objetivo didático, sem a pretensão de 
 utilizar as melhores soluções, mas de ilustrar os conceitos de desenvolvimento
 de jogos aos alunos.
+
+Ao clonar o projeto faça a modificação para privilégio de usuário:
+
+	chmod +x cleanup.sh
+	
+Faça a limpeza do projeto para análise dos arquivos não auto-gerados.
