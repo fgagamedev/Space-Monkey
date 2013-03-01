@@ -76,9 +76,9 @@ inicializador.lo: inicializador.cpp /usr/include/SDL/SDL.h \
  /usr/include/c++/4.4/initializer_list \
  /usr/include/c++/4.4/bits/basic_string.tcc ../include/audio.h \
  ../include/fileNotFoundException.h ../include/exception.h \
- ../include/constantes.h ../include/nomesArquivos.h \
- ../include/constantes.h ../include/initException.h \
- ../include/inicializador.h ../include/initException.h
+ ../include/initException.h ../include/constantes.h \
+ ../include/nomesArquivos.h ../include/constantes.h \
+ ../include/initException.h ../include/inicializador.h
 
 /usr/include/SDL/SDL.h:
 
@@ -344,6 +344,8 @@ inicializador.lo: inicializador.cpp /usr/include/SDL/SDL.h \
 
 ../include/exception.h:
 
+../include/initException.h:
+
 ../include/constantes.h:
 
 ../include/nomesArquivos.h:
@@ -353,5 +355,3 @@ inicializador.lo: inicializador.cpp /usr/include/SDL/SDL.h \
 ../include/initException.h:
 
 ../include/inicializador.h:
-
-../include/initException.h:

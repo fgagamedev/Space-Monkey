@@ -78,8 +78,8 @@ spacemonkey.o: spacemonkey.cpp jogo.cpp ../include/animacao.h \
  /usr/include/SDL/SDL_loadso.h /usr/include/SDL/SDL_timer.h \
  /usr/include/SDL/SDL_version.h /usr/include/SDL/SDL_image.h \
  /usr/include/SDL/SDL.h ../include/jogo.h ../include/jogador.h \
- ../include/menus.h ../include/tela.h ../include/initException.h \
- ../include/jogador.h ../include/initException.h \
+ ../include/audio.h ../include/initException.h ../include/menus.h \
+ ../include/tela.h ../include/jogador.h ../include/initException.h \
  ../include/gameOverException.h ../include/exitException.h \
  ../include/nomesArquivos.h ../include/tela.h ../include/fase.h \
  /usr/include/c++/4.4/vector /usr/include/c++/4.4/bits/stl_construct.h \
@@ -380,11 +380,13 @@ jogo.cpp:
 
 ../include/jogador.h:
 
+../include/audio.h:
+
+../include/initException.h:
+
 ../include/menus.h:
 
 ../include/tela.h:
-
-../include/initException.h:
 
 ../include/jogador.h:
 

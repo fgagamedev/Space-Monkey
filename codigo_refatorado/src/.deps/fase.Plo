@@ -100,9 +100,10 @@ fase.lo: fase.cpp /usr/include/c++/4.4/iostream \
  /usr/include/SDL/SDL_joystick.h /usr/include/SDL/SDL_quit.h \
  /usr/include/SDL/SDL_loadso.h /usr/include/SDL/SDL_timer.h \
  /usr/include/SDL/SDL_version.h ../include/eventos.h ../include/fase.h \
- ../include/constantes.h ../include/exitException.h \
+ ../include/constantes.h ../include/nomesArquivos.h \
+ ../include/exitException.h ../include/exception.h \
  ../include/initException.h ../include/gameOverException.h \
- ../include/jogador.h ../include/SDL_Mapa.h \
+ ../include/audio.h ../include/jogador.h ../include/SDL_Mapa.h \
  ../include/fileNotFoundException.h ../include/horda.h ../include/util.h \
  /usr/include/SDL/SDL_ttf.h /usr/include/SDL/SDL.h
 
@@ -442,11 +443,17 @@ fase.lo: fase.cpp /usr/include/c++/4.4/iostream \
 
 ../include/constantes.h:
 
+../include/nomesArquivos.h:
+
 ../include/exitException.h:
+
+../include/exception.h:
 
 ../include/initException.h:
 
 ../include/gameOverException.h:
+
+../include/audio.h:
 
 ../include/jogador.h:
 

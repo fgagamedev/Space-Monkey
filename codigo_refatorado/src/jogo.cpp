@@ -1,5 +1,6 @@
 #include "animacao.h"
 #include "jogo.h"
+#include "audio.h"
 #include "menus.h"
 #include "jogador.h"
 #include "initException.h"
@@ -73,6 +74,7 @@ void Jogo::rodarJogo()
 	//finaliza o jogo
 	delete this->jogador;
 	delete menus;
+	Audio::closeAudio();
 }
 
 //função realizada ao clicar em iniciar jogo no menu Inicial

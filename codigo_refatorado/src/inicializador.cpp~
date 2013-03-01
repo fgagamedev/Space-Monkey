@@ -28,16 +28,6 @@ void Inicializador::initGrafico()throw(InitException)
 
 void Inicializador::initSom()throw(InitException)
 {
-	SDL_AudioSpec desired, obtained;
-	desired.freq = FREQUENCIA;
-	desired.format = AUDIO_S16SYS;
-	desired.channels = NUM_CANAIS;
-	desired.samples = SIZE_SAMPLE;
-	desired.callback = Audio::callback;
-	
-	if(SDL_OpenAudio(&desired, &obtained) < 0)
-		throw InitException( string("Erro ao inicializar o som: ") + string(SDL_GetError()) );
-		
-	Audio::setAudioSpec(obtained);
+	//Audio::init();
 }
 

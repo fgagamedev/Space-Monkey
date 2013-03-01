@@ -1,11 +1,11 @@
-#include <iostream>
-using namespace std;
+#include<iostream>
 
 #include "menuEventos.h"
 #include "audio.h"
 #include "constantes.h"
 #include "nomesArquivos.h"
 #include "tela.h"
+#include "exception.h"
 #include "exitException.h"
 #include <SDL/SDL.h>
 #include <string>
@@ -141,7 +141,12 @@ void MenuEventos::trocarImgSair()
 }
 
 void MenuEventos::rodaMusica(string nome_musica){
-	Audio::setAudio(nome_musica);		
+	try{
+		Audio::setAudio(nome_musica);
+	}catch(Exception &e){
+		cout << "Falha a carregar a música do Menu inicial! "<<e.getMessage() <<endl;
+		Audio::stopAudio();
+	}	
 }
 
 Botoes MenuEventos::getBotaoPressionado() throw (ExitException)
@@ -151,7 +156,7 @@ Botoes MenuEventos::getBotaoPressionado() throw (ExitException)
 
 	SDL_EnableKeyRepeat(SDL_DEFAULT_REPEAT_DELAY, SDL_DEFAULT_REPEAT_INTERVAL);
 	
-	//rodaMusica();
+	rodaMusica(MUSICA_MENU_INICIAL);
 	
 	int indiceBt=0;
 	
@@ -162,11 +167,13 @@ Botoes MenuEventos::getBotaoPressionado() throw (ExitException)
 			switch (event.type) 
 			{
 			case SDL_QUIT:
+				Audio::stopAudio();
 				throw ExitException("saindo...");
 			case SDL_KEYDOWN: 
 				switch (event.key.keysym.sym) 
 				{
 				case SDLK_ESCAPE:
+					Audio::stopAudio();
 					throw ExitException("saindo...");
 					break;
 				case SDLK_UP:
@@ -175,9 +182,7 @@ Botoes MenuEventos::getBotaoPressionado() throw (ExitException)
 
 					if(indiceBt <= 0)
 						indiceBt = 3;
-      
-					cout << "indice na entrada subida: " << indiceBt << endl;
-					
+      					
 					if(indiceBt == 1){
 						emcimaJogar = true;
 						emcimaExtra = false;
@@ -211,8 +216,6 @@ Botoes MenuEventos::getBotaoPressionado() throw (ExitException)
 					if(indiceBt >= 4)
 						indiceBt=1;
 
-					cout << "indice na entrada descida: " << indiceBt << endl;
-					
 					if(indiceBt == 1){
 						emcimaJogar = true;
 						emcimaExtra = false;
@@ -241,17 +244,16 @@ Botoes MenuEventos::getBotaoPressionado() throw (ExitException)
 					break;
 				case SDLK_SPACE:
 				case SDLK_KP_ENTER:
-					if(emcimaJogar)
+					if(emcimaJogar){
+						Audio::stopAudio();
 						return bt = Jogar;
-					if(emcimaExtra)
+					}if(emcimaExtra){
+						Audio::stopAudio();
 						return bt = Extras;
-					if(emcimaSair)
+					}if(emcimaSair){
+						Audio::stopAudio();
 						return bt = Sair;
-					
-					cout << "emcimaJogar: " << emcimaJogar << endl;
-					cout << "emcimaExtra: " << emcimaExtra << endl;
-					cout << "emcimaSair: " << emcimaSair << endl;
-					
+					}					
 					break;
 				default:
 					break;

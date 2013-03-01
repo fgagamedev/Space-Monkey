@@ -1,10 +1,12 @@
 
 #include "exitException.h"
+#include "audio.h"
 #include "animacao.h"
 #include "constantes.h"
 #include "nomesArquivos.h"
 #include "tela.h"
 #include <SDL/SDL_image.h>
+#include <iostream>
 
 //construtor que inicializa o vetor de imagens
 Animacao::Animacao()
@@ -104,6 +106,14 @@ void Animacao::rodar() throw (ExitException)
 
 void Animacao::gameOver()
 {
+	//toca musica de derrota
+	try{
+		Audio::setAudio(MUSICA_GAME_OVER);
+	}catch(Exception &e){
+		cout << "Falha a carregar a música do Game Over! "<<e.getMessage() <<endl;
+		Audio::stopAudio();
+	}
+	//animação do game over
 	SDL_Surface *tela = (SDL_Surface*)Tela::getTela();
 	SDL_Surface *gameOver = IMG_Load( (PATH+GAMEOVERIMG).c_str() );
 	SDL_Surface *preto = IMG_Load( (PATH+IMAGEM_FUNDO_PRETO).c_str() );

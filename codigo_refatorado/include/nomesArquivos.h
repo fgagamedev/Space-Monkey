@@ -61,6 +61,24 @@ const string IMAGEM_FUNDO_PRETO = "preto.bmp";
 //define a fonte usada
 const string FONTE = "KGFeeling22.ttf";
 
+//define as músicas do jogo
+const string MUSICA_MENU_INICIAL = "tango.wav";
+const string MUSICA_GAME_OVER = "";
+
+//define as músicas de cada fase
+const string MUSICA_FASE1 = "tango.wav";
+const string MUSICA_FASE2 = "";
+const string MUSICA_FASE3 = "";
+const string MUSICA_FASE4 = "";
+const string MUSICA_FASE5 = "";
+const string MUSICA_FASE6 = "";
+const string MUSICA_FASE7 = "";
+const string MUSICA_FASE8 = "";
+
+const string MUSICA_FASES[] = {MUSICA_FASE1, MUSICA_FASE2, MUSICA_FASE3, MUSICA_FASE4, MUSICA_FASE5, MUSICA_FASE6, MUSICA_FASE7, MUSICA_FASE8};
+
+
+
 //define as posições dos objetivos inimigos em cada fase
 const int GOALS_X[NUM_FASES_TOTAIS] = {720, 360, 360, 690, 780, 510, 720, 660};
 const int GOALS_Y[NUM_FASES_TOTAIS] = {570, 0, 570, 510, 510, 570, 540, 510};

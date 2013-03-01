@@ -73,12 +73,14 @@ void Jogo::rodarJogo()
 	//finaliza o jogo
 	delete this->jogador;
 	delete menus;
+	Audio::closeAudio();
 }
 
 //função realizada ao clicar em iniciar jogo no menu Inicial
 void Jogo::iniciaJogo()
 {
 	Fase *fases[NUM_FASES_TOTAIS];
+	Fase::zerarContadorFases();
 	Animacao anima;
 	
 	string nome_mapa;

@@ -6,9 +6,12 @@
 #include "fase.h"
 #include "eventos.h"
 #include "constantes.h"
+#include "nomesArquivos.h"
 #include "exitException.h"
+#include "exception.h"
 #include "initException.h"
 #include "gameOverException.h"
+#include "audio.h"
 #include "jogador.h"
 #include "SDL_Mapa.h"
 #include "fileNotFoundException.h"
@@ -45,6 +48,13 @@ cout << "\nFASE " << this->num_fase << endl;
 	}catch(bad_alloc ba){
 		throw InitException("falha ao alocar memoria para o mapa da fase!" );
 	}
+	//inicia a musica de fundo
+/*	try{
+		Audio::setAudio(MUSICA_FASES[faseAtual]);
+	}catch(Exception &e){
+		cout << "Falha a carregar a música da fase "<< faseAtual<<"! "<<e.getMessage() <<endl;
+		Audio::stopAudio();
+	}*/
 	
 	//inicializa as hordas
 	try{
@@ -78,6 +88,7 @@ int Fase::getFaseAtual()
 Fase::~Fase()
 {
 	Mapa::liberaMapa();
+	Audio::stopAudio();
 	if(this->hordas)
 	{
 		int i,loops=this->hordas->size();
@@ -105,4 +116,8 @@ void Fase::execHorda(int i) throw(GameOverException, ExitException, FileNotFound
 	}
 }
 
+int Fase::zerarContadorFases()
+{
+	faseAtual = -1;
+}
 
