@@ -216,7 +216,7 @@ configure: failed program was:
 | #define PACKAGE_BUGREPORT ""
 | #define PACKAGE_URL ""
 | #define PACKAGE "spacemonkey"
-| #define VERSION "0.10.0"
+| #define VERSION "0.12.0"
 | /* end confdefs.h.  */
 | #include <ac_nonexistent.h>
 configure:7110: result: gcc -E
@@ -234,7 +234,7 @@ configure: failed program was:
 | #define PACKAGE_BUGREPORT ""
 | #define PACKAGE_URL ""
 | #define PACKAGE "spacemonkey"
-| #define VERSION "0.10.0"
+| #define VERSION "0.12.0"
 | /* end confdefs.h.  */
 | #include <ac_nonexistent.h>
 configure:7173: checking for ANSI C header files
@@ -378,7 +378,7 @@ configure: failed program was:
 | #define PACKAGE_BUGREPORT ""
 | #define PACKAGE_URL ""
 | #define PACKAGE "spacemonkey"
-| #define VERSION "0.10.0"
+| #define VERSION "0.12.0"
 | #define STDC_HEADERS 1
 | #define HAVE_SYS_TYPES_H 1
 | #define HAVE_SYS_STAT_H 1
@@ -408,7 +408,7 @@ configure: failed program was:
 | #define PACKAGE_BUGREPORT ""
 | #define PACKAGE_URL ""
 | #define PACKAGE "spacemonkey"
-| #define VERSION "0.10.0"
+| #define VERSION "0.12.0"
 | #define STDC_HEADERS 1
 | #define HAVE_SYS_TYPES_H 1
 | #define HAVE_SYS_STAT_H 1
@@ -473,7 +473,6 @@ config.status:1162: creating include/Makefile
 config.status:1162: creating src/Makefile
 config.status:1162: creating resources/Makefile
 config.status:1162: creating include/config.h
-config.status:1343: include/config.h is unchanged
 config.status:1391: executing depfiles commands
 config.status:1391: executing libtool commands
 
@@ -583,15 +582,15 @@ lt_cv_to_tool_file_cmd=func_convert_file_noop
 ## Output variables. ##
 ## ----------------- ##
 
-ACLOCAL='${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.10.0/config/missing --run aclocal-1.11'
+ACLOCAL='${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.12.0/config/missing --run aclocal-1.11'
 AMDEPBACKSLASH='\'
 AMDEP_FALSE='#'
 AMDEP_TRUE=''
-AMTAR='${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.10.0/config/missing --run tar'
+AMTAR='${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.12.0/config/missing --run tar'
 AR='ar'
-AUTOCONF='${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.10.0/config/missing --run autoconf'
-AUTOHEADER='${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.10.0/config/missing --run autoheader'
-AUTOMAKE='${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.10.0/config/missing --run automake-1.11'
+AUTOCONF='${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.12.0/config/missing --run autoconf'
+AUTOHEADER='${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.12.0/config/missing --run autoheader'
+AUTOMAKE='${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.12.0/config/missing --run automake-1.11'
 AWK='gawk'
 CC='gcc'
 CCDEPMODE='depmode=gcc3'
@@ -628,9 +627,9 @@ LIPO=''
 LN_S='ln -s'
 LTLIBOBJS=''
 LT_CURRENT='0'
-LT_RELEASE='0.10.0'
-LT_REVISION='10'
-MAKEINFO='${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.10.0/config/missing --run makeinfo'
+LT_RELEASE='0.12.0'
+LT_REVISION='12'
+MAKEINFO='${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.12.0/config/missing --run makeinfo'
 MANIFEST_TOOL=':'
 MKDIR_P='/bin/mkdir -p'
 NM='/usr/bin/nm -B'
@@ -652,7 +651,7 @@ SED='/bin/sed'
 SET_MAKE=''
 SHELL='/bin/bash'
 STRIP='strip'
-VERSION='0.10.0'
+VERSION='0.12.0'
 ac_config_aux_dir=''
 ac_ct_AR='ar'
 ac_ct_CC='gcc'
@@ -689,7 +688,7 @@ host_vendor='unknown'
 htmldir='${docdir}'
 includedir='${prefix}/include'
 infodir='${datarootdir}/info'
-install_sh='${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.10.0/config/install-sh'
+install_sh='${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.12.0/config/install-sh'
 libdir='${exec_prefix}/lib'
 libexecdir='${exec_prefix}/libexec'
 localedir='${datarootdir}/locale'
@@ -722,7 +721,7 @@ target_vendor='unknown'
 #define PACKAGE_BUGREPORT ""
 #define PACKAGE_URL ""
 #define PACKAGE "spacemonkey"
-#define VERSION "0.10.0"
+#define VERSION "0.12.0"
 #define STDC_HEADERS 1
 #define HAVE_SYS_TYPES_H 1
 #define HAVE_SYS_STAT_H 1

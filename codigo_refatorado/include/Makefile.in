@@ -211,7 +211,7 @@ top_srcdir = @top_srcdir@
 libitemincludedir = $(includedir)/
 
 # Include files
-include_HEADERS = constantes.h nomesArquivos.h exception.h initException.h fileNotFoundException.h exitException.h animaException.h animacao.h jogador.h mapa.h SDL_Mapa.h tela.h SDL_Tela.h fase.h menuEventos.h menus.h jogo.h sprite.h SDL_Sprite.h inimigo.h chipanze1.h chipanze2.h gorila1.h gorila2.h orangotango.h horda.h
+include_HEADERS = constantes.h nomesArquivos.h exception.h initException.h fileNotFoundException.h exitException.h animaException.h animacao.h jogador.h mapa.h SDL_Mapa.h tela.h SDL_Tela.h fase.h menuEventos.h menus.h jogo.h sprite.h SDL_Sprite.h inimigo.h torre.h atiradorSimples.h atiradorDuplo.h atiradorRetardante.h atiradorAngulado.h atiradorMoreFire.h bombardeiro.h tanque.h agentesProtetores.h ironMan.h muro.h fortification.h muroReforcado.h chipanze1.h chipanze2.h gorila1.h gorila2.h orangotango.h horda.h
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 
