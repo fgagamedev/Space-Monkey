@@ -4,7 +4,7 @@
 using namespace std;
 
 /**
-classe que define o jogo
+classe que representa um jogo. Inicia os menus iniciais e mostra a apresentação inicial do jogo
 */
 class Jogo
 {

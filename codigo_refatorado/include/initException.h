@@ -2,16 +2,15 @@
 #define INIT_EXCEPTION_H
 
 #include <string>
+#include "exception.h"
 
 using namespace std;
 
-class InitException {
+class InitException : public Exception {
 private:
-	string message;
+	
 public:
-	InitException(const string& message) { this->message = message; }
-	string getMessage() const { return message; }
-
+	InitException(const string& message) : Exception(message) {}
 };
 
 #endif

@@ -5,4 +5,4 @@
 libitemincludedir = $(includedir)/
 
 # Include files
-include_HEADERS = constantes.h initException.h jogador.h mapa.h tela.h fase.h menus.h jogo.h 
+include_HEADERS = constantes.h exception.h initException.h fileNotFoundException.h jogador.h mapa.h SDL_Mapa.h tela.h SDL_Tela.h fase.h menus.h jogo.h 

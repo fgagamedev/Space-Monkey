@@ -12,6 +12,8 @@ Interface que representa o mapa (background) de cada fase. Isola a API gráfica 
 class Mapa
 {
 public:
+	virtual Mapa(string nome_mapa) throw (FileNotFoundException) = 0;
+	virtual ~Mapa() = 0;
 	virtual void desenhaMapa() = 0;	
 };
 

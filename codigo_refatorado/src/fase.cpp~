@@ -6,14 +6,14 @@
 #include "fase.h"
 #include "constantes.h"
 #include "jogador.h"
-#include "SDL_Mapa.h"
+#include "mapa.h"
 #include "fileNotFoundException.h"
 //#include "mapa.cpp"
 
 //inicializa o mapa e o desenha na tela
 void Fase::init() throw (FileNotFoundException)
 {
-	this->mapaFase = new SDL_Mapa(nome_mapa);
+	this->mapaFase = new Mapa(nome_mapa);
 	this->mapaFase->desenhaMapa();
 }
 

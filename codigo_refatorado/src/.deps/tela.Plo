@@ -51,7 +51,8 @@ tela.lo: tela.cpp ../include/tela.h ../include/initException.h \
  /usr/include/bits/unistd.h \
  /usr/include/c++/4.4/x86_64-linux-gnu/bits/atomic_word.h \
  /usr/include/c++/4.4/initializer_list \
- /usr/include/c++/4.4/bits/basic_string.tcc /usr/include/SDL/SDL.h \
+ /usr/include/c++/4.4/bits/basic_string.tcc ../include/exception.h \
+ ../include/SDL_Tela.h ../include/tela.h /usr/include/SDL/SDL.h \
  /usr/include/SDL/SDL_main.h /usr/include/SDL/SDL_stdinc.h \
  /usr/include/SDL/SDL_config.h /usr/include/SDL/SDL_platform.h \
  /usr/include/sys/types.h /usr/include/sys/select.h \
@@ -238,6 +239,12 @@ tela.lo: tela.cpp ../include/tela.h ../include/initException.h \
 /usr/include/c++/4.4/initializer_list:
 
 /usr/include/c++/4.4/bits/basic_string.tcc:
+
+../include/exception.h:
+
+../include/SDL_Tela.h:
+
+../include/tela.h:
 
 /usr/include/SDL/SDL.h:
 

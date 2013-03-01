@@ -57,7 +57,9 @@ fase.lo: fase.cpp /usr/include/stdlib.h /usr/include/features.h \
  /usr/include/c++/4.4/x86_64-linux-gnu/bits/atomic_word.h \
  /usr/include/c++/4.4/initializer_list \
  /usr/include/c++/4.4/bits/basic_string.tcc ../include/fase.h \
- ../include/jogador.h ../include/mapa.h /usr/include/SDL/SDL.h \
+ ../include/jogador.h ../include/fileNotFoundException.h \
+ ../include/exception.h ../include/mapa.h ../include/constantes.h \
+ ../include/jogador.h ../include/SDL_Mapa.h /usr/include/SDL/SDL.h \
  /usr/include/SDL/SDL_main.h /usr/include/SDL/SDL_stdinc.h \
  /usr/include/SDL/SDL_config.h /usr/include/SDL/SDL_platform.h \
  /usr/include/libio.h /usr/include/_G_config.h \
@@ -75,8 +77,7 @@ fase.lo: fase.cpp /usr/include/stdlib.h /usr/include/features.h \
  /usr/include/SDL/SDL_mouse.h /usr/include/SDL/SDL_video.h \
  /usr/include/SDL/SDL_joystick.h /usr/include/SDL/SDL_quit.h \
  /usr/include/SDL/SDL_loadso.h /usr/include/SDL/SDL_timer.h \
- /usr/include/SDL/SDL_version.h ../include/constantes.h \
- ../include/jogador.h ../include/mapa.h
+ /usr/include/SDL/SDL_version.h ../include/fileNotFoundException.h
 
 /usr/include/stdlib.h:
 
@@ -258,7 +259,17 @@ fase.lo: fase.cpp /usr/include/stdlib.h /usr/include/features.h \
 
 ../include/jogador.h:
 
+../include/fileNotFoundException.h:
+
+../include/exception.h:
+
 ../include/mapa.h:
+
+../include/constantes.h:
+
+../include/jogador.h:
+
+../include/SDL_Mapa.h:
 
 /usr/include/SDL/SDL.h:
 
@@ -336,8 +347,4 @@ fase.lo: fase.cpp /usr/include/stdlib.h /usr/include/features.h \
 
 /usr/include/SDL/SDL_version.h:
 
-../include/constantes.h:
-
-../include/jogador.h:
-
-../include/mapa.h:
+../include/fileNotFoundException.h:

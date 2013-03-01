@@ -9,6 +9,7 @@ using namespace std;
 //inicia de fato o jogo
 void Jogo::rodarJogo()
 {
+cout << "entrei no rodarJogo" << endl;
 	Menus *menus;
 	//cria os menus
 	try{
@@ -23,5 +24,6 @@ void Jogo::rodarJogo()
 	
 	//finaliza o jogo
 	menus->~Menus();
+cout << "sai do rodarJogo" << endl;
 }
 

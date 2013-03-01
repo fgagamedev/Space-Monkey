@@ -3,11 +3,12 @@
 
 #include "jogador.h"
 #include "tela.h"
+#include "initException.h"
 
 using namespace std;
 
 /**
-classe que mostra os menus do jogo na tela
+classe que mostra os menus do jogo na tela, cria a tela e o jogador
 */
 class Menus
 {
@@ -16,7 +17,7 @@ private:
 	Tela *telaJogo;
 public:
 	//inicia as variáveis locais
-	void init();
+	void init() throw (InitException);
 	//destrutor da classe
 	~Menus();
 	//mostra a animação inicial do jogo. Ao terminar executa o menuInicial

@@ -1,61 +1,27 @@
 
 #include "tela.h"
+#include "SDL_Tela.h"
 #include "constantes.h"
 #include "initException.h"
 #include <string>
-#include <SDL/SDL.h>
 
-Tela* Tela::instancia = NULL;
-SDL_Surface* Tela::telaJogo = NULL;
+static Tela *instancia = NULL;
 
-Tela::Tela() 
+//obtem a Tela já instanciada ou cria a tela
+Tela* Tela::obterTela() throw (InitException)
 {
-	video_options = SDL_HWSURFACE | SDL_DOUBLEBUF;
+	return SDL_Tela::obterTela();
 }
 
-void Tela::init() throw (InitException)
-{
-	
-	if(SDL_Init(SDL_INIT_VIDEO) < 0)
-		throw new InitException( string("Erro ao inicializar SDL: ") + string(SDL_GetError()) );
-	
-	atexit(SDL_Quit);
-	
-	SDL_WM_SetCaption("SpaceMonkey", "SpaceMonkey");
-	SDL_WM_SetIcon( SDL_LoadBMP( (PATH + string("DownMonkeyLogo.bmp") ).c_str() ), NULL);
-	
-	
-	this->telaJogo = SDL_SetVideoMode(TELA_WIDTH, TELA_HEIGHT, TELA_BPP, video_options);
-	
-	if( !(this->telaJogo) )
-		throw new InitException( string("Falha ao iniciar o video com essas configuracoes: ") + string(SDL_GetError()) );
-}
-
-Tela* Tela::obterTela()
-{
-	if( instancia == NULL)
-	{
-		instancia = new Tela();
-		try{
-			instancia->init();
-		}catch(InitException e){
-			fprintf(stderr, "%s \n",e.getMessage().c_str() );
-		}
-	}	
-	return instancia;
-}
-
+//deleta a tela criada. Chamado só no fim do programa
 void Tela::liberarTela()
 {
-	SDL_FreeSurface(telaJogo);
-	telaJogo = NULL;
-	delete (instancia);
-	instancia = NULL;
+	SDL_Tela::liberarTela();
 }
 
-
-SDL_Surface* Tela::getTela()
+//retorna a estrutura usada para criar a tela (é preciso fazer o typecast nas outras classes que envolvam SDL)
+void* Tela::getTela()
 {
-	return telaJogo;
+	return SDL_Tela::getTela();
 }
 

@@ -2,29 +2,21 @@
 #define TELA_H
 
 #include "initException.h"
-#include <SDL/SDL.h>
 
 using namespace std;
 
+/**
+classe controladora que acessa a classe criadora da janela. Só serve de intermediária entre a aplicação e a Tela para facilitar portabilidade. Se qualquer classe quiser a tela pede a controladora em vez de acessar direto e caso queira trocar de API gráfica só precisa mudar as implementações desta classe
+*/
 class Tela
 {
-private:
-	Uint32 video_options;
-	//construtor privado para uso do singleton
-	Tela();
-	//inicializa a classe
-	void init() throw (InitException);
-	
-	static SDL_Surface *telaJogo; 
-	//variável que garante que existe apenas uma instancia da tela no jogo todo
-	static Tela *instancia;
 public:
 	//método que cria ou devolve a tela já criada
-	static Tela* obterTela();
+	static Tela* obterTela() throw (InitException);
+	//método que desaloca a tela (chamado ao fim do jogo)
 	static void liberarTela();
-	static SDL_Surface* getTela();
-	
+	//devolve a tela do jogo (usado por classes de mais baixo nível). É preciso fazer typecast para a classe ou struct usada pela respectiva API
+	static void* getTela();	
 };
 
 #endif
-
