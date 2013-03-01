@@ -107,7 +107,7 @@ void SDL_Mapa::loadMap(string nome_mapa) throw (FileNotFoundException)
 	if( SDL_Mapa::mapaCarregado() )
 		return;
 
-	img_mapa = SDL_LoadBMP( (PATH + nome_mapa).c_str() );
+	img_mapa = IMG_Load( (PATH + nome_mapa).c_str() );
 	if(!img_mapa)
 		throw FileNotFoundException( string("Falha ao tentar carregar o seguinte arquivo: ") + nome_mapa);
 

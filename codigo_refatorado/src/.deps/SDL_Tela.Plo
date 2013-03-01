@@ -75,7 +75,8 @@ SDL_Tela.lo: SDL_Tela.cpp ../include/SDL_Tela.h \
  /usr/include/SDL/SDL_joystick.h /usr/include/SDL/SDL_quit.h \
  /usr/include/SDL/SDL_loadso.h /usr/include/SDL/SDL_timer.h \
  /usr/include/SDL/SDL_version.h ../include/constantes.h \
- ../include/initException.h
+ ../include/initException.h /usr/include/SDL/SDL_image.h \
+ /usr/include/SDL/SDL.h
 
 ../include/SDL_Tela.h:
 
@@ -340,3 +341,7 @@ SDL_Tela.lo: SDL_Tela.cpp ../include/SDL_Tela.h \
 ../include/constantes.h:
 
 ../include/initException.h:
+
+/usr/include/SDL/SDL_image.h:
+
+/usr/include/SDL/SDL.h:

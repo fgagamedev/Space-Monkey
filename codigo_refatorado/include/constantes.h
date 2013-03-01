@@ -14,14 +14,14 @@ const int TELA_BPP = 32;
 //define o camino onde estão os resources usados
 const string PATH = "/opt/spacemonkey/resources/";
 //define o nome do arquivo de cada mapa do jogo
-const string NOME_MAPA1 = "mapa1.bmp";
-const string NOME_MAPA2 = "mapa2.bmp";
-const string NOME_MAPA3 = "mapa3.bmp";
-const string NOME_MAPA4 = "mapa4.bmp";
-const string NOME_MAPA5 = "mapa5.bmp";
-const string NOME_MAPA6 = "mapa6.bmp";
-const string NOME_MAPA7 = "mapa7.bmp";
-const string NOME_MAPA8 = "mapa8.bmp";
+const string NOME_MAPA1 = "mapa1.png";
+const string NOME_MAPA2 = "mapa2.png";
+const string NOME_MAPA3 = "mapa3.png";
+const string NOME_MAPA4 = "mapa4.png";
+const string NOME_MAPA5 = "mapa5.png";
+const string NOME_MAPA6 = "mapa6.png";
+const string NOME_MAPA7 = "mapa7.png";
+const string NOME_MAPA8 = "mapa8.png";
 
 //define as posições dos objetivos inimigos em cada fase
 const int FASE1_GOALX = 540, FASE1_GOALY = 600;

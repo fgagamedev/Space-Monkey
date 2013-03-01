@@ -204,7 +204,7 @@ top_srcdir = @top_srcdir@
 
 # Resources
 spacemonkeydir = /opt/$(PACKAGE)/resources
-dist_spacemonkey_DATA = DownMonkeyLogo.bmp mapa1.bmp marcador.bmp inimigo.bmp
+dist_spacemonkey_DATA = DownMonkeyLogo.png mapa1.png marcador.png inimigo.png
 all: all-am
 
 .SUFFIXES:

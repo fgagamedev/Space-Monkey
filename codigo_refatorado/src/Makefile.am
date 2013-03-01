@@ -21,7 +21,7 @@ libitem_la_LIBADD =
 spacemonkey_SOURCES =	spacemonkey.cpp
 
 # Libraries needed to build program
-spacemonkey_LDADD =	libitem.la -lSDL
+spacemonkey_LDADD =	libitem.la -lSDL -lSDL_image
 
 # Include flags
 INCLUDES = -I../include -Wall -Wno-long-long -W -pedantic -ansi

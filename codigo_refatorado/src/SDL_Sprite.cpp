@@ -1,4 +1,4 @@
-
+#include <iostream>
 #include "SDL_Sprite.h"
 #include "constantes.h"
 #include "SDL_Mapa.h"
@@ -6,17 +6,19 @@
 #include "fileNotFoundException.h"
 #include <string>
 #include <SDL/SDL.h>
+#include <SDL/SDL_image.h>
 
 //carrega o arquivo com o desenho do sprite e guarda o tamanho de cada imagem dela (w e h). Se der errado lança uma exceção
 SDL_Sprite::SDL_Sprite(string nome_arquivo, int w, int h) throw (FileNotFoundException)
 {
-	sprite = SDL_LoadBMP( (PATH + nome_arquivo).c_str() );
+	sprite = IMG_Load( (PATH + nome_arquivo).c_str() );
 	if(!sprite)
 		throw FileNotFoundException( string("Falha ao tentar carregar o seguinte arquivo: ") + nome_arquivo);
 	
 	this->w = w;
 	this->h = h;
-	this->ativarTransparencia();
+	
+	//this->ativarTransparencia();
 }
 
 //ativa a colorkey, sumindo com a cor de fundo
@@ -151,6 +153,7 @@ void SDL_Sprite::mover(Direcao dir, int numPixels)
 	//SDL_BlitSurface(sprite,NULL, (SDL_Surface*)Tela::getTela(),NULL);
 	SDL_BlitSurface(sprite,&retangulo, (SDL_Surface*)Tela::getTela(),&retangulo2);
 	SDL_UpdateRect((SDL_Surface*)Tela::getTela(), retangulo2.x, retangulo2.y, retangulo2.w, retangulo2.h);
+	
 }
 
 int SDL_Sprite::getW()

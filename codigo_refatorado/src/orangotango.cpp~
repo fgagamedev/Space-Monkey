@@ -19,7 +19,7 @@ void Orangotango::init() throw (InitException, FileNotFoundException)
 	try{
 		this->img = new SDL_Sprite("inimigo.png",28, 45);//nome do arquivo e as dimensões de cada desenho da sprite
 		Direcao dir=DIREITA;
-		this->img->init(0,10, dir);
+		this->img->init(0,500, dir);
 	}catch(bad_alloc ba){
 		throw InitException("falha ao alocar o sprite do orangotango! não houve memoria suficiente!");
 	}
