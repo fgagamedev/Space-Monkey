@@ -3,6 +3,7 @@
 
 #include <string>
 #include "mapa.h"
+#include "constantes.h"
 #include "fileNotFoundException.h"
 #include <SDL/SDL.h>
 
@@ -13,12 +14,21 @@ implementa a interface mapa com SDL. carrega o mapa daquela fase e o coloca na t
 class SDL_Mapa : public Mapa
 {
 private:
-	SDL_Surface *img_mapa;
+	static SDL_Surface *img_mapa;
+	static bool **mapaLogico;
+	//posição, em pixels, do objetivo dos inimigos
+	static int goalX, goalY;
 public:
-	SDL_Mapa(string nome_mapa) throw (FileNotFoundException);
-	~SDL_Mapa();
-	void desenhaMapa();
-	
+	static void loadMap(string nome_mapa) throw (FileNotFoundException);
+	static void desenhaMapa();	
+	static void* getMapa();	
+	static bool mapaCarregado();
+	static void liberaMapa();
+	static void inicializaMapaLogico();
+	static bool getMapaLogico(int x, int y, Direcao dir);
+	static void defineGoal(string nome_mapa);
+	static int getGoalX();
+	static int getGoalY();
 };
 
 #endif

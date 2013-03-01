@@ -20,7 +20,7 @@ private:
 	//inicializa a classe
 	void init() throw (InitException);
 	//verifica se a tela já foi criada
-	static bool foiInstanciado();
+	bool foiInstanciado();
 public:
 	//método que cria ou devolve a tela já criada
 	static Tela* obterTela() throw (InitException);

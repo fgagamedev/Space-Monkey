@@ -2,6 +2,7 @@
 #define MAPA_H
 
 #include <string>
+#include "constantes.h"
 #include "fileNotFoundException.h"
 
 using namespace std;
@@ -12,7 +13,16 @@ Interface que representa o mapa (background) de cada fase. Isola a API gráfica 
 class Mapa
 {
 public:
-	virtual void desenhaMapa() = 0;	
+	static void loadMap(string nome_mapa) throw (FileNotFoundException);
+	static void desenhaMapa();	
+	static void* getMapa();
+	static bool mapaCarregado();
+	static void liberaMapa();
+	static void inicializaMapaLogico();
+	static bool getMapaLogico(int x, int y, Direcao dir);
+	static void defineGoal(string nome_mapa);
+	static int getGoalX();
+	static int getGoalY();
 };
 
 #endif

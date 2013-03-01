@@ -52,11 +52,17 @@ menus.lo: menus.cpp ../include/menus.h ../include/jogador.h \
  /usr/include/c++/4.4/x86_64-linux-gnu/bits/atomic_word.h \
  /usr/include/c++/4.4/initializer_list \
  /usr/include/c++/4.4/bits/basic_string.tcc ../include/exception.h \
- ../include/fase.h ../include/fileNotFoundException.h ../include/mapa.h \
- ../include/tela.h ../include/jogador.h ../include/constantes.h \
- ../include/initException.h /usr/include/c++/4.4/iostream \
- /usr/include/c++/4.4/ostream /usr/include/c++/4.4/ios \
- /usr/include/c++/4.4/bits/ios_base.h \
+ ../include/fase.h /usr/include/c++/4.4/vector \
+ /usr/include/c++/4.4/bits/stl_construct.h \
+ /usr/include/c++/4.4/bits/stl_uninitialized.h \
+ /usr/include/c++/4.4/bits/stl_vector.h \
+ /usr/include/c++/4.4/bits/stl_bvector.h \
+ /usr/include/c++/4.4/bits/vector.tcc ../include/fileNotFoundException.h \
+ ../include/mapa.h ../include/constantes.h ../include/horda.h \
+ ../include/inimigo.h ../include/sprite.h ../include/tela.h \
+ ../include/jogador.h ../include/constantes.h ../include/initException.h \
+ /usr/include/c++/4.4/iostream /usr/include/c++/4.4/ostream \
+ /usr/include/c++/4.4/ios /usr/include/c++/4.4/bits/ios_base.h \
  /usr/include/c++/4.4/bits/locale_classes.h \
  /usr/include/c++/4.4/bits/locale_classes.tcc \
  /usr/include/c++/4.4/streambuf /usr/include/c++/4.4/bits/streambuf.tcc \
@@ -241,9 +247,29 @@ menus.lo: menus.cpp ../include/menus.h ../include/jogador.h \
 
 ../include/fase.h:
 
+/usr/include/c++/4.4/vector:
+
+/usr/include/c++/4.4/bits/stl_construct.h:
+
+/usr/include/c++/4.4/bits/stl_uninitialized.h:
+
+/usr/include/c++/4.4/bits/stl_vector.h:
+
+/usr/include/c++/4.4/bits/stl_bvector.h:
+
+/usr/include/c++/4.4/bits/vector.tcc:
+
 ../include/fileNotFoundException.h:
 
 ../include/mapa.h:
+
+../include/constantes.h:
+
+../include/horda.h:
+
+../include/inimigo.h:
+
+../include/sprite.h:
 
 ../include/tela.h:
 

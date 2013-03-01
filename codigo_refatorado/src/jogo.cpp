@@ -14,7 +14,7 @@ void Jogo::rodarJogo()
 	try{
 		menus = new Menus();
 		menus->init();
-	}catch(InitException e){
+	}catch(InitException &e){
 		cout << "falha ao iniciar o jogo! " << e.getMessage().c_str() << endl;
 	}
 	
@@ -22,6 +22,6 @@ void Jogo::rodarJogo()
 	menus->apresentacaoInicial();
 	
 	//finaliza o jogo
-	menus->~Menus();
+	delete menus;
 }
 

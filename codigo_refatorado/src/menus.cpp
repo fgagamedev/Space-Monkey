@@ -12,7 +12,11 @@
 //inicia as variáveis locais
 void Menus::init() throw (InitException)
 {
-	this->jogador = new Jogador();
+	try{
+		this->jogador = new Jogador();
+	}catch(bad_alloc ba){
+		throw InitException("falha ao alocar memoria para o jogador!");
+	}
 	this->telaJogo = Tela::obterTela();
 }
 
@@ -54,11 +58,12 @@ void Menus::iniciaJogo()
 			switch(i)
 			{
 			case 0:
-				nome_mapa = "mapa1.bmp";
+				nome_mapa = NOME_MAPA1;
 				fases[i] = new Fase(nome_mapa, i+1, this->jogador);
 				fases[i]->init();
 				
-				fases[i]->~Fase();
+				delete fases[i];
+
 				break;
 			case 1:
 				
@@ -84,10 +89,11 @@ void Menus::iniciaJogo()
 			}// fim do switch
 		//DESCOMENTAR APÓS FAZER TODAS AS FASES!!!		fases[i]->~Fase();	
 		
-		}catch(Exception e){
+		}catch(Exception &e){
 			//caso ocorra alguma falha em alguma fase, avisa qual o erro e encerra o jogo
 			cout << "Falha na fase " << i+1 << ": " << e.getMessage().c_str() << endl;
-			fases[i]->~Fase();
+			if(fases[i])	
+				delete fases[i];
 			break;
 		}//fim do catch
 	}//fim do for

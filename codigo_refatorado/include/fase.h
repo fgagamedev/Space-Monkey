@@ -2,9 +2,13 @@
 #define FASE_H
 
 #include <string>
+#include <vector>
+
 #include "jogador.h"
+#include "initException.h"
 #include "fileNotFoundException.h"
 #include "mapa.h"
+#include "horda.h"
 
 using namespace std;
 
@@ -14,8 +18,8 @@ classe que representa as fases. cada objeto é uma fase diferente.
 class Fase
 {
 private:
-	//mapa (background) da fase
-	Mapa *mapaFase;
+	//vetor de hordas inimigas
+	vector<Horda*> *hordas;
 	//referência ao jogador, puxado da classe menu
 	Jogador *jogador;
 	//nome do arquivo de imagem do mapa
@@ -28,8 +32,8 @@ private:
 	int num_medio_inimigos_por_horda;
 public:
 	Fase(string nome_mapa, int num_fase, Jogador *jogador);
-	//inicia o mapa e o desenha na tela, além de iniciar as hordas
-	void init() throw (FileNotFoundException);
+	//inicia o mapa e o desenha na tela, além de iniciar as hordas e seus inimigos
+	void init() throw (FileNotFoundException, InitException);
 	~Fase();
 };
 

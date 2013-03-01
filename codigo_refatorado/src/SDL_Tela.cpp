@@ -18,7 +18,7 @@ void SDL_Tela::init() throw (InitException)
 {
 	
 	if(SDL_Init(SDL_INIT_VIDEO) < 0)
-		throw new InitException( string("Erro ao inicializar SDL: ") + string(SDL_GetError()) );
+		throw InitException( string("Erro ao inicializar SDL: ") + string(SDL_GetError()) );
 	
 	atexit(SDL_Quit);
 	
@@ -29,7 +29,7 @@ void SDL_Tela::init() throw (InitException)
 	this->telaJogo = SDL_SetVideoMode(TELA_WIDTH, TELA_HEIGHT, TELA_BPP, video_options);
 	
 	if( !(this->telaJogo) )
-		throw new InitException( string("Falha ao iniciar o video com essas configuracoes: ") + string(SDL_GetError()) );
+		throw InitException( string("Falha ao iniciar o video com essas configuracoes: ") + string(SDL_GetError()) );
 }
 
 Tela* SDL_Tela::obterTela() throw (InitException)
@@ -51,7 +51,7 @@ bool SDL_Tela::foiInstanciado()
 
 void SDL_Tela::liberarTela()
 {
-	if( foiInstanciado() )
+	if( instancia->foiInstanciado() )
 	{
 		SDL_FreeSurface(telaJogo);
 		telaJogo = NULL;

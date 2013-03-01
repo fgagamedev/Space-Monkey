@@ -1,23 +1,57 @@
 
+#include  <string>
 #include "mapa.h"
 #include "constantes.h"
-#include "tela.h"
-#include <string>
-#include <SDL/SDL.h>
-
-Mapa::Mapa(string nome_mapa)
-{
-	img_mapa = SDL_LoadBMP( (PATH + nome_mapa).c_str() );
-}
+#include "SDL_Mapa.h"
+#include "fileNotFoundException.h"
 
 void Mapa::desenhaMapa()
 {
-	SDL_BlitSurface(img_mapa,NULL, Tela::getTela(),NULL);
-	SDL_UpdateRect(Tela::getTela(), 0, 0, 0, 0);
+	SDL_Mapa::desenhaMapa();
+}	
+
+void* Mapa::getMapa()
+{
+	return SDL_Mapa::getMapa();
 }
 
-Mapa::~Mapa()
+void Mapa::loadMap(string nome_mapa) throw (FileNotFoundException)
 {
-	SDL_FreeSurface(img_mapa);
-	
+	return SDL_Mapa::loadMap(nome_mapa);
 }
+
+bool Mapa::mapaCarregado()
+{
+	return  SDL_Mapa::mapaCarregado();
+}
+
+void Mapa::liberaMapa()
+{	
+	SDL_Mapa::liberaMapa();
+}
+
+void Mapa::inicializaMapaLogico()
+{
+	SDL_Mapa::inicializaMapaLogico();
+}
+
+bool Mapa::getMapaLogico(int x, int y, Direcao dir)
+{
+	return SDL_Mapa::getMapaLogico(x, y, dir);
+}
+
+void Mapa::defineGoal(string nome_mapa)
+{
+	SDL_Mapa::defineGoal(nome_mapa);
+}
+	
+int Mapa::getGoalX()
+{
+	return SDL_Mapa::getGoalX();
+}
+
+int Mapa::getGoalY()
+{
+	return SDL_Mapa::getGoalY();
+}
+
