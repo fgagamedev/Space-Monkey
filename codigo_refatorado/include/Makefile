@@ -83,12 +83,12 @@ HEADERS = $(include_HEADERS)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.2.0/config/missing --run aclocal-1.11
+ACLOCAL = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.3.0/config/missing --run aclocal-1.11
 AMTAR = $${TAR-tar}
 AR = ar
-AUTOCONF = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.2.0/config/missing --run autoconf
-AUTOHEADER = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.2.0/config/missing --run autoheader
-AUTOMAKE = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.2.0/config/missing --run automake-1.11
+AUTOCONF = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.3.0/config/missing --run autoconf
+AUTOHEADER = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.3.0/config/missing --run autoheader
+AUTOMAKE = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.3.0/config/missing --run automake-1.11
 AWK = gawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
@@ -126,9 +126,9 @@ LIPO =
 LN_S = ln -s
 LTLIBOBJS = 
 LT_CURRENT = 0
-LT_RELEASE = 0.2.0
-LT_REVISION = 2
-MAKEINFO = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.2.0/config/missing --run makeinfo
+LT_RELEASE = 0.3.0
+LT_REVISION = 3
+MAKEINFO = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.3.0/config/missing --run makeinfo
 MANIFEST_TOOL = :
 MKDIR_P = /bin/mkdir -p
 NM = /usr/bin/nm -B
@@ -150,11 +150,11 @@ SED = /bin/sed
 SET_MAKE = 
 SHELL = /bin/bash
 STRIP = strip
-VERSION = 0.2.0
-abs_builddir = /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.2.0/include
-abs_srcdir = /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.2.0/include
-abs_top_builddir = /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.2.0
-abs_top_srcdir = /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.2.0
+VERSION = 0.3.0
+abs_builddir = /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.3.0/include
+abs_srcdir = /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.3.0/include
+abs_top_builddir = /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.3.0
+abs_top_srcdir = /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.3.0
 ac_config_aux_dir = 
 ac_ct_AR = ar
 ac_ct_CC = gcc
@@ -185,7 +185,7 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.2.0/config/install-sh
+install_sh = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.3.0/config/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -214,7 +214,7 @@ top_srcdir = ..
 libitemincludedir = $(includedir)/
 
 # Include files
-include_HEADERS = mapa1.h
+include_HEADERS = draw.h video.h
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 

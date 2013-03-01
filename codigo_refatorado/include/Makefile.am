@@ -5,4 +5,4 @@
 libitemincludedir = $(includedir)/
 
 # Include files
-include_HEADERS = mapa1.h
+include_HEADERS = draw.h video.h

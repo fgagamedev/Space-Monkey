@@ -80,7 +80,7 @@ am__uninstall_files_from_dir = { \
 am__installdirs = "$(DESTDIR)$(libdir)" "$(DESTDIR)$(bindir)"
 LTLIBRARIES = $(lib_LTLIBRARIES)
 libitem_la_DEPENDENCIES =
-am_libitem_la_OBJECTS = mapaPlanicie.lo
+am_libitem_la_OBJECTS = draw.lo video.lo
 libitem_la_OBJECTS = $(am_libitem_la_OBJECTS)
 libitem_la_LINK = $(LIBTOOL) --tag=CXX $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CXXLD) $(AM_CXXFLAGS) \
@@ -241,7 +241,7 @@ lib_LTLIBRARIES = libitem.la
 libitem_la_LDFLAGS = -static
 
 # Library sources
-libitem_la_SOURCES = mapaPlanicie.cpp
+libitem_la_SOURCES = draw.cpp video.cpp
 
 # Libraries needed to build our library
 libitem_la_LIBADD = 
@@ -374,8 +374,9 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mapaPlanicie.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/draw.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/spacemonkey.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/video.Plo@am__quote@
 
 .cpp.o:
 @am__fastdepCXX_TRUE@	$(CXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<

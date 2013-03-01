@@ -80,7 +80,7 @@ am__uninstall_files_from_dir = { \
 am__installdirs = "$(DESTDIR)$(libdir)" "$(DESTDIR)$(bindir)"
 LTLIBRARIES = $(lib_LTLIBRARIES)
 libitem_la_DEPENDENCIES =
-am_libitem_la_OBJECTS = mapaPlanicie.lo
+am_libitem_la_OBJECTS = draw.lo video.lo
 libitem_la_OBJECTS = $(am_libitem_la_OBJECTS)
 libitem_la_LINK = $(LIBTOOL) --tag=CXX $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CXXLD) $(AM_CXXFLAGS) \
@@ -107,12 +107,12 @@ DIST_SOURCES = $(libitem_la_SOURCES) $(spacemonkey_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.2.0/config/missing --run aclocal-1.11
+ACLOCAL = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.3.0/config/missing --run aclocal-1.11
 AMTAR = $${TAR-tar}
 AR = ar
-AUTOCONF = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.2.0/config/missing --run autoconf
-AUTOHEADER = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.2.0/config/missing --run autoheader
-AUTOMAKE = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.2.0/config/missing --run automake-1.11
+AUTOCONF = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.3.0/config/missing --run autoconf
+AUTOHEADER = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.3.0/config/missing --run autoheader
+AUTOMAKE = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.3.0/config/missing --run automake-1.11
 AWK = gawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
@@ -150,9 +150,9 @@ LIPO =
 LN_S = ln -s
 LTLIBOBJS = 
 LT_CURRENT = 0
-LT_RELEASE = 0.2.0
-LT_REVISION = 2
-MAKEINFO = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.2.0/config/missing --run makeinfo
+LT_RELEASE = 0.3.0
+LT_REVISION = 3
+MAKEINFO = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.3.0/config/missing --run makeinfo
 MANIFEST_TOOL = :
 MKDIR_P = /bin/mkdir -p
 NM = /usr/bin/nm -B
@@ -174,11 +174,11 @@ SED = /bin/sed
 SET_MAKE = 
 SHELL = /bin/bash
 STRIP = strip
-VERSION = 0.2.0
-abs_builddir = /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.2.0/src
-abs_srcdir = /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.2.0/src
-abs_top_builddir = /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.2.0
-abs_top_srcdir = /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.2.0
+VERSION = 0.3.0
+abs_builddir = /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.3.0/src
+abs_srcdir = /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.3.0/src
+abs_top_builddir = /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.3.0
+abs_top_srcdir = /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.3.0
 ac_config_aux_dir = 
 ac_ct_AR = ar
 ac_ct_CC = gcc
@@ -209,7 +209,7 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.2.0/config/install-sh
+install_sh = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.3.0/config/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -241,7 +241,7 @@ lib_LTLIBRARIES = libitem.la
 libitem_la_LDFLAGS = -static
 
 # Library sources
-libitem_la_SOURCES = mapaPlanicie.cpp
+libitem_la_SOURCES = draw.cpp video.cpp
 
 # Libraries needed to build our library
 libitem_la_LIBADD = 
@@ -374,8 +374,9 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-include ./$(DEPDIR)/mapaPlanicie.Plo
+include ./$(DEPDIR)/draw.Plo
 include ./$(DEPDIR)/spacemonkey.Po
+include ./$(DEPDIR)/video.Plo
 
 .cpp.o:
 	$(CXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<

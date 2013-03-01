@@ -12,7 +12,7 @@ bin_PROGRAMS = spacemonkey
 libitem_la_LDFLAGS = -static
 
 # Library sources
-libitem_la_SOURCES = mapaPlanicie.cpp
+libitem_la_SOURCES = draw.cpp video.cpp
 
 # Libraries needed to build our library
 libitem_la_LIBADD = 
