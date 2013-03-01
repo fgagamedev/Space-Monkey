@@ -54,7 +54,7 @@ chipanze1.lo: chipanze1.cpp ../include/inimigo.h \
  /usr/include/c++/4.4/bits/basic_string.tcc ../include/exception.h \
  ../include/constantes.h ../include/sprite.h \
  ../include/fileNotFoundException.h ../include/constantes.h \
- ../include/initException.h ../include/SDL_Sprite.h \
+ ../include/initException.h ../include/mapa.h ../include/SDL_Sprite.h \
  /usr/include/SDL/SDL.h /usr/include/SDL/SDL_main.h \
  /usr/include/SDL/SDL_stdinc.h /usr/include/SDL/SDL_config.h \
  /usr/include/SDL/SDL_platform.h /usr/include/sys/types.h \
@@ -77,8 +77,9 @@ chipanze1.lo: chipanze1.cpp ../include/inimigo.h \
  /usr/include/SDL/SDL_mouse.h /usr/include/SDL/SDL_video.h \
  /usr/include/SDL/SDL_joystick.h /usr/include/SDL/SDL_quit.h \
  /usr/include/SDL/SDL_loadso.h /usr/include/SDL/SDL_timer.h \
- /usr/include/SDL/SDL_version.h ../include/fileNotFoundException.h \
- ../include/chipanze1.h ../include/inimigo.h
+ /usr/include/SDL/SDL_version.h ../include/nomesArquivos.h \
+ ../include/fileNotFoundException.h ../include/chipanze1.h \
+ ../include/inimigo.h
 
 ../include/inimigo.h:
 
@@ -254,6 +255,8 @@ chipanze1.lo: chipanze1.cpp ../include/inimigo.h \
 
 ../include/initException.h:
 
+../include/mapa.h:
+
 ../include/SDL_Sprite.h:
 
 /usr/include/SDL/SDL.h:
@@ -349,6 +352,8 @@ chipanze1.lo: chipanze1.cpp ../include/inimigo.h \
 /usr/include/SDL/SDL_timer.h:
 
 /usr/include/SDL/SDL_version.h:
+
+../include/nomesArquivos.h:
 
 ../include/fileNotFoundException.h:
 

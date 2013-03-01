@@ -18,14 +18,15 @@ public:
 	//inicializa os valores do inimigo
 	virtual void init() throw (InitException, FileNotFoundException) = 0;
 	//retorna o quanto de vida resta
-	virtual int getHp() = 0;
+	int getHp() const;
 	//retorna o dano que o inimigo causa
-	virtual int getDano() = 0;
+	int getDano() const;
 	//retorna o numero de quadrados que o inimigo anda
-	virtual int getVel() =  0;
+	int getVel() const;
 	//movimenta o inimigo
-	virtual void mover(Direcao dir) =  0;
-	virtual void mover() = 0;
+	void mover(Direcao dir);
+	void mover();
+	Direcao direcao_a_ser_movido(int dirX, int dirY);
 };
 
 

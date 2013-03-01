@@ -30,11 +30,14 @@ private:
 	int num_hordas;
 	//numero medio de inimigos por horda (definido pelo num_fase)
 	int num_medio_inimigos_por_horda;
+	//fase atual, usado pelas outras classes
+	static int faseAtual;
 public:
 	Fase(string nome_mapa, int num_fase, Jogador *jogador);
 	//inicia o mapa e o desenha na tela, além de iniciar as hordas e seus inimigos
 	void init() throw (FileNotFoundException, InitException);
 	~Fase();
+	static int getFaseAtual();
 };
 
 #endif

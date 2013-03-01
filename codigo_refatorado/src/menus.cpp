@@ -1,101 +1,59 @@
 
 #include "menus.h"
-#include "fase.h"
 #include "tela.h"
-#include "jogador.h"
+#include "menuEventos.h"
+#include "animacao.h"
+#include "nomesArquivos.h"
 #include "constantes.h"
 #include "initException.h"
-#include <string>
-#include <iostream>
+#include "exitException.h"
+#include "fileNotFoundException.h"
+#include "animaException.h"
 
 
 //inicia as variáveis locais
 void Menus::init() throw (InitException)
 {
-	try{
-		this->jogador = new Jogador();
-	}catch(bad_alloc ba){
-		throw InitException("falha ao alocar memoria para o jogador!");
-	}
 	this->telaJogo = Tela::obterTela();
 }
 
 //destrutor da classe
 Menus::~Menus()
 {
-	delete (this->jogador);
 	Tela::liberarTela();
 }
 
-//mostra a animação inicial do jogo. Ao terminar executa o menuInicial
-void Menus::apresentacaoInicial()
+//mostra a animação inicial do jogo
+void Menus::apresentacaoInicial() throw(InitException, FileNotFoundException, AnimaException)
 {
-	//COLOCAR O CÓDIGO DA APRESENTAÇÃO INICIAL AQUI!
+	Animacao *apresentacao = NULL;
+	try{
+	//cria uma animação
+		apresentacao = new Animacao();
+		//estipula o tempo (em segundos) de duração da animação
+	}catch(bad_alloc ba){
+		throw InitException("Falha ao alocar memoria para mostrar a apresentacao inicial");
+	}
 	
-	menuInicial();
+	apresentacao->setTime(6);
+	//carrega as imagens que a animação mostrará, suas posições e o momento em que cada uma aparecerá
+	apresentacao->carregarImagem(IMAGEM_APRESENTACAO_INICIAL,CENTRALIZAR,0,0);
+	apresentacao->carregarImagem(IMAGEM_PRESENTS,CENTRALIZAR,510,3);
+	
+	apresentacao->rodar();	
+	
+	delete apresentacao;
 }
 
-//mostra o menu inicial pro jogador. cada opção do menu levará a outra função desta classe
-void Menus::menuInicial()
+//mostra o menu inicial pro jogador. retorna o inteiro correspondente ao botão pressionado
+Botoes Menus::menuInicial() throw(FileNotFoundException, ExitException)
 {
-	//COLOCAR O CÓDIGO DO MENU INICIAL AQUI!
+	MenuEventos *menuEventos = new MenuEventos();
+	menuEventos->init();
+	Botoes bt = menuEventos->getBotaoPressionado();
 	
-	//isso aqui acontece só ao receber o evento certo!!!
-	iniciaJogo();
+	delete menuEventos;
+	
+	return bt;
 }
-
-//função realizada ao clicar em iniciar jogo no menu Inicial
-void Menus::iniciaJogo()
-{
-	Fase *fases[NUM_FASES_TOTAIS];
-	
-	string nome_mapa;
-	int i;
-	for(i=0; i<NUM_FASES_TOTAIS; i++)
-	{
-		try
-		{
-			switch(i)
-			{
-			case 0:
-				nome_mapa = NOME_MAPA1;
-				fases[i] = new Fase(nome_mapa, i+1, this->jogador);
-				fases[i]->init();
-				
-				delete fases[i];
-
-				break;
-			case 1:
-				
-				break;
-			case 2:
-				
-				break;
-			case 3:
-				
-				break;
-			case 4:
-				
-				break;
-			case 5:
-				
-				break;
-			case 6:
-				
-				break;
-			case 7:
-				
-				break;
-			}// fim do switch
-		//DESCOMENTAR APÓS FAZER TODAS AS FASES!!!		fases[i]->~Fase();	
-		
-		}catch(Exception &e){
-			//caso ocorra alguma falha em alguma fase, avisa qual o erro e encerra o jogo
-			cout << "Falha na fase " << i+1 << ": " << e.getMessage().c_str() << endl;
-			if(fases[i])	
-				delete fases[i];
-			break;
-		}//fim do catch
-	}//fim do for
-}//fim da função
 

@@ -99,8 +99,9 @@ orangotango.lo: orangotango.cpp /usr/include/c++/4.4/iostream \
  /usr/include/SDL/SDL_joystick.h /usr/include/SDL/SDL_quit.h \
  /usr/include/SDL/SDL_loadso.h /usr/include/SDL/SDL_timer.h \
  /usr/include/SDL/SDL_version.h ../include/constantes.h \
- ../include/initException.h ../include/fileNotFoundException.h \
- ../include/orangotango.h ../include/inimigo.h
+ ../include/nomesArquivos.h ../include/initException.h \
+ ../include/fileNotFoundException.h ../include/orangotango.h \
+ ../include/inimigo.h
 
 /usr/include/c++/4.4/iostream:
 
@@ -429,6 +430,8 @@ orangotango.lo: orangotango.cpp /usr/include/c++/4.4/iostream \
 /usr/include/SDL/SDL_version.h:
 
 ../include/constantes.h:
+
+../include/nomesArquivos.h:
 
 ../include/initException.h:
 

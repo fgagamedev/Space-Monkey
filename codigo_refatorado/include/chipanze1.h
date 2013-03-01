@@ -11,11 +11,6 @@ class Chipanze1 : public Inimigo
 public:
 	void init() throw (InitException, FileNotFoundException);
 	~Chipanze1();
-	int getHp();
-	int getDano();
-	int getVel();
-	void mover(Direcao dir);
-	void mover();
 };
 
 #endif

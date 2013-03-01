@@ -1,4 +1,4 @@
-/*
+
 #include "jogo.cpp"
 
 int main()
@@ -8,10 +8,10 @@ int main()
 	spaceMonkey.rodarJogo();
 	//o jogo já acabou, então encerra o programa também
 	return 0;
-}*/
+}
 
 
-#include <iostream>
+/*#include <iostream>
 #include <SDL/SDL.h>
 #include <stdlib.h>
 #include <time.h>
@@ -21,6 +21,7 @@ int main()
 #include "SDL_Mapa.h"
 #include "orangotango.h"
 #include "fileNotFoundException.h"
+#include "nomesArquivos.h"
 #include "initException.h"
 #include "jogo.cpp"
 
@@ -65,7 +66,7 @@ int main()
 	srand(time(NULL));
 	try{
 		Tela::obterTela();
-		Mapa::loadMap("mapa1.png");
+		Mapa::loadMap(NOME_MAPA1);
 		Mapa::desenhaMapa();	
 		Inimigo *orangotango = new Orangotango();
 		orangotango->init();
@@ -82,7 +83,7 @@ int main()
 	
 	return 0;
 }
-
+*/
 
 
 

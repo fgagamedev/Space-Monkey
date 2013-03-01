@@ -1,4 +1,4 @@
-
+#include <iostream>
 #include <stdlib.h>
 #include <time.h>
 #include <string>
@@ -10,6 +10,23 @@
 #include "SDL_Mapa.h"
 #include "fileNotFoundException.h"
 #include "horda.h"
+
+int Fase::faseAtual = -1;
+
+//faz os calculos das hordas e dos inimigos
+Fase::Fase(string nome_mapa, int num_fase, Jogador *jogador)
+{
+	srand(time(NULL));
+	
+	this->nome_mapa = nome_mapa;
+	this->num_fase = num_fase;
+	this->num_hordas = num_fase*3 + rand()%5;
+	this->num_medio_inimigos_por_horda = num_fase*5 + rand()%(num_fase+5);
+	this->jogador = jogador;
+	
+	faseAtual++;
+	this->hordas=NULL;	
+}
 
 //inicializa o mapa e o desenha na tela, além de inicializar as hordas e seus inimigos
 void Fase::init() throw (FileNotFoundException, InitException)
@@ -37,6 +54,7 @@ void Fase::init() throw (FileNotFoundException, InitException)
 			inimigos_horda *= rand()%2 ? 1 : -1;		
 			inimigos_horda += this->num_medio_inimigos_por_horda;
 			inimigos_horda < 5 ? inimigos_horda=5 : inimigos_horda=inimigos_horda;
+cout << "horda "<< i+1 << endl;
 			
 			this->hordas->push_back(new Horda(inimigos_horda, this->num_fase));
 			this->hordas->at(i)->init();
@@ -46,27 +64,19 @@ void Fase::init() throw (FileNotFoundException, InitException)
 	}
 }
 
-//faz os calculos das hordas e dos inimigos
-Fase::Fase(string nome_mapa, int num_fase, Jogador *jogador)
+int Fase::getFaseAtual()
 {
-	srand(time(NULL));
-	
-	this->nome_mapa = nome_mapa;
-	this->num_fase = num_fase;
-	this->num_hordas = num_fase*3 + rand()%5;
-	this->num_medio_inimigos_por_horda = num_fase*5 + rand()%(num_fase+5);
-	
-	this->jogador = jogador;
+	return faseAtual;
 }
-
 
 Fase::~Fase()
 {
 	Mapa::liberaMapa();
-	int i,loops=this->hordas->size();
-	for(i=0; i<loops; i++)
-	{	
-		delete this->hordas->at(i);
+	if(this->hordas)
+	{
+		int i,loops=this->hordas->size();
+		for(i=0; i<loops; i++)
+			delete this->hordas->at(i);
 	}
 }
 

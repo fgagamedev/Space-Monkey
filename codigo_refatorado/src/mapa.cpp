@@ -40,9 +40,9 @@ bool Mapa::getMapaLogico(int x, int y, Direcao dir)
 	return SDL_Mapa::getMapaLogico(x, y, dir);
 }
 
-void Mapa::defineGoal(string nome_mapa)
+void Mapa::defineGoal()
 {
-	SDL_Mapa::defineGoal(nome_mapa);
+	SDL_Mapa::defineGoal();
 }
 	
 int Mapa::getGoalX()

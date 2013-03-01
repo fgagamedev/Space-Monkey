@@ -4,28 +4,29 @@
 #include "jogador.h"
 #include "tela.h"
 #include "initException.h"
+#include "fileNotFoundException.h"
+#include "animaException.h"
+#include "exitException.h"
+#include "constantes.h"
 
 using namespace std;
 
 /**
-classe que mostra os menus do jogo na tela, cria a tela e o jogador
+classe que mostra os menus do jogo na tela e cria a tela
 */
 class Menus
 {
 private:
-	Jogador *jogador;
 	Tela *telaJogo;
 public:
 	//inicia as variáveis locais
 	void init() throw (InitException);
 	//destrutor da classe
 	~Menus();
-	//mostra a animação inicial do jogo. Ao terminar executa o menuInicial
-	void apresentacaoInicial();
-	//mostra o menu inicial pro jogador. cada opção do menu levará a outra função desta classe
-	void menuInicial();
-	//função realizada ao clicar em iniciar jogo no menu Inicial
-	void iniciaJogo();
+	//mostra a animação inicial do jogo
+	void apresentacaoInicial() throw(InitException, FileNotFoundException, AnimaException);
+	//mostra o menu inicial pro jogador. retorna o inteiro correspondente ao botão pressionado
+	Botoes menuInicial() throw(FileNotFoundException, ExitException);
 };
 
 

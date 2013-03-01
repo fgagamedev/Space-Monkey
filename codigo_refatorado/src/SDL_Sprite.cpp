@@ -1,9 +1,11 @@
-#include <iostream>
+
 #include "SDL_Sprite.h"
 #include "constantes.h"
 #include "SDL_Mapa.h"
 #include "tela.h"
+#include "fase.h"
 #include "fileNotFoundException.h"
+#include "nomesArquivos.h"
 #include <string>
 #include <SDL/SDL.h>
 #include <SDL/SDL_image.h>
@@ -25,19 +27,21 @@ SDL_Sprite::SDL_Sprite(string nome_arquivo, int w, int h) throw (FileNotFoundExc
 void SDL_Sprite::ativarTransparencia()
 {
 	this->COLORKEY.r = this->COLORKEY.g = this->COLORKEY.b = 255;
-	const_cast <SDL_Color*> (&(this->COLORKEY));
-	
+		
 	SDL_SetColorKey(sprite, SDL_SRCCOLORKEY, SDL_MapRGB(sprite->format, COLORKEY.r, COLORKEY.g, COLORKEY.b));
 	SDL_Surface *temp = SDL_DisplayFormat(sprite);
 	SDL_FreeSurface(sprite);
 	sprite = temp;
 }
 
-//o coloca na tela, fazendo-o aparecer  pela primeira vez no jogo na posição definida (x0 e y0) e virado pro lado certo (dir)
-void SDL_Sprite::init(int x0, int y0, Direcao dir)
+//o coloca na tela, fazendo-o aparecer  pela primeira vez no jogo virado pro lado certo (dir)
+void SDL_Sprite::init(Direcao dir)
 {
-	this->x = x0, this->y = y0;
-
+	int rand1 = rand()%2 ? 1 : -1;
+	int rand2 = rand()%15;
+	int fase = Fase::getFaseAtual();
+	this->x = INITS_X[fase]+(rand1*rand2), this->y = INITS_Y[fase]+(rand1*rand2);
+	
 	SDL_Rect retangulo;//retangulo que informa a area que será atualizada
 	retangulo.w = this->w, retangulo.h = this->h;
 	retangulo.x = 0;
@@ -50,28 +54,20 @@ void SDL_Sprite::init(int x0, int y0, Direcao dir)
 		retangulo.y = this->h*3;
 		break;
 	case ESQUERDA:
-		retangulo.y = this->h;
-		break;
-	case DIREITA:
-		retangulo.y = this->h*2;
-		break;
 	case ACIMA_ESQUERDA:
-		retangulo.y = this->h;
-		break;
-	case ACIMA_DIREITA:
-		retangulo.y = this->h*2;
-		break;
 	case BAIXO_ESQUERDA:
 		retangulo.y = this->h;
 		break;
+	case DIREITA:
+	case ACIMA_DIREITA:
 	case BAIXO_DIREITA:
 		retangulo.y = this->h*2;
-		break;	
+		break;
 	}
 	//retangulo atualizado na tela
 	SDL_Rect retangulo2;//retangulo que informa a area que será atualizada
 	retangulo2.w = this->w, retangulo2.h = this->h;
-	retangulo2.x = x0, retangulo2.y = y0;
+	retangulo2.x = this->x, retangulo2.y = this->y;
 	
 	//SDL_BlitSurface(sprite,NULL, (SDL_Surface*)Tela::getTela(),NULL);
 	SDL_BlitSurface(sprite,&retangulo, (SDL_Surface*)Tela::getTela(),&retangulo2);
@@ -81,20 +77,20 @@ void SDL_Sprite::init(int x0, int y0, Direcao dir)
 //apaga o sprite da tela
 void SDL_Sprite::apagarSprite()
 {
-/*	//pega o mapa original para re-escrever por cima do boneco
+	//pega o mapa original para re-escrever por cima do boneco
 	SDL_Surface *tela = (SDL_Surface*)SDL_Mapa::getMapa();
 	//pega a area  q deve ser reescrita
 	SDL_Rect retangulo;//retangulo que informa a area que será atualizada
 	retangulo.w = this->w, retangulo.h = this->h, retangulo.x = this->x, retangulo.y = this->y; 
 	
 	SDL_BlitSurface(tela,&retangulo, (SDL_Surface*)Tela::getTela(),&retangulo);
-	SDL_UpdateRect((SDL_Surface*)Tela::getTela(), retangulo.x, retangulo.y, retangulo.w, retangulo.h);*/
+	SDL_UpdateRect((SDL_Surface*)Tela::getTela(), retangulo.x, retangulo.y, retangulo.w, retangulo.h);
 	
-	Uint32 cor = SDL_MapRGB(((SDL_Surface*)Tela::getTela())->format, 255, 255, 255);
+/*	Uint32 cor = SDL_MapRGB(((SDL_Surface*)Tela::getTela())->format, 255, 255, 255);
 	SDL_Rect retangulo;//retangulo que informa a area que será atualizada
 	retangulo.w = this->w, retangulo.h = this->h, retangulo.x = this->x, retangulo.y = this->y;
 	SDL_FillRect((SDL_Surface*)Tela::getTela(), &retangulo, cor);
-	SDL_UpdateRect((SDL_Surface*)Tela::getTela(), retangulo.x, retangulo.y, retangulo.w, retangulo.h);
+	SDL_UpdateRect((SDL_Surface*)Tela::getTela(), retangulo.x, retangulo.y, retangulo.w, retangulo.h);*/
 	
 }
 

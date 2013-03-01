@@ -29,6 +29,9 @@ public:
 	void init() throw (InitException, FileNotFoundException);
 	//retorna um inimigo especifico
 	Inimigo* getInimigo(int pos);
+	
+	//TO - DO
+	//void eliminarInimigo(		)
 };
 
 #endif

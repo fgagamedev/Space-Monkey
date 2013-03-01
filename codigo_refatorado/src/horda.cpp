@@ -1,7 +1,9 @@
-
+#include <iostream>
 #include <stdlib.h>
 #include <vector>
 #include <algorithm>
+
+#include <SDL/SDL.h>
 
 #include "horda.h"
 #include "constantes.h"
@@ -23,8 +25,10 @@ Horda::Horda(int numInimigos, int numFase)
 	{
 		this->numChipanzes1 = rand()%numInimigos;
 		this->numChipanzes2 = rand()%(numInimigos-numChipanzes1);
-		this->numOragotangos = rand()%(numInimigos-numChipanzes1-numChipanzes2);
-		this->numGorilas1 = numInimigos-numChipanzes1-numChipanzes2-numOragotangos;
+		//this->numOragotangos = rand()%(numInimigos-numChipanzes1-numChipanzes2);
+		//this->numGorilas1 = numInimigos-numChipanzes1-numChipanzes2-numOragotangos;
+		this->numOragotangos = numInimigos-numChipanzes1-numChipanzes2;
+		this->numGorilas1 = 0;
 		this->numGorilas2 = 0;
 	}
 	else if(numFase > (NUM_FASES_TOTAIS/3) && numFase < (2*NUM_FASES_TOTAIS/3))
@@ -42,7 +46,6 @@ Horda::Horda(int numInimigos, int numFase)
 		this->numChipanzes2 = rand()%(numInimigos-numGorilas1-numGorilas2-numOragotangos);
 		this->numChipanzes1 = numInimigos-numGorilas1-numGorilas2-numChipanzes2-numOragotangos;	
 	}
-
 }
 
 
@@ -84,6 +87,19 @@ void Horda::init() throw (InitException, FileNotFoundException)
 	}catch(bad_alloc ba){
 		throw InitException("erro ao alocar os inimigos!");
 	}
+	
+cout << "criei " << numChipanzes1 << "chipanzes1" << endl;
+cout << "criei " << numChipanzes2 << "chipanzes2" << endl;
+cout << "criei " << numOragotangos << "orangotangos" << endl;
+
+	//TESTEEEEEEEEEE
+	unsigned int i, j;
+	for(i=0; i<150; i++){
+		for(j=0; j<vetorInimigos->size(); j++)
+			vetorInimigos->at(j)->mover();
+		SDL_Delay(100);
+	}
+	
 }
 
 //retorna um inimigo especifico
@@ -92,16 +108,19 @@ Inimigo* Horda::getInimigo(int pos)
 	return 	this->vetorInimigos->at(pos);
 }
 
+
+
 //desaloca a memoria da hordae seus inimigos
 Horda::~Horda()
 {
-//	this->vetorInimigos->(Inimigo)~Chipanze1();
-	 
-	int i, loops=this->vetorInimigos->size();
-	for(i=0; i<loops; i++)
-		delete this->vetorInimigos->at(i);
+	if(this->vetorInimigos)
+	{
+		int i, loops=this->vetorInimigos->size();
+		for(i=0; i<loops; i++)
+			delete this->vetorInimigos->at(i);
 	
-	delete this->vetorInimigos;
+		delete this->vetorInimigos;
+	}
 }
 
 

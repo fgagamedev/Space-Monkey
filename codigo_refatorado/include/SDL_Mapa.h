@@ -15,7 +15,7 @@ class SDL_Mapa : public Mapa
 {
 private:
 	static SDL_Surface *img_mapa;
-	static bool **mapaLogico;
+	static char **mapaLogico;
 	//posição, em pixels, do objetivo dos inimigos
 	static int goalX, goalY;
 public:
@@ -26,7 +26,8 @@ public:
 	static void liberaMapa();
 	static void inicializaMapaLogico();
 	static bool getMapaLogico(int x, int y, Direcao dir);
-	static void defineGoal(string nome_mapa);
+	static bool possoPorTorre(int x, int y);
+	static void defineGoal();
 	static int getGoalX();
 	static int getGoalY();
 };

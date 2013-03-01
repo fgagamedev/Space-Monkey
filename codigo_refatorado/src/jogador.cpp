@@ -2,6 +2,8 @@
 
 #include "jogador.h"
 
+int Jogador::moedas = 0;
+
 //inicia o número de moedas que ele possui
 Jogador::Jogador()
 {
@@ -17,12 +19,12 @@ int Jogador::getMoedas()
 //soma coins moedas ao total que o jogador possui
 void Jogador::ganharMoedas(int coins)
 {
-	this->moedas += coins;
+	moedas += coins;
 }
 
 //subtrai coins moedas ao total que o jogador possui
 void Jogador::perderMoedas(int coins)
 {
-	this->moedas -= coins;
+	moedas -= coins;
 }
 

@@ -54,17 +54,18 @@ chipanze2.lo: chipanze2.cpp ../include/inimigo.h \
  /usr/include/c++/4.4/bits/basic_string.tcc ../include/exception.h \
  ../include/constantes.h ../include/sprite.h \
  ../include/fileNotFoundException.h ../include/constantes.h \
- ../include/initException.h ../include/SDL_Sprite.h \
- /usr/include/SDL/SDL.h /usr/include/SDL/SDL_main.h \
- /usr/include/SDL/SDL_stdinc.h /usr/include/SDL/SDL_config.h \
- /usr/include/SDL/SDL_platform.h /usr/include/sys/types.h \
- /usr/include/sys/select.h /usr/include/bits/select.h \
- /usr/include/sys/sysmacros.h /usr/include/libio.h \
- /usr/include/_G_config.h /usr/include/bits/stdio_lim.h \
- /usr/include/bits/sys_errlist.h /usr/include/bits/stdio.h \
- /usr/include/bits/stdio2.h /usr/include/stdlib.h \
- /usr/include/bits/waitflags.h /usr/include/bits/waitstatus.h \
- /usr/include/alloca.h /usr/include/bits/stdlib.h /usr/include/string.h \
+ ../include/initException.h ../include/nomesArquivos.h ../include/mapa.h \
+ ../include/SDL_Sprite.h /usr/include/SDL/SDL.h \
+ /usr/include/SDL/SDL_main.h /usr/include/SDL/SDL_stdinc.h \
+ /usr/include/SDL/SDL_config.h /usr/include/SDL/SDL_platform.h \
+ /usr/include/sys/types.h /usr/include/sys/select.h \
+ /usr/include/bits/select.h /usr/include/sys/sysmacros.h \
+ /usr/include/libio.h /usr/include/_G_config.h \
+ /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h \
+ /usr/include/bits/stdio.h /usr/include/bits/stdio2.h \
+ /usr/include/stdlib.h /usr/include/bits/waitflags.h \
+ /usr/include/bits/waitstatus.h /usr/include/alloca.h \
+ /usr/include/bits/stdlib.h /usr/include/string.h \
  /usr/include/bits/string3.h /usr/include/strings.h \
  /usr/include/inttypes.h /usr/include/stdint.h /usr/include/iconv.h \
  /usr/include/SDL/begin_code.h /usr/include/SDL/close_code.h \
@@ -253,6 +254,10 @@ chipanze2.lo: chipanze2.cpp ../include/inimigo.h \
 ../include/constantes.h:
 
 ../include/initException.h:
+
+../include/nomesArquivos.h:
+
+../include/mapa.h:
 
 ../include/SDL_Sprite.h:
 

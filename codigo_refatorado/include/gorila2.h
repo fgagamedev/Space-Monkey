@@ -11,11 +11,6 @@ class Gorila2 : public Inimigo
 public:
 	void init() throw (InitException, FileNotFoundException);
 	~Gorila2();
-	int getHp();
-	int getDano();
-	int getVel();
-	void mover(Direcao dir);
-	void mover();
 };
 
 #endif

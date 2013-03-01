@@ -20,7 +20,7 @@ public:
 	static void liberaMapa();
 	static void inicializaMapaLogico();
 	static bool getMapaLogico(int x, int y, Direcao dir);
-	static void defineGoal(string nome_mapa);
+	static void defineGoal();
 	static int getGoalX();
 	static int getGoalY();
 };

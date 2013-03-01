@@ -1,5 +1,5 @@
-jogo.lo: jogo.cpp ../include/jogo.h ../include/menus.h \
- ../include/jogador.h ../include/tela.h ../include/initException.h \
+jogo.lo: jogo.cpp ../include/jogo.h ../include/jogador.h \
+ ../include/menus.h ../include/tela.h ../include/initException.h \
  /usr/include/c++/4.4/string \
  /usr/include/c++/4.4/x86_64-linux-gnu/bits/c++config.h \
  /usr/include/c++/4.4/x86_64-linux-gnu/bits/os_defines.h \
@@ -53,7 +53,17 @@ jogo.lo: jogo.cpp ../include/jogo.h ../include/menus.h \
  /usr/include/c++/4.4/x86_64-linux-gnu/bits/atomic_word.h \
  /usr/include/c++/4.4/initializer_list \
  /usr/include/c++/4.4/bits/basic_string.tcc ../include/exception.h \
- ../include/initException.h /usr/include/c++/4.4/iostream \
+ ../include/fileNotFoundException.h ../include/animaException.h \
+ ../include/exitException.h ../include/constantes.h ../include/jogador.h \
+ ../include/initException.h ../include/exitException.h \
+ ../include/nomesArquivos.h ../include/tela.h ../include/fase.h \
+ /usr/include/c++/4.4/vector /usr/include/c++/4.4/bits/stl_construct.h \
+ /usr/include/c++/4.4/bits/stl_uninitialized.h \
+ /usr/include/c++/4.4/bits/stl_vector.h \
+ /usr/include/c++/4.4/bits/stl_bvector.h \
+ /usr/include/c++/4.4/bits/vector.tcc ../include/mapa.h \
+ ../include/horda.h ../include/inimigo.h ../include/sprite.h \
+ ../include/constantes.h /usr/include/c++/4.4/iostream \
  /usr/include/c++/4.4/ostream /usr/include/c++/4.4/ios \
  /usr/include/c++/4.4/bits/ios_base.h \
  /usr/include/c++/4.4/bits/locale_classes.h \
@@ -72,9 +82,9 @@ jogo.lo: jogo.cpp ../include/jogo.h ../include/menus.h \
 
 ../include/jogo.h:
 
-../include/menus.h:
-
 ../include/jogador.h:
+
+../include/menus.h:
 
 ../include/tela.h:
 
@@ -240,7 +250,47 @@ jogo.lo: jogo.cpp ../include/jogo.h ../include/menus.h \
 
 ../include/exception.h:
 
+../include/fileNotFoundException.h:
+
+../include/animaException.h:
+
+../include/exitException.h:
+
+../include/constantes.h:
+
+../include/jogador.h:
+
 ../include/initException.h:
+
+../include/exitException.h:
+
+../include/nomesArquivos.h:
+
+../include/tela.h:
+
+../include/fase.h:
+
+/usr/include/c++/4.4/vector:
+
+/usr/include/c++/4.4/bits/stl_construct.h:
+
+/usr/include/c++/4.4/bits/stl_uninitialized.h:
+
+/usr/include/c++/4.4/bits/stl_vector.h:
+
+/usr/include/c++/4.4/bits/stl_bvector.h:
+
+/usr/include/c++/4.4/bits/vector.tcc:
+
+../include/mapa.h:
+
+../include/horda.h:
+
+../include/inimigo.h:
+
+../include/sprite.h:
+
+../include/constantes.h:
 
 /usr/include/c++/4.4/iostream:
 

@@ -3,8 +3,8 @@
 #include "SDL_Tela.h"
 #include "constantes.h"
 #include "initException.h"
+#include "nomesArquivos.h"
 #include <string>
-#include <SDL/SDL.h>
 #include <SDL/SDL.h>
 #include <SDL/SDL_image.h>
 
@@ -24,8 +24,8 @@ void SDL_Tela::init() throw (InitException)
 	
 	atexit(SDL_Quit);
 	
-	SDL_WM_SetCaption("SpaceMonkey", "SpaceMonkey");
-	SDL_WM_SetIcon( IMG_Load( (PATH + string("DownMonkeyLogo.png") ).c_str() ), NULL);
+	SDL_WM_SetCaption(NOME_BARRA_SUPERIOR.c_str(), NOME_BARRA_SUPERIOR.c_str());
+	SDL_WM_SetIcon( IMG_Load( (PATH + IMAGEM_LOGO).c_str() ), NULL);
 	
 	
 	this->telaJogo = SDL_SetVideoMode(TELA_WIDTH, TELA_HEIGHT, TELA_BPP, video_options);

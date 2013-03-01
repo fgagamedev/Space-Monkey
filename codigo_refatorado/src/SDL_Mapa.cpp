@@ -1,105 +1,19 @@
-#include<iostream>
 
 #include "SDL_Mapa.h"
 #include "constantes.h"
+#include "nomesArquivos.h"
 #include "tela.h"
+#include "fase.h"
 #include "fileNotFoundException.h"
+#include "nomesArquivos.h"
 #include <string>
 #include <SDL/SDL.h>
 #include <SDL/SDL_image.h>
 
 SDL_Surface* SDL_Mapa::img_mapa = NULL;
-bool** SDL_Mapa::mapaLogico = NULL;
+char** SDL_Mapa::mapaLogico = NULL;
 int SDL_Mapa::goalX = 0;
 int SDL_Mapa::goalY = 0;
-
-
-void SDL_Mapa::inicializaMapaLogico()
-{
-	//bota 0 em tudo
-	int i, j;
-	for(i=0; i<TAMANHO_MATRIZ_LOGICA_X; i++)
-	{
-		for(j=0; j<TAMANHO_MATRIZ_LOGICA_Y; j++)
-		{
-			mapaLogico[i][j] = false;
-		}
-	}
-	//bota 1 onde for estrada
-	for(i=0; i<300/TAMANHO_QUADRADO; i++)
-		mapaLogico[i][1] = true;
-	for(i=2; i<300/TAMANHO_QUADRADO; i++)
-		mapaLogico[9][i] = true;
-	for(i=10; i<540/TAMANHO_QUADRADO; i++)
-		mapaLogico[i][9] = true;
-	for(i=10; i<20; i++)
-		mapaLogico[17][i] = true;
-		
-}
-
-bool SDL_Mapa::getMapaLogico(int x, int y, Direcao dir)
-{
-	switch(dir)
-	{
-	case BAIXO:
-		return mapaLogico[x][y+1];
-		break;
-	case ACIMA:
-		return mapaLogico[x][y-1];
-		break;
-	case ESQUERDA:
-		return mapaLogico[x-1][y];
-		break;
-	case DIREITA:
-		return mapaLogico[x+1][y];
-		break;
-	case ACIMA_ESQUERDA:
-		return mapaLogico[x-1][y-1];
-		break;
-	case ACIMA_DIREITA:
-		return mapaLogico[x+1][y-1];
-		break;
-	case BAIXO_ESQUERDA:
-		return mapaLogico[x-1][y+1];
-		break;
-	case BAIXO_DIREITA:
-		return mapaLogico[x+1][y+1];
-		break;	
-	}
-	return mapaLogico[x][y];
-}
-
-void SDL_Mapa::defineGoal(string nome_mapa)
-{
-	const char *nome = nome_mapa.c_str();
-	if(nome == NOME_MAPA1)
-		goalX = FASE1_GOALX, goalY = FASE1_GOALY;
-	else if(nome == NOME_MAPA2)
-		goalX = FASE2_GOALX, goalY = FASE2_GOALY;
-	else if(nome == NOME_MAPA3)
-		goalX = FASE3_GOALX, goalY = FASE3_GOALY;
-	else if(nome == NOME_MAPA4)
-		goalX = FASE4_GOALX, goalY = FASE4_GOALY;
-	else if(nome == NOME_MAPA5)
-		goalX = FASE5_GOALX, goalY = FASE5_GOALY;
-	else if(nome == NOME_MAPA6)
-		goalX = FASE6_GOALX, goalY = FASE6_GOALY;
-	else if(nome == NOME_MAPA7)
-		goalX = FASE7_GOALX, goalY = FASE7_GOALY;
-	else if(nome == NOME_MAPA8)
-		goalX = FASE8_GOALX, goalY = FASE8_GOALY;
-	
-}
-
-int SDL_Mapa::getGoalX()
-{
-	return goalX;
-}
-
-int SDL_Mapa::getGoalY()
-{
-	return goalY;
-}
 
 //carrega o arquivo com o desenho do mapa. Se der errado lança uma exceção
 void SDL_Mapa::loadMap(string nome_mapa) throw (FileNotFoundException)
@@ -112,12 +26,98 @@ void SDL_Mapa::loadMap(string nome_mapa) throw (FileNotFoundException)
 		throw FileNotFoundException( string("Falha ao tentar carregar o seguinte arquivo: ") + nome_mapa);
 
 
-	mapaLogico = new bool*[TAMANHO_MATRIZ_LOGICA_X];	
-	int i;
-	for(i=0; i<TAMANHO_MATRIZ_LOGICA_X; i++)
-		mapaLogico[i] = new bool[TAMANHO_MATRIZ_LOGICA_Y];
 	inicializaMapaLogico();
-	defineGoal(nome_mapa);
+	defineGoal();
+}
+
+void SDL_Mapa::inicializaMapaLogico()
+{
+	//instancia a matriz 
+	mapaLogico = new char*[TAMANHO_MATRIZ_LOGICA_X];	
+	int i, j;
+	for(i=0; i<TAMANHO_MATRIZ_LOGICA_X; i++)
+		mapaLogico[i] = new char[TAMANHO_MATRIZ_LOGICA_Y];	
+	
+	//bota 0 em tudo
+	for(i=0; i<TAMANHO_MATRIZ_LOGICA_X; i++)
+	{
+		for(j=0; j<TAMANHO_MATRIZ_LOGICA_Y; j++)
+		{
+			mapaLogico[i][j] = MAPA;
+		}
+	}
+	//bota 1 onde for estrada
+	for(i=0; i<6; i++)
+		mapaLogico[i][1] = mapaLogico[i][2] = ESTRADA;
+	mapaLogico[6][2] = mapaLogico[5][3] = mapaLogico[6][3] = mapaLogico[7][3] = mapaLogico[6][4] = mapaLogico[7][4] = mapaLogico[8][4] = mapaLogico[6][5] = mapaLogico[12][6] = ESTRADA;	
+	for(i=7; i<12; i++)
+		mapaLogico[i][5] = mapaLogico[i][6] =ESTRADA;	
+	for(i=6; i<9; i++)
+		mapaLogico[13][i] =mapaLogico[14][i] = ESTRADA;
+	mapaLogico[15][7] =mapaLogico[15][8] = ESTRADA;
+	for(i=14; i<=16; i++)
+		mapaLogico[i][9] =mapaLogico[i][10] = ESTRADA;
+	mapaLogico[17][10] = mapaLogico[18][9] = mapaLogico[19][9] = ESTRADA;
+	for(i=18; i<=20; i++)
+		mapaLogico[i][11] =mapaLogico[i][12] = ESTRADA;
+	mapaLogico[20][12] = mapaLogico[19][13] = mapaLogico[18][13] = ESTRADA;
+	for(i=13; i<18; i++)
+		mapaLogico[19][i] = mapaLogico[20][i] = ESTRADA;
+	mapaLogico[21][17] = ESTRADA;
+	for(i=20; i<24; i++)
+		mapaLogico[i][18] =mapaLogico[i][19]= ESTRADA;
+		
+}
+
+//retorna o valor de uma pos
+bool SDL_Mapa::getMapaLogico(int x, int y, Direcao dir)
+{
+	switch(dir){
+		case BAIXO:
+			return mapaLogico[x][y+1] == ESTRADA;
+		case ACIMA:
+			return mapaLogico[x][y-1] == ESTRADA;
+		case ESQUERDA:
+			return mapaLogico[x-1][y] == ESTRADA;
+		case DIREITA:
+			return mapaLogico[x+1][y] == ESTRADA;
+		case ACIMA_ESQUERDA:
+			return mapaLogico[x-1][y-1] == ESTRADA;
+		case ACIMA_DIREITA:
+			return mapaLogico[x+1][y-1] == ESTRADA;
+		case BAIXO_ESQUERDA:
+			return mapaLogico[x-1][y+1] == ESTRADA;
+		case BAIXO_DIREITA:
+			return mapaLogico[x+1][y+1] == ESTRADA;
+	}
+	return mapaLogico[x][y] == ESTRADA;
+}
+
+bool SDL_Mapa::possoPorTorre(int x, int y)
+{
+	int matrizX = x/TAMANHO_QUADRADO;
+	int matrizY = y/TAMANHO_QUADRADO;
+	
+	return mapaLogico[matrizX][matrizY] == TORRE;
+}
+
+void SDL_Mapa::defineGoal()
+{
+	int i = Fase::getFaseAtual();
+	
+	goalX = GOALS_X[i];
+	goalY = GOALS_Y[i];
+	
+}
+
+int SDL_Mapa::getGoalX()
+{
+	return goalX;
+}
+
+int SDL_Mapa::getGoalY()
+{
+	return goalY;
 }
 
 void drawMapaFeio()
@@ -141,10 +141,10 @@ void drawMapaFeio()
 //desenha o mapa na tela
 void SDL_Mapa::desenhaMapa()
 {
-/*	SDL_BlitSurface(img_mapa,NULL, (SDL_Surface*)Tela::getTela(),NULL);
-	SDL_UpdateRect((SDL_Surface*)Tela::getTela(), 0, 0, 0, 0);*/
+	SDL_BlitSurface(img_mapa,NULL, (SDL_Surface*)Tela::getTela(),NULL);
+	SDL_UpdateRect((SDL_Surface*)Tela::getTela(), 0, 0, 0, 0);
 	
-	drawMapaFeio();
+//	drawMapaFeio();
 }
 
 //retorna a superficie do mapa
