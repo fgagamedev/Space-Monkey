@@ -54,6 +54,12 @@ const string IMAGEM_BOTAOEXTRA = "MenuExtras.png";
 const string IMAGEM_BOTAOEXTRA2 = "MenuExtras2.png";
 const string IMAGEM_BOTAOSAIR = "MenuSair.png";
 const string IMAGEM_BOTAOSAIR2 = "MenuSair2.png";
+//define os nomes dos arquivos que aparecem quando dá game over
+const string GAMEOVERIMG = "gameOver.bmp";
+const string IMAGEM_FUNDO_PRETO = "preto.bmp";
+
+//define a fonte usada
+const string FONTE = "KGFeeling22.ttf";
 
 //define as posições dos objetivos inimigos em cada fase
 const int GOALS_X[NUM_FASES_TOTAIS] = {720, 360, 360, 690, 780, 510, 720, 660};

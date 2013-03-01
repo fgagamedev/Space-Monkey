@@ -2,9 +2,12 @@
 #define MENU_EVENTOS_H
 
 #include "constantes.h"
+#include <string>
 #include "fileNotFoundException.h"
 #include "exitException.h"
 #include <SDL/SDL.h>
+
+using namespace std;
 
 class MenuEventos
 {
@@ -19,6 +22,8 @@ private:
 	void trocarImgJogar();
 	void trocarImgExtra();
 	void trocarImgSair();
+	//Audio
+	void rodaMusica(string nome_musica);
 public:
 	MenuEventos() throw (FileNotFoundException);
 	~MenuEventos();

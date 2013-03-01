@@ -12,6 +12,7 @@ classe que representa um jogo. Inicia os menus iniciais e inicializa o jogo e jo
 class Jogo
 {
 private:
+	bool continuaJogo;
 	Jogador *jogador;
 public:
 	//inicia de fato o jogo

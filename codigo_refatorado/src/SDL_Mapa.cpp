@@ -1,6 +1,11 @@
+#include<stdio.h>
+#include<iostream>
+using namespace std;
 
 #include "SDL_Mapa.h"
 #include "constantes.h"
+#include"util.h"
+#include"jogador.h"
 #include "nomesArquivos.h"
 #include "definicoesMapaLogico.cpp"
 #include "tela.h"
@@ -10,6 +15,7 @@
 #include <string>
 #include <SDL/SDL.h>
 #include <SDL/SDL_image.h>
+#include <SDL/SDL_ttf.h>
 
 SDL_Surface* SDL_Mapa::img_mapa = NULL;
 char** SDL_Mapa::mapaLogico = NULL;
@@ -152,5 +158,33 @@ void SDL_Mapa::liberaMapa()
 		SDL_FreeSurface(img_mapa);
 		img_mapa = NULL;
 	}	
+}
+
+void SDL_Mapa::printCoins() throw(FileNotFoundException)
+{
+	//carrega a fonte e o texto
+	TTF_Font *font = Util::getFonte(30);
+	
+	SDL_Color white = {0, 0, 0, 255};	 
+	SDL_Surface *renderedText = TTF_RenderText_Blended(font, "Moedas do Jogador: ", white);
+
+	if (!renderedText) {
+		TTF_CloseFont(font);
+		return;
+	}
+
+	//determina area de trabalho
+	SDL_Rect dest;
+	SDL_Surface *tela = (SDL_Surface*)Tela::getTela();
+	dest.x = tela->w -renderedText->w - 10, dest.y = 30, dest.w = renderedText->w, dest.h = renderedText->h;
+	//apaga o texto atual
+	SDL_BlitSurface((SDL_Surface*)Mapa::getMapa(), &dest, tela, &dest);
+	
+	//escreve o texto certo
+	SDL_BlitSurface(renderedText, NULL, tela, &dest);
+	SDL_UpdateRect(tela,dest.x,dest.y,dest.w, dest.h);
+	
+	SDL_FreeSurface(renderedText);
+	TTF_CloseFont(font);
 }
 

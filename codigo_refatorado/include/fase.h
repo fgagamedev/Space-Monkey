@@ -37,13 +37,15 @@ private:
 	//"vida" da fase. Diz quantos inimigos podem chegar no final até dar game over
 	int life;
 	//após inicializar tudo, executa a horda até seu fim
-	void execHorda(int i) throw (GameOverException, ExitException);
+	void execHorda(int i) throw (GameOverException, ExitException, FileNotFoundException);
 public:
 	Fase(string nome_mapa, int num_fase, Jogador *jogador);
 	//inicia o mapa e o desenha na tela, além de iniciar as hordas e seus inimigos
 	void init() throw (FileNotFoundException, InitException, GameOverException, ExitException);
 	~Fase();
 	static int getFaseAtual();
+	//zera o contador de fases em caso de game over ou de encerrá-lo
+	static int zerarContadorFases();
 };
 
 #endif

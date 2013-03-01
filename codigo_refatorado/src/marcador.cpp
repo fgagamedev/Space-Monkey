@@ -42,6 +42,7 @@ void Marcador::print()
 //move o marcador para a posição especificada e verifica qual dos marcadores deve ser mostrado
 void Marcador::mover(int x, int y)
 {
+	Marcador::apagar();
 	//atualiza a posição do marcador
 	posX = x, posY = y;
 	//verifica qual dos marcadores será impresso na tela

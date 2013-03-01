@@ -38,8 +38,8 @@ const string ARQUIVO_TORRE_MUROREFORCADO = "torreMuroReforcado.png";
 const string ARQUIVO_TORRE_FORTIFICATION = "torreFortification.png";
 
 //define o nome dos arqivos com os marcadores
-const string ARQUIVO_MARCADOR_VERMELHO = "marcadorAzul.png";
-const string ARQUIVO_MARCADOR_AZUL = "marcadorVermelho.png";
+const string ARQUIVO_MARCADOR_VERMELHO = "marcadorVermelho.png";
+const string ARQUIVO_MARCADOR_AZUL = "marcadorAzul.png";
 
 //define o nome do arquivo com a logo do jogo
 const string IMAGEM_LOGO = "DownMonkeyLogo.png";
@@ -54,6 +54,9 @@ const string IMAGEM_BOTAOEXTRA = "MenuExtras.png";
 const string IMAGEM_BOTAOEXTRA2 = "MenuExtras2.png";
 const string IMAGEM_BOTAOSAIR = "MenuSair.png";
 const string IMAGEM_BOTAOSAIR2 = "MenuSair2.png";
+
+//define a fonte usada
+const string FONTE = "KGFeeling22.ttf";
 
 //define as posições dos objetivos inimigos em cada fase
 const int GOALS_X[NUM_FASES_TOTAIS] = {720, 360, 360, 690, 780, 510, 720, 660};

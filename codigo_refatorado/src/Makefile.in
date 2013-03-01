@@ -77,15 +77,15 @@ am__base_list = \
 am__installdirs = "$(DESTDIR)$(libdir)" "$(DESTDIR)$(bindir)"
 LTLIBRARIES = $(lib_LTLIBRARIES)
 libitem_la_DEPENDENCIES =
-am_libitem_la_OBJECTS = definicoesMapaLogico.lo inimigo.lo torre.lo \
-	jogador.lo util.lo SDL_Tela.lo tela.lo SDL_Mapa.lo mapa.lo \
-	fase.lo animacao.lo eventos.lo marcador.lo menuEventos.lo \
-	menus.lo jogo.lo horda.lo SDL_Sprite.lo chipanze1.lo \
-	chipanze2.lo orangotango.lo gorila1.lo gorila2.lo \
-	atiradorSimples.lo atiradorDuplo.lo atiradorRetardante.lo \
-	atiradorAngulado.lo atiradorMoreFire.lo agentesProtetores.lo \
-	bombardeiro.lo fortification.lo ironMan.lo muro.lo \
-	muroReforcado.lo tanque.lo
+am_libitem_la_OBJECTS = inicializador.lo definicoesMapaLogico.lo \
+	inimigo.lo torre.lo jogador.lo util.lo audio.lo SDL_Tela.lo \
+	tela.lo SDL_Mapa.lo mapa.lo fase.lo animacao.lo eventos.lo \
+	marcador.lo menuEventos.lo menus.lo jogo.lo horda.lo \
+	SDL_Sprite.lo chipanze1.lo chipanze2.lo orangotango.lo \
+	gorila1.lo gorila2.lo atiradorSimples.lo atiradorDuplo.lo \
+	atiradorRetardante.lo atiradorAngulado.lo atiradorMoreFire.lo \
+	agentesProtetores.lo bombardeiro.lo fortification.lo \
+	ironMan.lo muro.lo muroReforcado.lo tanque.lo
 libitem_la_OBJECTS = $(am_libitem_la_OBJECTS)
 libitem_la_LINK = $(LIBTOOL) --tag=CXX $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CXXLD) $(AM_CXXFLAGS) \
@@ -246,7 +246,7 @@ lib_LTLIBRARIES = libitem.la
 libitem_la_LDFLAGS = -static
 
 # Library sources
-libitem_la_SOURCES = definicoesMapaLogico.cpp inimigo.cpp torre.cpp jogador.cpp util.cpp SDL_Tela.cpp tela.cpp SDL_Mapa.cpp mapa.cpp fase.cpp animacao.cpp eventos.cpp marcador.cpp menuEventos.cpp menus.cpp jogo.cpp horda.cpp SDL_Sprite.cpp chipanze1.cpp chipanze2.cpp orangotango.cpp gorila1.cpp gorila2.cpp atiradorSimples.cpp atiradorDuplo.cpp atiradorRetardante.cpp atiradorAngulado.cpp atiradorMoreFire.cpp agentesProtetores.cpp bombardeiro.cpp fortification.cpp ironMan.cpp muro.cpp muroReforcado.cpp tanque.cpp
+libitem_la_SOURCES = inicializador.cpp definicoesMapaLogico.cpp inimigo.cpp torre.cpp jogador.cpp util.cpp audio.cpp SDL_Tela.cpp tela.cpp SDL_Mapa.cpp mapa.cpp fase.cpp animacao.cpp eventos.cpp marcador.cpp menuEventos.cpp menus.cpp jogo.cpp horda.cpp SDL_Sprite.cpp chipanze1.cpp chipanze2.cpp orangotango.cpp gorila1.cpp gorila2.cpp atiradorSimples.cpp atiradorDuplo.cpp atiradorRetardante.cpp atiradorAngulado.cpp atiradorMoreFire.cpp agentesProtetores.cpp bombardeiro.cpp fortification.cpp ironMan.cpp muro.cpp muroReforcado.cpp tanque.cpp
 
 # Libraries needed to build our library
 libitem_la_LIBADD = 
@@ -255,7 +255,7 @@ libitem_la_LIBADD =
 spacemonkey_SOURCES = spacemonkey.cpp
 
 # Libraries needed to build program
-spacemonkey_LDADD = libitem.la -lSDL -lSDL_image
+spacemonkey_LDADD = libitem.la -lSDL -lSDL_image -lSDL_ttf
 
 # Include flags
 INCLUDES = -I../include -Wall -Wno-long-long -W -pedantic -ansi
@@ -389,6 +389,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/atiradorMoreFire.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/atiradorRetardante.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/atiradorSimples.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/audio.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/bombardeiro.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/chipanze1.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/chipanze2.Plo@am__quote@
@@ -399,6 +400,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/gorila1.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/gorila2.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/horda.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/inicializador.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/inimigo.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ironMan.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/jogador.Plo@am__quote@

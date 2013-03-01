@@ -7,6 +7,7 @@
 #include <string>
 #include <SDL/SDL.h>
 #include <SDL/SDL_image.h>
+#include <SDL/SDL_ttf.h>
 
 SDL_Surface* SDL_Tela::telaJogo = NULL;
 SDL_Tela* SDL_Tela::instancia = NULL;
@@ -18,16 +19,6 @@ SDL_Tela::SDL_Tela()
 
 void SDL_Tela::init() throw (InitException)
 {
-	
-	if(SDL_Init(SDL_INIT_VIDEO) < 0)
-		throw InitException( string("Erro ao inicializar SDL: ") + string(SDL_GetError()) );
-	
-	atexit(SDL_Quit);
-	
-	SDL_WM_SetCaption(NOME_BARRA_SUPERIOR.c_str(), NOME_BARRA_SUPERIOR.c_str());
-	SDL_WM_SetIcon( IMG_Load( (PATH + IMAGEM_LOGO).c_str() ), NULL);
-	
-	
 	this->telaJogo = SDL_SetVideoMode(TELA_WIDTH, TELA_HEIGHT, TELA_BPP, video_options);
 	
 	if( !(this->telaJogo) )

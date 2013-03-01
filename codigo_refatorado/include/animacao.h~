@@ -28,7 +28,7 @@ private:
 	//numero de imagens carregadas até o momento
 	int num_img;
 	//método que coloca a imagem na tela com fade-in
-	void print(SDL_Surface* imagem);
+	void print(SDL_Surface* imagem,int i);
 public:
 	//construtor
 	Animacao();

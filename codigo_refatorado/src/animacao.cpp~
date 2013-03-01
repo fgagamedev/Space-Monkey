@@ -2,7 +2,9 @@
 #include "exitException.h"
 #include "animacao.h"
 #include "constantes.h"
+#include "nomesArquivos.h"
 #include "tela.h"
+#include <SDL/SDL_image.h>
 
 //construtor que inicializa o vetor de imagens
 Animacao::Animacao()
@@ -93,12 +95,36 @@ void Animacao::rodar() throw (ExitException)
 			if(momento[i]!=0)
 				SDL_Delay( (momento[i]-timer-1)*1000 );
 			timer += momento[i];
-			print(imagens[i]);
+			print(imagens[i],i);
 		}
 	}
 	SDL_Delay( (this->duracao-timer)*1000 );
 
 }
 
+void Animacao::gameOver()
+{
+	SDL_Surface *tela = (SDL_Surface*)Tela::getTela();
+	SDL_Surface *gameOver = IMG_Load( (PATH+GAMEOVERIMG).c_str() );
+	int alpha;
+	for(alpha=0; alpha<256; alpha+=8)
+	{
+		SDL_SetAlpha(gameOver, SDL_SRCALPHA | SDL_RLEACCEL, (Uint8)alpha);
+		SDL_BlitSurface(gameOver,NULL,tela,NULL);
+		SDL_UpdateRect(tela,0,0,0,0);
+		SDL_Delay(75);
+	}
+	for(alpha=255; alpha>=0; alpha-=8)
+	{
+		SDL_SetAlpha(tela, SDL_SRCALPHA | SDL_RLEACCEL, (Uint8)alpha);
+		SDL_Delay(75);
+	}
+	SDL_FreeSurface(gameOver);
+//	SDL_SetAlpha(tela, SDL_SRCALPHA | SDL_RLEACCEL, (Uint8)255);
+}
 
+void Animacao::creditos()
+{
+
+}
 

@@ -88,7 +88,7 @@ Fase::~Fase()
 }
 
 //após inicializar tudo, executa a fase até seu fim
-void Fase::execHorda(int i) throw(GameOverException, ExitException)
+void Fase::execHorda(int i) throw(GameOverException, ExitException, FileNotFoundException)
 {
 	this->hordas->at(i)->exec();
 	while(this->hordas->at(i)->getInimigosSobrando() > 0)
@@ -99,10 +99,14 @@ void Fase::execHorda(int i) throw(GameOverException, ExitException)
 			throw GameOverException("");
 		//trata os eventos
 		Eventos eventos;
-		eventos.trataEventos();
+		eventos.trataEventos(this);
 		//executa a horda
 		this->hordas->at(i)->exec1();
 	}
 }
 
+int Fase::zerarContadorFases()
+{
+	faseAtual = -1;
+}
 

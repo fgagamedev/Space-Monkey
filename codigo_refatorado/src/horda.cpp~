@@ -113,37 +113,38 @@ Horda::~Horda()
 }
 
 //redesenha o mapa só nas posiçõe onde tem inimigo e o marcador (limpa a tela). Em vez de atualizar a tela toda, atualiza só as partes necessarias pra economizar processamento
-void Horda::redesenhaMapa()
+void Horda::redesenhaMapa()throw(FileNotFoundException)
 {
 	int i;
 	for(i=0; i<vetorInimigos->size(); i++)
 		vetorInimigos->at(i)->limparTela();
-	//apaga o marcador
-	Marcador::apagar();
+	
+	Mapa::printCoins();
+	Marcador::print();
 }
 
 //executa a movimentação de toda horda, sendo que cada uma decide pra onde vai sozinha
-void Horda::exec()throw(ExitException)
+void Horda::exec()throw(ExitException,FileNotFoundException)
 {
 	Eventos eventos;
-	int i, j;
+	unsigned int i, j, k, passos;
 	for(i=1; i<vetorInimigos->size()+1; i++)
 	{
-		eventos.trataEventos();
-		this->redesenhaMapa();
-		Marcador::print();
-		for(j=0; j<i; j++)
-			vetorInimigos->at(j)->mover();
-		Util::delay(50);
+		passos = rand()%10+1;
+		for(j=0; j<passos; j++)
+		{
+			eventos.trataEventos();
+			this->redesenhaMapa();
+			for(k=0; k<i; k++)
+				vetorInimigos->at(k)->mover();
+			Util::delay(50);
+		}
 	}
 }
-void Horda::exec1()throw(ExitException)
+void Horda::exec1()throw(ExitException,FileNotFoundException)
 {
-	int i;
-	Eventos eventos;
-	eventos.trataEventos();
-	Mapa::desenhaMapa();
-	Marcador::print();
+	unsigned int i;
+	this->redesenhaMapa();
 	for(i=0; i<vetorInimigos->size(); i++)
 		vetorInimigos->at(i)->mover();
 	Util::delay(50);

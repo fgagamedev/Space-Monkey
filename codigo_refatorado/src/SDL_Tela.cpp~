@@ -3,10 +3,11 @@
 #include "SDL_Tela.h"
 #include "constantes.h"
 #include "initException.h"
+#include "nomesArquivos.h"
 #include <string>
 #include <SDL/SDL.h>
-#include <SDL/SDL.h>
 #include <SDL/SDL_image.h>
+#include <SDL/SDL_ttf.h>
 
 SDL_Surface* SDL_Tela::telaJogo = NULL;
 SDL_Tela* SDL_Tela::instancia = NULL;
@@ -24,8 +25,13 @@ void SDL_Tela::init() throw (InitException)
 	
 	atexit(SDL_Quit);
 	
-	SDL_WM_SetCaption("SpaceMonkey", "SpaceMonkey");
-	SDL_WM_SetIcon( SDL_LoadBMP( (PATH + string("DownMonkeyLogo.png") ).c_str() ), NULL);
+	if (TTF_Init() != 0)
+		throw InitException(string("Erro ao inicializar o ttf: ") + string(TTF_GetError()));
+
+	atexit(TTF_Quit);
+	
+	SDL_WM_SetCaption(NOME_BARRA_SUPERIOR.c_str(), NOME_BARRA_SUPERIOR.c_str());
+	SDL_WM_SetIcon( IMG_Load( (PATH + IMAGEM_LOGO).c_str() ), NULL);
 	
 	
 	this->telaJogo = SDL_SetVideoMode(TELA_WIDTH, TELA_HEIGHT, TELA_BPP, video_options);

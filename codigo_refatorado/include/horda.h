@@ -35,10 +35,10 @@ public:
 	//retorna o numero de inimigos vivos
 	int getInimigosSobrando();
 	//executa a movimentação de toda horda, sendo que cada uma decide pra onde vai sozinha
-	void exec()throw(ExitException);
-	void exec1()throw(ExitException);
+	void exec()throw(ExitException,FileNotFoundException);
+	void exec1()throw(ExitException,FileNotFoundException);
 	//limpa a tela, deixando só o mapa novamente
-	void redesenhaMapa();
+	void redesenhaMapa()throw(FileNotFoundException);
 };
 
 #endif

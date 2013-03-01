@@ -1,5 +1,4 @@
-eventos.lo: eventos.cpp ../include/marcador.h \
- ../include/fileNotFoundException.h /usr/include/c++/4.4/string \
+eventos.lo: eventos.cpp ../include/fase.h /usr/include/c++/4.4/string \
  /usr/include/c++/4.4/x86_64-linux-gnu/bits/c++config.h \
  /usr/include/c++/4.4/x86_64-linux-gnu/bits/os_defines.h \
  /usr/include/features.h /usr/include/bits/predefs.h \
@@ -51,17 +50,27 @@ eventos.lo: eventos.cpp ../include/marcador.h \
  /usr/include/bits/unistd.h \
  /usr/include/c++/4.4/x86_64-linux-gnu/bits/atomic_word.h \
  /usr/include/c++/4.4/initializer_list \
- /usr/include/c++/4.4/bits/basic_string.tcc ../include/exception.h \
- /usr/include/SDL/SDL.h /usr/include/SDL/SDL_main.h \
- /usr/include/SDL/SDL_stdinc.h /usr/include/SDL/SDL_config.h \
- /usr/include/SDL/SDL_platform.h /usr/include/sys/types.h \
- /usr/include/sys/select.h /usr/include/bits/select.h \
- /usr/include/sys/sysmacros.h /usr/include/libio.h \
- /usr/include/_G_config.h /usr/include/bits/stdio_lim.h \
- /usr/include/bits/sys_errlist.h /usr/include/bits/stdio.h \
- /usr/include/bits/stdio2.h /usr/include/stdlib.h \
- /usr/include/bits/waitflags.h /usr/include/bits/waitstatus.h \
- /usr/include/alloca.h /usr/include/bits/stdlib.h /usr/include/string.h \
+ /usr/include/c++/4.4/bits/basic_string.tcc /usr/include/c++/4.4/vector \
+ /usr/include/c++/4.4/bits/stl_construct.h \
+ /usr/include/c++/4.4/bits/stl_uninitialized.h \
+ /usr/include/c++/4.4/bits/stl_vector.h \
+ /usr/include/c++/4.4/bits/stl_bvector.h \
+ /usr/include/c++/4.4/bits/vector.tcc ../include/jogador.h \
+ ../include/initException.h ../include/exception.h \
+ ../include/exitException.h ../include/gameOverException.h \
+ ../include/fileNotFoundException.h ../include/mapa.h \
+ ../include/constantes.h ../include/horda.h ../include/inimigo.h \
+ ../include/sprite.h ../include/SDL_Sprite.h /usr/include/SDL/SDL.h \
+ /usr/include/SDL/SDL_main.h /usr/include/SDL/SDL_stdinc.h \
+ /usr/include/SDL/SDL_config.h /usr/include/SDL/SDL_platform.h \
+ /usr/include/sys/types.h /usr/include/sys/select.h \
+ /usr/include/bits/select.h /usr/include/sys/sysmacros.h \
+ /usr/include/libio.h /usr/include/_G_config.h \
+ /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h \
+ /usr/include/bits/stdio.h /usr/include/bits/stdio2.h \
+ /usr/include/stdlib.h /usr/include/bits/waitflags.h \
+ /usr/include/bits/waitstatus.h /usr/include/alloca.h \
+ /usr/include/bits/stdlib.h /usr/include/string.h \
  /usr/include/bits/string3.h /usr/include/strings.h \
  /usr/include/inttypes.h /usr/include/stdint.h /usr/include/iconv.h \
  /usr/include/SDL/begin_code.h /usr/include/SDL/close_code.h \
@@ -74,12 +83,10 @@ eventos.lo: eventos.cpp ../include/marcador.h \
  /usr/include/SDL/SDL_mouse.h /usr/include/SDL/SDL_video.h \
  /usr/include/SDL/SDL_joystick.h /usr/include/SDL/SDL_quit.h \
  /usr/include/SDL/SDL_loadso.h /usr/include/SDL/SDL_timer.h \
- /usr/include/SDL/SDL_version.h ../include/eventos.h \
- ../include/exitException.h ../include/exitException.h
+ /usr/include/SDL/SDL_version.h ../include/marcador.h \
+ ../include/eventos.h ../include/fase.h ../include/exitException.h
 
-../include/marcador.h:
-
-../include/fileNotFoundException.h:
+../include/fase.h:
 
 /usr/include/c++/4.4/string:
 
@@ -239,7 +246,41 @@ eventos.lo: eventos.cpp ../include/marcador.h \
 
 /usr/include/c++/4.4/bits/basic_string.tcc:
 
+/usr/include/c++/4.4/vector:
+
+/usr/include/c++/4.4/bits/stl_construct.h:
+
+/usr/include/c++/4.4/bits/stl_uninitialized.h:
+
+/usr/include/c++/4.4/bits/stl_vector.h:
+
+/usr/include/c++/4.4/bits/stl_bvector.h:
+
+/usr/include/c++/4.4/bits/vector.tcc:
+
+../include/jogador.h:
+
+../include/initException.h:
+
 ../include/exception.h:
+
+../include/exitException.h:
+
+../include/gameOverException.h:
+
+../include/fileNotFoundException.h:
+
+../include/mapa.h:
+
+../include/constantes.h:
+
+../include/horda.h:
+
+../include/inimigo.h:
+
+../include/sprite.h:
+
+../include/SDL_Sprite.h:
 
 /usr/include/SDL/SDL.h:
 
@@ -335,8 +376,10 @@ eventos.lo: eventos.cpp ../include/marcador.h \
 
 /usr/include/SDL/SDL_version.h:
 
+../include/marcador.h:
+
 ../include/eventos.h:
 
-../include/exitException.h:
+../include/fase.h:
 
 ../include/exitException.h:

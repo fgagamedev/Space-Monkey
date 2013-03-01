@@ -17,6 +17,12 @@ const int VIDA_FASE = 20;
 const string PATH = "/opt/spacemonkey/resources/";
 //define o texto que aparecerá na barra superior do jogo
 const string NOME_BARRA_SUPERIOR = "SpaceMonkey";
+
+//define dados de configuração do audio
+const int FREQUENCIA = 44100;
+const int NUM_CANAIS = 2;
+const int SIZE_SAMPLE = 4096;
+
 //define que uma certa imagem será centralizada com a tela
 const int CENTRALIZAR = -1;
 //define o numero máximo de imagens que uma animação pode conter

@@ -99,11 +99,12 @@ fase.lo: fase.cpp /usr/include/c++/4.4/iostream \
  /usr/include/SDL/SDL_mouse.h /usr/include/SDL/SDL_video.h \
  /usr/include/SDL/SDL_joystick.h /usr/include/SDL/SDL_quit.h \
  /usr/include/SDL/SDL_loadso.h /usr/include/SDL/SDL_timer.h \
- /usr/include/SDL/SDL_version.h ../include/eventos.h \
+ /usr/include/SDL/SDL_version.h ../include/eventos.h ../include/fase.h \
  ../include/constantes.h ../include/exitException.h \
  ../include/initException.h ../include/gameOverException.h \
  ../include/jogador.h ../include/SDL_Mapa.h \
- ../include/fileNotFoundException.h ../include/horda.h ../include/util.h
+ ../include/fileNotFoundException.h ../include/horda.h ../include/util.h \
+ /usr/include/SDL/SDL_ttf.h /usr/include/SDL/SDL.h
 
 /usr/include/c++/4.4/iostream:
 
@@ -437,6 +438,8 @@ fase.lo: fase.cpp /usr/include/c++/4.4/iostream \
 
 ../include/eventos.h:
 
+../include/fase.h:
+
 ../include/constantes.h:
 
 ../include/exitException.h:
@@ -454,3 +457,7 @@ fase.lo: fase.cpp /usr/include/c++/4.4/iostream \
 ../include/horda.h:
 
 ../include/util.h:
+
+/usr/include/SDL/SDL_ttf.h:
+
+/usr/include/SDL/SDL.h:

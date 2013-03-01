@@ -22,7 +22,7 @@ void Mapa::loadMap(string nome_mapa) throw (FileNotFoundException)
 
 bool Mapa::possoPorTorre(int x, int y)
 {
-	return SDL_Mapa::possoPorTorre(int x, int y);
+	return SDL_Mapa::possoPorTorre(x, y);
 }
 
 bool Mapa::mapaCarregado()
@@ -58,5 +58,10 @@ int Mapa::getGoalX()
 int Mapa::getGoalY()
 {
 	return SDL_Mapa::getGoalY();
+}
+
+void Mapa::printCoins()
+{
+	SDL_Mapa::printCoins();
 }
 

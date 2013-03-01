@@ -78,8 +78,8 @@ animacao.lo: animacao.cpp ../include/exitException.h \
  /usr/include/SDL/SDL_joystick.h /usr/include/SDL/SDL_quit.h \
  /usr/include/SDL/SDL_loadso.h /usr/include/SDL/SDL_timer.h \
  /usr/include/SDL/SDL_version.h /usr/include/SDL/SDL_image.h \
- /usr/include/SDL/SDL.h ../include/constantes.h ../include/tela.h \
- ../include/initException.h
+ /usr/include/SDL/SDL.h ../include/constantes.h \
+ ../include/nomesArquivos.h ../include/tela.h ../include/initException.h
 
 ../include/exitException.h:
 
@@ -352,6 +352,8 @@ animacao.lo: animacao.cpp ../include/exitException.h \
 /usr/include/SDL/SDL.h:
 
 ../include/constantes.h:
+
+../include/nomesArquivos.h:
 
 ../include/tela.h:
 

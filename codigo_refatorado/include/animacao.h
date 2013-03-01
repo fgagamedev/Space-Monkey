@@ -40,6 +40,9 @@ public:
 	void setTime(int tempo);
 	//roda a apresentação
 	void rodar() throw (ExitException);	
+	//funções de animações prontas (não precisa instanciar um objeto para usa-las)
+	void gameOver();
+	void creditos();
 };
 
 #endif

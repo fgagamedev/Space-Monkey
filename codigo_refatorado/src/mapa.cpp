@@ -60,3 +60,8 @@ int Mapa::getGoalY()
 	return SDL_Mapa::getGoalY();
 }
 
+void Mapa::printCoins()throw(FileNotFoundException)
+{
+	SDL_Mapa::printCoins();
+}
+

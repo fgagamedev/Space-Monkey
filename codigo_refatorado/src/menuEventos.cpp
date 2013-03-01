@@ -2,11 +2,13 @@
 using namespace std;
 
 #include "menuEventos.h"
+#include "audio.h"
 #include "constantes.h"
 #include "nomesArquivos.h"
 #include "tela.h"
 #include "exitException.h"
 #include <SDL/SDL.h>
+#include <string>
 #include <SDL/SDL_image.h>
 #include "fileNotFoundException.h"
 
@@ -138,12 +140,18 @@ void MenuEventos::trocarImgSair()
 	SDL_UpdateRect(tela,rect.x, rect.y, rect.w, rect.h);
 }
 
+void MenuEventos::rodaMusica(string nome_musica){
+	Audio::setAudio(nome_musica);		
+}
+
 Botoes MenuEventos::getBotaoPressionado() throw (ExitException)
 {
 	Botoes bt = Sair;
 	SDL_Event event;
 
 	SDL_EnableKeyRepeat(SDL_DEFAULT_REPEAT_DELAY, SDL_DEFAULT_REPEAT_INTERVAL);
+	
+	//rodaMusica();
 	
 	int indiceBt=0;
 	

@@ -24,6 +24,7 @@ public:
 	static void defineGoal();
 	static int getGoalX();
 	static int getGoalY();
+	static void printCoins()throw(FileNotFoundException);
 };
 
 #endif

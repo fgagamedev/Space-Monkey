@@ -12,8 +12,8 @@
 SDL_Surface* Marcador::marcadorUsado = NULL;
 SDL_Surface* Marcador::marcadorAzul = NULL;
 SDL_Surface* Marcador::marcadorVermelho = NULL;
-int Marcador::posX = 0;
-int Marcador::posY = 0;
+int Marcador::posX = -50;
+int Marcador::posY = -50;
 	
 //construtor privado para implementação do singleton (essa classe não deve ter objetos, apenas chamadas estáticas)
 Marcador::Marcador(){}
@@ -33,6 +33,8 @@ void Marcador::criaMarcadores()throw(FileNotFoundException)
 //imprime o marcador novamente quando a tela for limpada a cada frame
 void Marcador::print()
 {
+	Marcador::apagar();
+
 	SDL_Rect rect;
 	rect.x = posX-(marcadorUsado->w/2), rect.y = posY-(marcadorUsado->h/2), rect.w = marcadorUsado->w, rect.h = marcadorUsado->h;
 	SDL_BlitSurface(marcadorUsado,NULL,(SDL_Surface*)Tela::getTela(),&rect);
