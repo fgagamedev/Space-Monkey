@@ -28,7 +28,7 @@ SDL_Surface *setup_video(){
 	Uint32 video_options = SDL_HWSURFACE | SDL_DOUBLEBUF;
 
 	int width = 800, height = 600;
-	int bpp = 16;
+	int bpp = 32;
 
 	screen = SDL_SetVideoMode(width, height, bpp, video_options);
 

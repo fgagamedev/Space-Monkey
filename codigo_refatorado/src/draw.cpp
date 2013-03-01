@@ -6,8 +6,8 @@
 void init_map1(SDL_Surface *screen){
 
 
-	drawMap(screen);
-	drawTower(screen);
+	drawMap1(screen);
+	//drawTower(screen);
 
 	SDL_UpdateRect(screen, 0, 0, 0, 0);
 
@@ -90,6 +90,14 @@ void drawMap(SDL_Surface *screen){
 			rectMap.y += RECTMAP_HEIGHT;
 		}
 	}
+}
+
+void drawMap1(SDL_Surface *screen){
+
+	SDL_Surface *mapa1 = SDL_LoadBMP("/opt/spacemonkey/resources/mapa1.bmp");
+	
+	SDL_BlitSurface(mapa1,NULL, screen,NULL);
+	
 }
 
 void drawTower(SDL_Surface *screen){

@@ -3,4 +3,4 @@
 
 # Resources
 spacemonkeydir = /opt/$(PACKAGE)/resources
-dist_spacemonkey_DATA = DownMonkeyLogo.bmp 
+dist_spacemonkey_DATA = DownMonkeyLogo.bmp mapa1.bmp

@@ -17,6 +17,6 @@ extern void init_map1(SDL_Surface *screen);
 extern SDL_Rect *setTowerRect();
 extern void drawMap(SDL_Surface *screen);
 extern void drawTower(SDL_Surface *screen);
-
+extern void drawMap1(SDL_Surface *screen);
 
 #endif
