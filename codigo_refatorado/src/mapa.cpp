@@ -20,6 +20,11 @@ void Mapa::loadMap(string nome_mapa) throw (FileNotFoundException)
 	return SDL_Mapa::loadMap(nome_mapa);
 }
 
+bool Mapa::possoPorTorre(int x, int y)
+{
+	return SDL_Mapa::possoPorTorre(x, y);
+}
+
 bool Mapa::mapaCarregado()
 {
 	return  SDL_Mapa::mapaCarregado();

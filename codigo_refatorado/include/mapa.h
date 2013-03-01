@@ -19,6 +19,7 @@ public:
 	static bool mapaCarregado();
 	static void liberaMapa();
 	static void inicializaMapaLogico();
+	static bool possoPorTorre(int x, int y);
 	static bool getMapaLogico(int x, int y, Direcao dir);
 	static void defineGoal();
 	static int getGoalX();

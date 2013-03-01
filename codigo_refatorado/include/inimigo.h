@@ -30,6 +30,8 @@ public:
 	void mover(Direcao dir);
 	void mover();
 	Direcao direcao_a_ser_movido(int dirX, int dirY);
+	//retira o desenho do inimigo da tela
+	void limparTela();
 	//verifica se o HP restante é 0 (se morreu)
 	bool isDead();
 	//verifica se chegou ao ponto final

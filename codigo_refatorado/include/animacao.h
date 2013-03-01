@@ -28,9 +28,7 @@ private:
 	//numero de imagens carregadas até o momento
 	int num_img;
 	//método que coloca a imagem na tela com fade-in
-	void fadeIn(SDL_Surface* imagem, int i);
-	//método que apaga as imagens na tela com fade-out
-	void fadeOut();
+	void print(SDL_Surface* imagem,int i);
 public:
 	//construtor
 	Animacao();
@@ -41,7 +39,7 @@ public:
 	//determina o tempo de duração da animação
 	void setTime(int tempo);
 	//roda a apresentação
-	void rodar();	
+	void rodar() throw (ExitException);	
 };
 
 #endif

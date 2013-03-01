@@ -41,6 +41,7 @@ void SDL_Sprite::init(Direcao dir)
 	int rand2 = rand()%30;
 	int fase = Fase::getFaseAtual();
 	this->x = INITS_X[fase]+(rand1*rand2), this->y = INITS_Y[fase]+(rand1*rand2);
+	posicaoSpriteX=0;
 	
 	SDL_Rect retangulo;//retangulo que informa a area que será atualizada
 	retangulo.w = this->w, retangulo.h = this->h;
@@ -85,13 +86,6 @@ void SDL_Sprite::apagarSprite()
 	
 	SDL_BlitSurface(tela,&retangulo, (SDL_Surface*)Tela::getTela(),&retangulo);
 	SDL_UpdateRect((SDL_Surface*)Tela::getTela(), retangulo.x, retangulo.y, retangulo.w, retangulo.h);
-	
-/*	Uint32 cor = SDL_MapRGB(((SDL_Surface*)Tela::getTela())->format, 255, 255, 255);
-	SDL_Rect retangulo;//retangulo que informa a area que será atualizada
-	retangulo.w = this->w, retangulo.h = this->h, retangulo.x = this->x, retangulo.y = this->y;
-	SDL_FillRect((SDL_Surface*)Tela::getTela(), &retangulo, cor);
-	SDL_UpdateRect((SDL_Surface*)Tela::getTela(), retangulo.x, retangulo.y, retangulo.w, retangulo.h);*/
-	
 }
 
 //move o sprite e atualiza o desenho mostrado de acordo com o movimento
@@ -102,7 +96,11 @@ void SDL_Sprite::mover(Direcao dir, int numPixels)
 	//altera o desenho que aparece do sprite
 	SDL_Rect retangulo;//retangulo que informa a area que será atualizada
 	retangulo.w = this->w, retangulo.h = this->h;
-	retangulo.x = retangulo.y = 0;
+	retangulo.y = 0;
+	posicaoSpriteX++;
+	if(posicaoSpriteX==3)
+		posicaoSpriteX=0;
+	retangulo.x = posicaoSpriteX*this->w;
 	switch(dir)
 	{
 	case BAIXO:

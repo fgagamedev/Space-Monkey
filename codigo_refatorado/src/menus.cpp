@@ -24,7 +24,7 @@ Menus::~Menus()
 }
 
 //mostra a animação inicial do jogo
-void Menus::apresentacaoInicial() throw(InitException, FileNotFoundException, AnimaException)
+void Menus::apresentacaoInicial() throw(InitException, FileNotFoundException, ExitException, AnimaException)
 {
 	Animacao *apresentacao = NULL;
 	try{
@@ -35,7 +35,7 @@ void Menus::apresentacaoInicial() throw(InitException, FileNotFoundException, An
 		throw InitException("Falha ao alocar memoria para mostrar a apresentacao inicial");
 	}
 	
-	apresentacao->setTime(6);
+	apresentacao->setTime(5);
 	//carrega as imagens que a animação mostrará, suas posições e o momento em que cada uma aparecerá
 	apresentacao->carregarImagem(IMAGEM_APRESENTACAO_INICIAL,CENTRALIZAR,0,0);
 	apresentacao->carregarImagem(IMAGEM_PRESENTS,CENTRALIZAR,510,3);

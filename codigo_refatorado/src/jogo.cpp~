@@ -74,6 +74,9 @@ void Jogo::iniciaJogo()
 	int i=0;
 	try
 	{
+		//cria os marcadores antes de começar uma fase específica e os mantem na memoria até o fim do jogo
+		Marcador::criaMarcadores();
+		//roda as fases
 		for(i=0; i<NUM_FASES_TOTAIS; i++)
 		{
 			nome_mapa = NOME_MAPAS[i];
@@ -81,17 +84,23 @@ void Jogo::iniciaJogo()
 			fases[i]->init();
 			delete fases[i];			
 		}
+		//mostra os créditos
+		
+		//libera os marcadores
+		Marcador::destruirMarcadores();
+		
 	}catch(GameOverException &go){
 		cout << "voce perdeu!!!!" << endl;
 		if(fases[i])	
 			delete fases[i];
-		break;
+	}catch(ExitException &ee){
+		if(fases[i])	
+			delete fases[i];
 	}catch(Exception &e){
 		//caso ocorra alguma falha em alguma fase, avisa qual o erro e encerra o jogo
 		cout << "Falha na fase " << i+1 << ": " << e.getMessage().c_str() << endl;
 		if(fases[i])	
 			delete fases[i];
-		break;
 	}
 }//fim da função
 

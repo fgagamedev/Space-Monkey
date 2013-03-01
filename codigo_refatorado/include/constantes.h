@@ -12,7 +12,7 @@ const int TELA_HEIGHT = 600;
 //define o número de bits por pixel da tela
 const int TELA_BPP = 32;
 //determina o número de inmigos que podem chegar ao ponto final
-const int VIDA_FASE = 9999;
+const int VIDA_FASE = 20;
 //define o caminho onde estão os resources usados
 const string PATH = "/opt/spacemonkey/resources/";
 //define o texto que aparecerá na barra superior do jogo

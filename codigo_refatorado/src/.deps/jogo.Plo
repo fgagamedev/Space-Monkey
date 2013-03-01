@@ -87,9 +87,10 @@ jogo.lo: jogo.cpp ../include/jogo.h ../include/jogador.h \
  /usr/include/SDL/SDL_mouse.h /usr/include/SDL/SDL_video.h \
  /usr/include/SDL/SDL_joystick.h /usr/include/SDL/SDL_quit.h \
  /usr/include/SDL/SDL_loadso.h /usr/include/SDL/SDL_timer.h \
- /usr/include/SDL/SDL_version.h ../include/constantes.h \
- /usr/include/c++/4.4/iostream /usr/include/c++/4.4/ostream \
- /usr/include/c++/4.4/ios /usr/include/c++/4.4/bits/ios_base.h \
+ /usr/include/SDL/SDL_version.h ../include/marcador.h \
+ ../include/constantes.h /usr/include/c++/4.4/iostream \
+ /usr/include/c++/4.4/ostream /usr/include/c++/4.4/ios \
+ /usr/include/c++/4.4/bits/ios_base.h \
  /usr/include/c++/4.4/bits/locale_classes.h \
  /usr/include/c++/4.4/bits/locale_classes.tcc \
  /usr/include/c++/4.4/streambuf /usr/include/c++/4.4/bits/streambuf.tcc \
@@ -413,6 +414,8 @@ jogo.lo: jogo.cpp ../include/jogo.h ../include/jogador.h \
 /usr/include/SDL/SDL_timer.h:
 
 /usr/include/SDL/SDL_version.h:
+
+../include/marcador.h:
 
 ../include/constantes.h:
 

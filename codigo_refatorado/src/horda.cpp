@@ -3,6 +3,9 @@
 #include <vector>
 #include <algorithm>
 
+#include "eventos.h"
+#include"marcador.h"
+#include"exitException.h"
 #include "util.h"
 #include "mapa.h"
 #include "horda.h"
@@ -17,23 +20,18 @@
 //guarda o tamanho da horda e a quantidade de cada tipo de inimigo
 Horda::Horda(int numInimigos, int numFase)
 {
-	numInimigos = 1;
 	this->numInimigos = numInimigos;
 	this->inimigosSobrando = numInimigos;
 	
 	//determina se é uma fase facil ou dificil, dependendo da resposta determina um maior numero de inimigos fortes
 	if(numFase < (NUM_FASES_TOTAIS/3))
 	{
-		//this->numChipanzes1 = rand()%numInimigos;
-		//this->numChipanzes2 = rand()%(numInimigos-numChipanzes1);
-		//this->numOragotangos = rand()%(numInimigos-numChipanzes1-numChipanzes2);
-		//this->numGorilas1 = numInimigos-numChipanzes1-numChipanzes2-numOragotangos;
+		this->numChipanzes1 = rand()%numInimigos;
+		this->numChipanzes2 = rand()%(numInimigos-numChipanzes1);
+		this->numOragotangos = rand()%(numInimigos-numChipanzes1-numChipanzes2);
+		this->numGorilas1 = numInimigos-numChipanzes1-numChipanzes2-numOragotangos;
 		this->numGorilas2 = 0;
 		
-		this->numOragotangos = numInimigos;
-		this->numGorilas1 = 0;
-		this->numChipanzes1=0;
-		this->numChipanzes2=0;
 	}
 	else if(numFase > (NUM_FASES_TOTAIS/3) && numFase < (2*NUM_FASES_TOTAIS/3))
 	{
@@ -114,25 +112,39 @@ Horda::~Horda()
 	}
 }
 
-//executa a movimentação de toda horda, sendo que cada uma decide pra onde vai sozinha
-void Horda::exec()
+//redesenha o mapa só nas posiçõe onde tem inimigo e o marcador (limpa a tela). Em vez de atualizar a tela toda, atualiza só as partes necessarias pra economizar processamento
+void Horda::redesenhaMapa()
 {
+	int i;
+	for(i=0; i<vetorInimigos->size(); i++)
+		vetorInimigos->at(i)->limparTela();
+	//apaga o marcador
+	Marcador::apagar();
+}
+
+//executa a movimentação de toda horda, sendo que cada uma decide pra onde vai sozinha
+void Horda::exec()throw(ExitException)
+{
+	Eventos eventos;
 	int i, j;
 	for(i=1; i<vetorInimigos->size()+1; i++)
 	{
-		Mapa::desenhaMapa();
+		eventos.trataEventos();
+		this->redesenhaMapa();
+		Marcador::print();
 		for(j=0; j<i; j++)
 			vetorInimigos->at(j)->mover();
-		Util::delay(10);
+		Util::delay(50);
 	}
 }
-void Horda::exec1()
+void Horda::exec1()throw(ExitException)
 {
 	int i;
 	Mapa::desenhaMapa();
+	Marcador::print();
 	for(i=0; i<vetorInimigos->size(); i++)
 		vetorInimigos->at(i)->mover();
-	Util::delay(10);
+	Util::delay(50);
 }
 
 //verifica o estado de cada inimigo da horda e os libera caso tenham morrido ou chegado ao objetivo. Retorna o número de inimigos que alcançaram o objetivo final

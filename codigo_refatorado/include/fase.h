@@ -6,6 +6,7 @@
 
 #include "jogador.h"
 #include "initException.h"
+#include "exitException.h"
 #include "gameOverException.h"
 #include "fileNotFoundException.h"
 #include "mapa.h"
@@ -36,11 +37,11 @@ private:
 	//"vida" da fase. Diz quantos inimigos podem chegar no final até dar game over
 	int life;
 	//após inicializar tudo, executa a horda até seu fim
-	void execHorda(int i) throw (GameOverException);
+	void execHorda(int i) throw (GameOverException, ExitException);
 public:
 	Fase(string nome_mapa, int num_fase, Jogador *jogador);
 	//inicia o mapa e o desenha na tela, além de iniciar as hordas e seus inimigos
-	void init() throw (FileNotFoundException, InitException, GameOverException);
+	void init() throw (FileNotFoundException, InitException, GameOverException, ExitException);
 	~Fase();
 	static int getFaseAtual();
 };

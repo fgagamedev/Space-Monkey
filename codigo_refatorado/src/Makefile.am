@@ -12,7 +12,7 @@ bin_PROGRAMS = spacemonkey
 libitem_la_LDFLAGS = -static
 
 # Library sources
-libitem_la_SOURCES = definicoesMapaLogico.cpp inimigo.cpp torre.cpp jogador.cpp util.cpp SDL_Tela.cpp tela.cpp SDL_Mapa.cpp mapa.cpp fase.cpp animacao.cpp menuEventos.cpp menus.cpp jogo.cpp horda.cpp SDL_Sprite.cpp chipanze1.cpp chipanze2.cpp orangotango.cpp gorila1.cpp gorila2.cpp atiradorSimples.cpp atiradorDuplo.cpp atiradorRetardante.cpp atiradorAngulado.cpp atiradorMoreFire.cpp agentesProtetores.cpp bombardeiro.cpp fortification.cpp ironMan.cpp muro.cpp muroReforcado.cpp tanque.cpp
+libitem_la_SOURCES = definicoesMapaLogico.cpp inimigo.cpp torre.cpp jogador.cpp util.cpp SDL_Tela.cpp tela.cpp SDL_Mapa.cpp mapa.cpp fase.cpp animacao.cpp eventos.cpp marcador.cpp menuEventos.cpp menus.cpp jogo.cpp horda.cpp SDL_Sprite.cpp chipanze1.cpp chipanze2.cpp orangotango.cpp gorila1.cpp gorila2.cpp atiradorSimples.cpp atiradorDuplo.cpp atiradorRetardante.cpp atiradorAngulado.cpp atiradorMoreFire.cpp agentesProtetores.cpp bombardeiro.cpp fortification.cpp ironMan.cpp muro.cpp muroReforcado.cpp tanque.cpp
 
 # Libraries needed to build our library
 libitem_la_LIBADD = 

@@ -216,7 +216,7 @@ configure: failed program was:
 | #define PACKAGE_BUGREPORT ""
 | #define PACKAGE_URL ""
 | #define PACKAGE "spacemonkey"
-| #define VERSION "0.12.0"
+| #define VERSION "1.0.0"
 | /* end confdefs.h.  */
 | #include <ac_nonexistent.h>
 configure:7110: result: gcc -E
@@ -234,7 +234,7 @@ configure: failed program was:
 | #define PACKAGE_BUGREPORT ""
 | #define PACKAGE_URL ""
 | #define PACKAGE "spacemonkey"
-| #define VERSION "0.12.0"
+| #define VERSION "1.0.0"
 | /* end confdefs.h.  */
 | #include <ac_nonexistent.h>
 configure:7173: checking for ANSI C header files
@@ -287,88 +287,88 @@ configure:7304: $? = 0
 configure:7304: result: yes
 configure:7491: checking for objdir
 configure:7506: result: .libs
-configure:7773: checking if gcc supports -fno-rtti -fno-exceptions
-configure:7791: gcc -c -g -O2  -fno-rtti -fno-exceptions conftest.c >&5
+configure:7777: checking if gcc supports -fno-rtti -fno-exceptions
+configure:7795: gcc -c -g -O2  -fno-rtti -fno-exceptions conftest.c >&5
 cc1: warning: command line option "-fno-rtti" is valid for C++/ObjC++ but not for C
-configure:7795: $? = 0
-configure:7808: result: no
-configure:8118: checking for gcc option to produce PIC
-configure:8125: result: -fPIC -DPIC
-configure:8133: checking if gcc PIC flag -fPIC -DPIC works
-configure:8151: gcc -c -g -O2  -fPIC -DPIC -DPIC conftest.c >&5
-configure:8155: $? = 0
-configure:8168: result: yes
-configure:8197: checking if gcc static flag -static works
-configure:8225: result: yes
-configure:8240: checking if gcc supports -c -o file.o
-configure:8261: gcc -c -g -O2  -o out/conftest2.o conftest.c >&5
-configure:8265: $? = 0
-configure:8287: result: yes
-configure:8295: checking if gcc supports -c -o file.o
-configure:8342: result: yes
-configure:8375: checking whether the gcc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries
-configure:9537: result: yes
-configure:9574: checking whether -lc should be explicitly linked in
-configure:9582: gcc -c -g -O2  conftest.c >&5
-configure:9585: $? = 0
-configure:9600: gcc -shared  -fPIC -DPIC conftest.o  -v -Wl,-soname -Wl,conftest -o conftest 2\>\&1 \| /bin/grep  -lc  \>/dev/null 2\>\&1
-configure:9603: $? = 0
-configure:9617: result: no
-configure:9782: checking dynamic linker characteristics
-configure:10297: gcc -o conftest -g -O2   -Wl,-rpath -Wl,/foo conftest.c  >&5
-configure:10297: $? = 0
-configure:10531: result: GNU/Linux ld.so
-configure:10638: checking how to hardcode library paths into programs
-configure:10663: result: immediate
-configure:11203: checking whether stripping libraries is possible
-configure:11208: result: yes
-configure:11243: checking if libtool supports shared libraries
-configure:11245: result: yes
-configure:11248: checking whether to build shared libraries
-configure:11269: result: yes
-configure:11272: checking whether to build static libraries
-configure:11276: result: yes
-configure:11373: checking for g++
-configure:11389: found /usr/bin/g++
-configure:11400: result: g++
-configure:11427: checking for C++ compiler version
-configure:11436: g++ --version >&5
+configure:7799: $? = 0
+configure:7812: result: no
+configure:8122: checking for gcc option to produce PIC
+configure:8129: result: -fPIC -DPIC
+configure:8137: checking if gcc PIC flag -fPIC -DPIC works
+configure:8155: gcc -c -g -O2  -fPIC -DPIC -DPIC conftest.c >&5
+configure:8159: $? = 0
+configure:8172: result: yes
+configure:8201: checking if gcc static flag -static works
+configure:8229: result: yes
+configure:8244: checking if gcc supports -c -o file.o
+configure:8265: gcc -c -g -O2  -o out/conftest2.o conftest.c >&5
+configure:8269: $? = 0
+configure:8291: result: yes
+configure:8299: checking if gcc supports -c -o file.o
+configure:8346: result: yes
+configure:8379: checking whether the gcc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries
+configure:9541: result: yes
+configure:9578: checking whether -lc should be explicitly linked in
+configure:9586: gcc -c -g -O2  conftest.c >&5
+configure:9589: $? = 0
+configure:9604: gcc -shared  -fPIC -DPIC conftest.o  -v -Wl,-soname -Wl,conftest -o conftest 2\>\&1 \| /bin/grep  -lc  \>/dev/null 2\>\&1
+configure:9607: $? = 0
+configure:9621: result: no
+configure:9786: checking dynamic linker characteristics
+configure:10301: gcc -o conftest -g -O2   -Wl,-rpath -Wl,/foo conftest.c  >&5
+configure:10301: $? = 0
+configure:10535: result: GNU/Linux ld.so
+configure:10642: checking how to hardcode library paths into programs
+configure:10667: result: immediate
+configure:11207: checking whether stripping libraries is possible
+configure:11212: result: yes
+configure:11247: checking if libtool supports shared libraries
+configure:11249: result: yes
+configure:11252: checking whether to build shared libraries
+configure:11273: result: yes
+configure:11276: checking whether to build static libraries
+configure:11280: result: yes
+configure:11377: checking for g++
+configure:11393: found /usr/bin/g++
+configure:11404: result: g++
+configure:11431: checking for C++ compiler version
+configure:11440: g++ --version >&5
 g++ (Ubuntu 4.4.3-4ubuntu5.1) 4.4.3
 Copyright (C) 2009 Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
-configure:11447: $? = 0
-configure:11436: g++ -v >&5
+configure:11451: $? = 0
+configure:11440: g++ -v >&5
 Using built-in specs.
 Target: x86_64-linux-gnu
 Configured with: ../src/configure -v --with-pkgversion='Ubuntu 4.4.3-4ubuntu5.1' --with-bugurl=file:///usr/share/doc/gcc-4.4/README.Bugs --enable-languages=c,c++,fortran,objc,obj-c++ --prefix=/usr --enable-shared --enable-multiarch --enable-linker-build-id --with-system-zlib --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --with-gxx-include-dir=/usr/include/c++/4.4 --program-suffix=-4.4 --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-plugin --enable-objc-gc --disable-werror --with-arch-32=i486 --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
 Thread model: posix
 gcc version 4.4.3 (Ubuntu 4.4.3-4ubuntu5.1) 
-configure:11447: $? = 0
-configure:11436: g++ -V >&5
+configure:11451: $? = 0
+configure:11440: g++ -V >&5
 g++: '-V' option must have argument
-configure:11447: $? = 1
-configure:11436: g++ -qversion >&5
+configure:11451: $? = 1
+configure:11440: g++ -qversion >&5
 g++: unrecognized option '-qversion'
 g++: no input files
-configure:11447: $? = 1
-configure:11451: checking whether we are using the GNU C++ compiler
-configure:11470: g++ -c   conftest.cpp >&5
-configure:11470: $? = 0
-configure:11479: result: yes
-configure:11488: checking whether g++ accepts -g
-configure:11508: g++ -c -g  conftest.cpp >&5
-configure:11508: $? = 0
-configure:11549: result: yes
-configure:11574: checking dependency style of g++
-configure:11684: result: gcc3
-configure:11717: checking how to run the C++ preprocessor
-configure:11744: g++ -E  conftest.cpp
-configure:11744: $? = 0
-configure:11758: g++ -E  conftest.cpp
+configure:11451: $? = 1
+configure:11455: checking whether we are using the GNU C++ compiler
+configure:11474: g++ -c   conftest.cpp >&5
+configure:11474: $? = 0
+configure:11483: result: yes
+configure:11492: checking whether g++ accepts -g
+configure:11512: g++ -c -g  conftest.cpp >&5
+configure:11512: $? = 0
+configure:11553: result: yes
+configure:11578: checking dependency style of g++
+configure:11688: result: gcc3
+configure:11721: checking how to run the C++ preprocessor
+configure:11748: g++ -E  conftest.cpp
+configure:11748: $? = 0
+configure:11762: g++ -E  conftest.cpp
 conftest.cpp:23:28: error: ac_nonexistent.h: No such file or directory
-configure:11758: $? = 1
+configure:11762: $? = 1
 configure: failed program was:
 | /* confdefs.h */
 | #define PACKAGE_NAME ""
@@ -378,7 +378,7 @@ configure: failed program was:
 | #define PACKAGE_BUGREPORT ""
 | #define PACKAGE_URL ""
 | #define PACKAGE "spacemonkey"
-| #define VERSION "0.12.0"
+| #define VERSION "1.0.0"
 | #define STDC_HEADERS 1
 | #define HAVE_SYS_TYPES_H 1
 | #define HAVE_SYS_STAT_H 1
@@ -393,12 +393,12 @@ configure: failed program was:
 | #define LT_OBJDIR ".libs/"
 | /* end confdefs.h.  */
 | #include <ac_nonexistent.h>
-configure:11783: result: g++ -E
-configure:11803: g++ -E  conftest.cpp
-configure:11803: $? = 0
-configure:11817: g++ -E  conftest.cpp
+configure:11787: result: g++ -E
+configure:11807: g++ -E  conftest.cpp
+configure:11807: $? = 0
+configure:11821: g++ -E  conftest.cpp
 conftest.cpp:23:28: error: ac_nonexistent.h: No such file or directory
-configure:11817: $? = 1
+configure:11821: $? = 1
 configure: failed program was:
 | /* confdefs.h */
 | #define PACKAGE_NAME ""
@@ -408,7 +408,7 @@ configure: failed program was:
 | #define PACKAGE_BUGREPORT ""
 | #define PACKAGE_URL ""
 | #define PACKAGE "spacemonkey"
-| #define VERSION "0.12.0"
+| #define VERSION "1.0.0"
 | #define STDC_HEADERS 1
 | #define HAVE_SYS_TYPES_H 1
 | #define HAVE_SYS_STAT_H 1
@@ -423,35 +423,35 @@ configure: failed program was:
 | #define LT_OBJDIR ".libs/"
 | /* end confdefs.h.  */
 | #include <ac_nonexistent.h>
-configure:11987: checking for ld used by g++
-configure:12054: result: /usr/bin/ld -m elf_x86_64
-configure:12061: checking if the linker (/usr/bin/ld -m elf_x86_64) is GNU ld
-configure:12076: result: yes
-configure:12131: checking whether the g++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries
-configure:13135: result: yes
-configure:13170: g++ -c -g -O2  conftest.cpp >&5
-configure:13173: $? = 0
-configure:13693: checking for g++ option to produce PIC
-configure:13700: result: -fPIC -DPIC
-configure:13708: checking if g++ PIC flag -fPIC -DPIC works
-configure:13726: g++ -c -g -O2  -fPIC -DPIC -DPIC conftest.cpp >&5
-configure:13730: $? = 0
-configure:13743: result: yes
-configure:13766: checking if g++ static flag -static works
-configure:13794: result: yes
-configure:13806: checking if g++ supports -c -o file.o
-configure:13827: g++ -c -g -O2  -o out/conftest2.o conftest.cpp >&5
-configure:13831: $? = 0
-configure:13853: result: yes
-configure:13858: checking if g++ supports -c -o file.o
-configure:13905: result: yes
-configure:13935: checking whether the g++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries
-configure:13972: result: yes
-configure:14115: checking dynamic linker characteristics
-configure:14798: result: GNU/Linux ld.so
-configure:14851: checking how to hardcode library paths into programs
-configure:14876: result: immediate
-configure:15054: creating ./config.status
+configure:11991: checking for ld used by g++
+configure:12058: result: /usr/bin/ld -m elf_x86_64
+configure:12065: checking if the linker (/usr/bin/ld -m elf_x86_64) is GNU ld
+configure:12080: result: yes
+configure:12135: checking whether the g++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries
+configure:13139: result: yes
+configure:13174: g++ -c -g -O2  conftest.cpp >&5
+configure:13177: $? = 0
+configure:13697: checking for g++ option to produce PIC
+configure:13704: result: -fPIC -DPIC
+configure:13712: checking if g++ PIC flag -fPIC -DPIC works
+configure:13730: g++ -c -g -O2  -fPIC -DPIC -DPIC conftest.cpp >&5
+configure:13734: $? = 0
+configure:13747: result: yes
+configure:13770: checking if g++ static flag -static works
+configure:13798: result: yes
+configure:13810: checking if g++ supports -c -o file.o
+configure:13831: g++ -c -g -O2  -o out/conftest2.o conftest.cpp >&5
+configure:13835: $? = 0
+configure:13857: result: yes
+configure:13862: checking if g++ supports -c -o file.o
+configure:13909: result: yes
+configure:13939: checking whether the g++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries
+configure:13976: result: yes
+configure:14119: checking dynamic linker characteristics
+configure:14802: result: GNU/Linux ld.so
+configure:14855: checking how to hardcode library paths into programs
+configure:14880: result: immediate
+configure:15058: creating ./config.status
 
 ## ---------------------- ##
 ## Running config.status. ##
@@ -583,15 +583,15 @@ lt_cv_to_tool_file_cmd=func_convert_file_noop
 ## Output variables. ##
 ## ----------------- ##
 
-ACLOCAL='${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.13.0/config/missing --run aclocal-1.11'
+ACLOCAL='${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-1.0/config/missing --run aclocal-1.11'
 AMDEPBACKSLASH='\'
 AMDEP_FALSE='#'
 AMDEP_TRUE=''
-AMTAR='${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.13.0/config/missing --run tar'
+AMTAR='${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-1.0/config/missing --run tar'
 AR='ar'
-AUTOCONF='${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.13.0/config/missing --run autoconf'
-AUTOHEADER='${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.13.0/config/missing --run autoheader'
-AUTOMAKE='${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.13.0/config/missing --run automake-1.11'
+AUTOCONF='${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-1.0/config/missing --run autoconf'
+AUTOHEADER='${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-1.0/config/missing --run autoheader'
+AUTOMAKE='${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-1.0/config/missing --run automake-1.11'
 AWK='gawk'
 CC='gcc'
 CCDEPMODE='depmode=gcc3'
@@ -627,10 +627,10 @@ LIBTOOL='$(SHELL) $(top_builddir)/libtool'
 LIPO=''
 LN_S='ln -s'
 LTLIBOBJS=''
-LT_CURRENT='0'
-LT_RELEASE='0.12.0'
-LT_REVISION='12'
-MAKEINFO='${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.13.0/config/missing --run makeinfo'
+LT_CURRENT='1'
+LT_RELEASE='1.0.0'
+LT_REVISION='0'
+MAKEINFO='${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-1.0/config/missing --run makeinfo'
 MANIFEST_TOOL=':'
 MKDIR_P='/bin/mkdir -p'
 NM='/usr/bin/nm -B'
@@ -652,7 +652,7 @@ SED='/bin/sed'
 SET_MAKE=''
 SHELL='/bin/bash'
 STRIP='strip'
-VERSION='0.12.0'
+VERSION='1.0.0'
 ac_config_aux_dir=''
 ac_ct_AR='ar'
 ac_ct_CC='gcc'
@@ -689,7 +689,7 @@ host_vendor='unknown'
 htmldir='${docdir}'
 includedir='${prefix}/include'
 infodir='${datarootdir}/info'
-install_sh='${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.13.0/config/install-sh'
+install_sh='${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-1.0/config/install-sh'
 libdir='${exec_prefix}/lib'
 libexecdir='${exec_prefix}/libexec'
 localedir='${datarootdir}/locale'
@@ -722,7 +722,7 @@ target_vendor='unknown'
 #define PACKAGE_BUGREPORT ""
 #define PACKAGE_URL ""
 #define PACKAGE "spacemonkey"
-#define VERSION "0.12.0"
+#define VERSION "1.0.0"
 #define STDC_HEADERS 1
 #define HAVE_SYS_TYPES_H 1
 #define HAVE_SYS_STAT_H 1

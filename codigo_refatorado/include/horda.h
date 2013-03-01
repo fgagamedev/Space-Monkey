@@ -4,6 +4,7 @@
 #include "constantes.h"
 #include "inimigo.h"
 #include "initException.h"
+#include "exitException.h"
 #include "fileNotFoundException.h"
 #include <vector>
 
@@ -34,8 +35,10 @@ public:
 	//retorna o numero de inimigos vivos
 	int getInimigosSobrando();
 	//executa a movimentação de toda horda, sendo que cada uma decide pra onde vai sozinha
-	void exec();
-	void exec1();
+	void exec()throw(ExitException);
+	void exec1()throw(ExitException);
+	//limpa a tela, deixando só o mapa novamente
+	void redesenhaMapa();
 };
 
 #endif

@@ -42,7 +42,10 @@ subdir = include
 DIST_COMMON = $(include_HEADERS) $(srcdir)/Makefile.am \
 	$(srcdir)/Makefile.in $(srcdir)/config.h.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
-am__aclocal_m4_deps = $(top_srcdir)/configure.in
+am__aclocal_m4_deps = $(top_srcdir)/m4/libtool.m4 \
+	$(top_srcdir)/m4/ltoptions.m4 $(top_srcdir)/m4/ltsugar.m4 \
+	$(top_srcdir)/m4/ltversion.m4 $(top_srcdir)/m4/lt~obsolete.m4 \
+	$(top_srcdir)/configure.in
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
 mkinstalldirs = $(install_sh) -d
@@ -77,12 +80,12 @@ HEADERS = $(include_HEADERS)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.13.0/config/missing --run aclocal-1.11
-AMTAR = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.13.0/config/missing --run tar
+ACLOCAL = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-1.0/config/missing --run aclocal-1.11
+AMTAR = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-1.0/config/missing --run tar
 AR = ar
-AUTOCONF = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.13.0/config/missing --run autoconf
-AUTOHEADER = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.13.0/config/missing --run autoheader
-AUTOMAKE = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.13.0/config/missing --run automake-1.11
+AUTOCONF = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-1.0/config/missing --run autoconf
+AUTOHEADER = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-1.0/config/missing --run autoheader
+AUTOMAKE = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-1.0/config/missing --run automake-1.11
 AWK = gawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
@@ -119,10 +122,10 @@ LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LIPO = 
 LN_S = ln -s
 LTLIBOBJS = 
-LT_CURRENT = 0
-LT_RELEASE = 0.12.0
-LT_REVISION = 12
-MAKEINFO = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.13.0/config/missing --run makeinfo
+LT_CURRENT = 1
+LT_RELEASE = 1.0.0
+LT_REVISION = 0
+MAKEINFO = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-1.0/config/missing --run makeinfo
 MANIFEST_TOOL = :
 MKDIR_P = /bin/mkdir -p
 NM = /usr/bin/nm -B
@@ -144,11 +147,11 @@ SED = /bin/sed
 SET_MAKE = 
 SHELL = /bin/bash
 STRIP = strip
-VERSION = 0.12.0
-abs_builddir = /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.13.0/include
-abs_srcdir = /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.13.0/include
-abs_top_builddir = /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.13.0
-abs_top_srcdir = /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.13.0
+VERSION = 1.0.0
+abs_builddir = /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-1.0/include
+abs_srcdir = /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-1.0/include
+abs_top_builddir = /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-1.0
+abs_top_srcdir = /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-1.0
 ac_config_aux_dir = 
 ac_ct_AR = ar
 ac_ct_CC = gcc
@@ -179,7 +182,7 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.13.0/config/install-sh
+install_sh = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-1.0/config/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -208,7 +211,7 @@ top_srcdir = ..
 libitemincludedir = $(includedir)/
 
 # Include files
-include_HEADERS = constantes.h nomesArquivos.h exception.h initException.h fileNotFoundException.h exitException.h animaException.h gameOverException.h util.h animacao.h jogador.h mapa.h SDL_Mapa.h tela.h SDL_Tela.h fase.h menuEventos.h menus.h jogo.h sprite.h SDL_Sprite.h inimigo.h torre.h atiradorSimples.h atiradorDuplo.h atiradorRetardante.h atiradorAngulado.h atiradorMoreFire.h bombardeiro.h tanque.h agentesProtetores.h ironMan.h muro.h fortification.h muroReforcado.h chipanze1.h chipanze2.h gorila1.h gorila2.h orangotango.h horda.h
+include_HEADERS = constantes.h nomesArquivos.h exception.h initException.h fileNotFoundException.h exitException.h animaException.h gameOverException.h util.h animacao.h eventos.h marcador.h jogador.h mapa.h SDL_Mapa.h tela.h SDL_Tela.h fase.h menuEventos.h menus.h jogo.h sprite.h SDL_Sprite.h inimigo.h torre.h atiradorSimples.h atiradorDuplo.h atiradorRetardante.h atiradorAngulado.h atiradorMoreFire.h bombardeiro.h tanque.h agentesProtetores.h ironMan.h muro.h fortification.h muroReforcado.h chipanze1.h chipanze2.h gorila1.h gorila2.h orangotango.h horda.h
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 

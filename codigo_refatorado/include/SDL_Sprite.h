@@ -12,7 +12,7 @@ class SDL_Sprite : public Sprite
 {
 private:
 	SDL_Surface *sprite;
-	int w, h, x, y;
+	int w, h, x, y, posicaoSpriteX;
 	SDL_Color COLORKEY;
 public:
 	//o coloca na tela, fazendo-o aparecer  pela primeira vez no jogo virado pro lado certo (dir)

@@ -24,7 +24,7 @@ public:
 	//destrutor da classe
 	~Menus();
 	//mostra a animação inicial do jogo
-	void apresentacaoInicial() throw(InitException, FileNotFoundException, AnimaException);
+	void apresentacaoInicial() throw(InitException, FileNotFoundException, ExitException, AnimaException);
 	//mostra o menu inicial pro jogador. retorna o inteiro correspondente ao botão pressionado
 	Botoes menuInicial() throw(FileNotFoundException, ExitException);
 };

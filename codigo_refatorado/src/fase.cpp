@@ -4,7 +4,9 @@
 #include <string>
 
 #include "fase.h"
+#include "eventos.h"
 #include "constantes.h"
+#include "exitException.h"
 #include "initException.h"
 #include "gameOverException.h"
 #include "jogador.h"
@@ -13,7 +15,7 @@
 #include "horda.h"
 #include "util.h"
 
-int Fase::faseAtual = 0;
+int Fase::faseAtual = -1;
 
 //faz os calculos das hordas e dos inimigos
 Fase::Fase(string nome_mapa, int num_fase, Jogador *jogador)
@@ -32,7 +34,7 @@ Fase::Fase(string nome_mapa, int num_fase, Jogador *jogador)
 }
 
 //inicializa o mapa e o desenha na tela, além de inicializar as hordas e seus inimigos
-void Fase::init() throw (FileNotFoundException, InitException, GameOverException)
+void Fase::init() throw (FileNotFoundException, InitException, GameOverException, ExitException)
 {
 	int inimigos_horda;
 cout << "\nFASE " << this->num_fase << endl;
@@ -86,7 +88,7 @@ Fase::~Fase()
 }
 
 //após inicializar tudo, executa a fase até seu fim
-void Fase::execHorda(int i) throw(GameOverException)
+void Fase::execHorda(int i) throw(GameOverException, ExitException)
 {
 	this->hordas->at(i)->exec();
 	while(this->hordas->at(i)->getInimigosSobrando() > 0)
@@ -95,6 +97,9 @@ void Fase::execHorda(int i) throw(GameOverException)
 		//verifica se deu game over
 		if(this->life <= 0)
 			throw GameOverException("");
+		//trata os eventos
+		Eventos eventos;
+		eventos.trataEventos();
 		//executa a horda
 		this->hordas->at(i)->exec1();
 	}

@@ -6,7 +6,6 @@ using namespace std;
 
 Inimigo::~Inimigo()
 {
-cout << "eliminei 1 macaco" << endl;
 	delete this->img;
 }
 
@@ -70,7 +69,6 @@ void Inimigo::mover(){
 	Direcao dir = direcao_a_ser_movido(dirX,dirY);
 	//verifica se pode ir nessa direção
 	bool pode = Mapa::getMapaLogico(x/TAMANHO_QUADRADO, y/TAMANHO_QUADRADO, dir);
-cout << x<<","<<y<<": "<<x/TAMANHO_QUADRADO<<","<<y/TAMANHO_QUADRADO<<" ir para "<<dir<<"="<<pode << endl;
 	if(pode)
 		this->mover(dir);
 	else
@@ -89,7 +87,6 @@ cout << x<<","<<y<<": "<<x/TAMANHO_QUADRADO<<","<<y/TAMANHO_QUADRADO<<" ir para 
 		} 
 		dir = direcao_a_ser_movido(dirX, dy);
 		pode = Mapa::getMapaLogico(x/TAMANHO_QUADRADO, y/TAMANHO_QUADRADO, dir);
-		cout << x<<","<<y<<": "<<x/TAMANHO_QUADRADO<<","<<y/TAMANHO_QUADRADO<<" ir para "<<dir<<"="<<pode << endl;
 		if(pode)
 			this->mover(dir);
 		else
@@ -215,6 +212,12 @@ void Inimigo::mover(){
 }
 
 */
+
+//retira o desenho do inimig da tela
+void Inimigo::limparTela()
+{
+	this->img->apagarSprite();
+}
 
 //verifica se o HP restante é 0 (se morreu)
 bool Inimigo::isDead()

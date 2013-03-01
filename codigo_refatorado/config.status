@@ -449,7 +449,7 @@ Copyright (C) 2010 Free Software Foundation, Inc.
 This config.status script is free software; the Free Software Foundation
 gives unlimited permission to copy, distribute and modify it."
 
-ac_pwd='/home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.13.0'
+ac_pwd='/home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-1.0'
 srcdir='.'
 INSTALL='/usr/bin/install -c'
 MKDIR_P='/bin/mkdir -p'
@@ -798,7 +798,7 @@ fi
 
 
     PACKAGE='spacemonkey'
-    VERSION='0.12.0'
+    VERSION='1.0.0'
     TIMESTAMP=''
     RM='rm -f'
     ofile='libtool'
@@ -936,7 +936,7 @@ S["CC"]="gcc"
 S["LIBTOOL"]="$(SHELL) $(top_builddir)/libtool"
 S["am__untar"]="${AMTAR} xf -"
 S["am__tar"]="${AMTAR} chof - \"$$tardir\""
-S["AMTAR"]="${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.13.0/config/missing --run tar"
+S["AMTAR"]="${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-1.0/config/missing --run tar"
 S["am__leading_dot"]="."
 S["SET_MAKE"]=""
 S["AWK"]="gawk"
@@ -944,22 +944,22 @@ S["mkdir_p"]="/bin/mkdir -p"
 S["MKDIR_P"]="/bin/mkdir -p"
 S["INSTALL_STRIP_PROGRAM"]="$(install_sh) -c -s"
 S["STRIP"]="strip"
-S["install_sh"]="${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.13.0/config/install-sh"
-S["MAKEINFO"]="${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.13.0/config/missing --run makeinfo"
-S["AUTOHEADER"]="${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.13.0/config/missing --run autoheader"
-S["AUTOMAKE"]="${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.13.0/config/missing --run automake-1.11"
-S["AUTOCONF"]="${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.13.0/config/missing --run autoconf"
-S["ACLOCAL"]="${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.13.0/config/missing --run aclocal-1.11"
-S["VERSION"]="0.12.0"
+S["install_sh"]="${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-1.0/config/install-sh"
+S["MAKEINFO"]="${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-1.0/config/missing --run makeinfo"
+S["AUTOHEADER"]="${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-1.0/config/missing --run autoheader"
+S["AUTOMAKE"]="${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-1.0/config/missing --run automake-1.11"
+S["AUTOCONF"]="${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-1.0/config/missing --run autoconf"
+S["ACLOCAL"]="${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-1.0/config/missing --run aclocal-1.11"
+S["VERSION"]="1.0.0"
 S["PACKAGE"]="spacemonkey"
 S["CYGPATH_W"]="echo"
 S["am__isrc"]=""
 S["INSTALL_DATA"]="${INSTALL} -m 644"
 S["INSTALL_SCRIPT"]="${INSTALL}"
 S["INSTALL_PROGRAM"]="${INSTALL}"
-S["LT_REVISION"]="12"
-S["LT_CURRENT"]="0"
-S["LT_RELEASE"]="0.12.0"
+S["LT_REVISION"]="0"
+S["LT_CURRENT"]="1"
+S["LT_RELEASE"]="1.0.0"
 S["target_os"]="linux-gnu"
 S["target_vendor"]="unknown"
 S["target_cpu"]="x86_64"
@@ -1059,7 +1059,7 @@ D["PACKAGE_STRING"]=" \"\""
 D["PACKAGE_BUGREPORT"]=" \"\""
 D["PACKAGE_URL"]=" \"\""
 D["PACKAGE"]=" \"spacemonkey\""
-D["VERSION"]=" \"0.12.0\""
+D["VERSION"]=" \"1.0.0\""
 D["STDC_HEADERS"]=" 1"
 D["HAVE_SYS_TYPES_H"]=" 1"
 D["HAVE_SYS_STAT_H"]=" 1"

@@ -4,6 +4,7 @@
 #include "initException.h"
 #include "constantes.h"
 #include "sprite.h"
+#include "SDL_Sprite.h"
 #include "fileNotFoundException.h"
 
 class Inimigo
@@ -13,7 +14,7 @@ protected:
 	int dano;
 	int vel;
 	int hp_restante;
-	Sprite *img;
+	SDL_Sprite *img;
 public:
 	//inicializa os valores do inimigo
 	virtual void init() throw (InitException, FileNotFoundException) = 0;

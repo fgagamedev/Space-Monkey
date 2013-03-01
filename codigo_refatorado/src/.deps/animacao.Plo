@@ -1,4 +1,4 @@
-animacao.lo: animacao.cpp ../include/animacao.h ../include/constantes.h \
+animacao.lo: animacao.cpp ../include/exitException.h \
  /usr/include/c++/4.4/string \
  /usr/include/c++/4.4/x86_64-linux-gnu/bits/c++config.h \
  /usr/include/c++/4.4/x86_64-linux-gnu/bits/os_defines.h \
@@ -51,19 +51,20 @@ animacao.lo: animacao.cpp ../include/animacao.h ../include/constantes.h \
  /usr/include/bits/unistd.h \
  /usr/include/c++/4.4/x86_64-linux-gnu/bits/atomic_word.h \
  /usr/include/c++/4.4/initializer_list \
- /usr/include/c++/4.4/bits/basic_string.tcc \
- ../include/fileNotFoundException.h ../include/exception.h \
- ../include/animaException.h ../include/exitException.h \
- /usr/include/SDL/SDL.h /usr/include/SDL/SDL_main.h \
- /usr/include/SDL/SDL_stdinc.h /usr/include/SDL/SDL_config.h \
- /usr/include/SDL/SDL_platform.h /usr/include/sys/types.h \
- /usr/include/sys/select.h /usr/include/bits/select.h \
- /usr/include/sys/sysmacros.h /usr/include/libio.h \
- /usr/include/_G_config.h /usr/include/bits/stdio_lim.h \
- /usr/include/bits/sys_errlist.h /usr/include/bits/stdio.h \
- /usr/include/bits/stdio2.h /usr/include/stdlib.h \
- /usr/include/bits/waitflags.h /usr/include/bits/waitstatus.h \
- /usr/include/alloca.h /usr/include/bits/stdlib.h /usr/include/string.h \
+ /usr/include/c++/4.4/bits/basic_string.tcc ../include/exception.h \
+ ../include/animacao.h ../include/constantes.h \
+ ../include/fileNotFoundException.h ../include/animaException.h \
+ ../include/exitException.h /usr/include/SDL/SDL.h \
+ /usr/include/SDL/SDL_main.h /usr/include/SDL/SDL_stdinc.h \
+ /usr/include/SDL/SDL_config.h /usr/include/SDL/SDL_platform.h \
+ /usr/include/sys/types.h /usr/include/sys/select.h \
+ /usr/include/bits/select.h /usr/include/sys/sysmacros.h \
+ /usr/include/libio.h /usr/include/_G_config.h \
+ /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h \
+ /usr/include/bits/stdio.h /usr/include/bits/stdio2.h \
+ /usr/include/stdlib.h /usr/include/bits/waitflags.h \
+ /usr/include/bits/waitstatus.h /usr/include/alloca.h \
+ /usr/include/bits/stdlib.h /usr/include/string.h \
  /usr/include/bits/string3.h /usr/include/strings.h \
  /usr/include/inttypes.h /usr/include/stdint.h /usr/include/iconv.h \
  /usr/include/SDL/begin_code.h /usr/include/SDL/close_code.h \
@@ -80,9 +81,7 @@ animacao.lo: animacao.cpp ../include/animacao.h ../include/constantes.h \
  /usr/include/SDL/SDL.h ../include/constantes.h ../include/tela.h \
  ../include/initException.h
 
-../include/animacao.h:
-
-../include/constantes.h:
+../include/exitException.h:
 
 /usr/include/c++/4.4/string:
 
@@ -242,9 +241,13 @@ animacao.lo: animacao.cpp ../include/animacao.h ../include/constantes.h \
 
 /usr/include/c++/4.4/bits/basic_string.tcc:
 
-../include/fileNotFoundException.h:
-
 ../include/exception.h:
+
+../include/animacao.h:
+
+../include/constantes.h:
+
+../include/fileNotFoundException.h:
 
 ../include/animaException.h:
 

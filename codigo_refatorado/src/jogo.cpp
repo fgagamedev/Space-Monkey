@@ -8,7 +8,7 @@
 #include "nomesArquivos.h"
 #include "tela.h"
 #include "fase.h"
-//#include "thread.h"
+#include "marcador.h"
 #include "constantes.h"
 #include <iostream>
 #include <string>
@@ -39,7 +39,7 @@ void Jogo::rodarJogo()
 	}
 	
 	try{
-	//	menus->apresentacaoInicial();
+		menus->apresentacaoInicial();
 		botao = menus->menuInicial();
 	}catch(Exception &e){
 		delete this->jogador;
@@ -74,15 +74,26 @@ void Jogo::iniciaJogo()
 	int i=0;
 	try
 	{
-		for(i=1; i<NUM_FASES_TOTAIS; i++)
+		//cria os marcadores antes de começar uma fase específica e os mantem na memoria até o fim do jogo
+		Marcador::criaMarcadores();
+		//roda as fases
+		for(i=0; i<NUM_FASES_TOTAIS; i++)
 		{
 			nome_mapa = NOME_MAPAS[i];
 			fases[i] = new Fase(nome_mapa, i+1, this->jogador);
 			fases[i]->init();
 			delete fases[i];			
 		}
+		//mostra os créditos
+		
+		//libera os marcadores
+		Marcador::destruirMarcadores();
+		
 	}catch(GameOverException &go){
 		cout << "voce perdeu!!!!" << endl;
+		if(fases[i])	
+			delete fases[i];
+	}catch(ExitException &ee){
 		if(fases[i])	
 			delete fases[i];
 	}catch(Exception &e){

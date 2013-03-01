@@ -37,6 +37,10 @@ const string ARQUIVO_TORRE_MURO = "torreMuro.png";
 const string ARQUIVO_TORRE_MUROREFORCADO = "torreMuroReforcado.png";
 const string ARQUIVO_TORRE_FORTIFICATION = "torreFortification.png";
 
+//define o nome dos arqivos com os marcadores
+const string ARQUIVO_MARCADOR_VERMELHO = "marcadorVermelho.png";
+const string ARQUIVO_MARCADOR_AZUL = "marcadorAzul.png";
+
 //define o nome do arquivo com a logo do jogo
 const string IMAGEM_LOGO = "DownMonkeyLogo.png";
 //define os nomes dos arquivos que aparecem na apresentação inicial

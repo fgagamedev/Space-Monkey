@@ -1,4 +1,5 @@
 
+#include "exitException.h"
 #include "animacao.h"
 #include "constantes.h"
 #include "tela.h"
@@ -46,7 +47,7 @@ void Animacao::setTime(int tempo)
 	this->duracao = tempo;
 }
 
-void Animacao::fadeIn(SDL_Surface* imagem, int i)
+void Animacao::print(SDL_Surface* imagem,int i)
 {
 	SDL_Rect area;
 	area.x = posX[i];
@@ -55,53 +56,48 @@ void Animacao::fadeIn(SDL_Surface* imagem, int i)
 	area.h = imagem->h;
 	
 	SDL_Surface *tela = (SDL_Surface*)Tela::getTela();
-	int passo = 256/NUM_FRAMES_FADE_IN;
-	int cont;
-	Uint8 alpha=0;
-	for(cont=0; cont<NUM_FRAMES_FADE_IN; cont++)
-	{
-		SDL_SetAlpha(imagem, SDL_SRCALPHA | SDL_RLEACCEL, alpha);
-		SDL_BlitSurface(imagem,NULL, tela,&area);
-		SDL_UpdateRect(tela, area.x, area.y, area.w, area.h);
-		//SDL_Flip(tela);
-		alpha += passo;
-		SDL_Delay(32);
-	}
-	
+	SDL_BlitSurface(imagem,NULL, tela,&area);
+	SDL_UpdateRect(tela, area.x, area.y, area.w, area.h);
 }
 
-void Animacao::fadeOut()
-{
-	SDL_Surface *tela = (SDL_Surface*)Tela::getTela();
-	int passo = 256/NUM_FRAMES_FADE_IN;
-	int cont;
-	Uint8 alpha=255;
-	for(cont=0; cont<NUM_FRAMES_FADE_IN; cont++)
-	{
-		SDL_SetAlpha(tela, SDL_SRCALPHA | SDL_SRCCOLORKEY | SDL_RLEACCEL, alpha);
-		SDL_UpdateRect(tela, 0, 0, 0, 0);
-		alpha -= passo;
-		SDL_Delay(32);
-	}
-	
-}
 
 //roda a apresentação
-void Animacao::rodar()
+void Animacao::rodar() throw (ExitException)
 {
 	int i, timer=0;
+	SDL_Event event;
 	for(i=0; i<NUM_MAX_IMG_POR_ANIMACAO; i++)
 	{
+		while (SDL_PollEvent(&event)) 
+		{
+			switch (event.type) 
+			{
+			case SDL_QUIT:
+				throw ExitException("saindo...");
+			case SDL_KEYDOWN: 
+				switch (event.key.keysym.sym) 
+				{
+				case SDLK_ESCAPE:
+					throw ExitException("saindo...");
+				case SDLK_SPACE:
+					return;
+				default:
+					break;
+				}
+			default:
+				break;
+			}
+		}
 		if(imagens[i]!=NULL)
 		{
 			if(momento[i]!=0)
 				SDL_Delay( (momento[i]-timer-1)*1000 );
 			timer += momento[i];
-			fadeIn(imagens[i], i);
+			print(imagens[i]);
 		}
 	}
 	SDL_Delay( (this->duracao-timer)*1000 );
-	fadeOut();
+
 }
 
 
