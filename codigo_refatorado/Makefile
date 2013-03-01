@@ -44,10 +44,7 @@ DIST_COMMON = README $(am__configure_deps) $(srcdir)/Makefile.am \
 	config/depcomp config/install-sh config/ltmain.sh \
 	config/missing
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
-am__aclocal_m4_deps = $(top_srcdir)/m4/libtool.m4 \
-	$(top_srcdir)/m4/ltoptions.m4 $(top_srcdir)/m4/ltsugar.m4 \
-	$(top_srcdir)/m4/ltversion.m4 $(top_srcdir)/m4/lt~obsolete.m4 \
-	$(top_srcdir)/configure.in
+am__aclocal_m4_deps = $(top_srcdir)/configure.in
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
 am__CONFIG_DISTCLEAN_FILES = config.status config.cache config.log \
@@ -109,12 +106,12 @@ DIST_ARCHIVES = $(distdir).tar.gz
 GZIP_ENV = --best
 distuninstallcheck_listfiles = find . -type f -print
 distcleancheck_listfiles = find . -type f -print
-ACLOCAL = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.12.0/config/missing --run aclocal-1.11
-AMTAR = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.12.0/config/missing --run tar
+ACLOCAL = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.13.0/config/missing --run aclocal-1.11
+AMTAR = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.13.0/config/missing --run tar
 AR = ar
-AUTOCONF = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.12.0/config/missing --run autoconf
-AUTOHEADER = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.12.0/config/missing --run autoheader
-AUTOMAKE = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.12.0/config/missing --run automake-1.11
+AUTOCONF = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.13.0/config/missing --run autoconf
+AUTOHEADER = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.13.0/config/missing --run autoheader
+AUTOMAKE = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.13.0/config/missing --run automake-1.11
 AWK = gawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
@@ -154,7 +151,7 @@ LTLIBOBJS =
 LT_CURRENT = 0
 LT_RELEASE = 0.12.0
 LT_REVISION = 12
-MAKEINFO = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.12.0/config/missing --run makeinfo
+MAKEINFO = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.13.0/config/missing --run makeinfo
 MANIFEST_TOOL = :
 MKDIR_P = /bin/mkdir -p
 NM = /usr/bin/nm -B
@@ -177,10 +174,10 @@ SET_MAKE =
 SHELL = /bin/bash
 STRIP = strip
 VERSION = 0.12.0
-abs_builddir = /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.12.0
-abs_srcdir = /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.12.0
-abs_top_builddir = /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.12.0
-abs_top_srcdir = /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.12.0
+abs_builddir = /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.13.0
+abs_srcdir = /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.13.0
+abs_top_builddir = /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.13.0
+abs_top_srcdir = /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.13.0
 ac_config_aux_dir = 
 ac_ct_AR = ar
 ac_ct_CC = gcc
@@ -211,7 +208,7 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.12.0/config/install-sh
+install_sh = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.13.0/config/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale

@@ -43,10 +43,7 @@ bin_PROGRAMS = spacemonkey$(EXEEXT)
 subdir = src
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
-am__aclocal_m4_deps = $(top_srcdir)/m4/libtool.m4 \
-	$(top_srcdir)/m4/ltoptions.m4 $(top_srcdir)/m4/ltsugar.m4 \
-	$(top_srcdir)/m4/ltversion.m4 $(top_srcdir)/m4/lt~obsolete.m4 \
-	$(top_srcdir)/configure.in
+am__aclocal_m4_deps = $(top_srcdir)/configure.in
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
 mkinstalldirs = $(install_sh) -d
@@ -77,14 +74,14 @@ am__base_list = \
 am__installdirs = "$(DESTDIR)$(libdir)" "$(DESTDIR)$(bindir)"
 LTLIBRARIES = $(lib_LTLIBRARIES)
 libitem_la_DEPENDENCIES =
-am_libitem_la_OBJECTS = inimigo.lo torre.lo jogador.lo SDL_Tela.lo \
-	tela.lo SDL_Mapa.lo mapa.lo fase.lo animacao.lo menuEventos.lo \
-	menus.lo jogo.lo horda.lo SDL_Sprite.lo chipanze1.lo \
-	chipanze2.lo orangotango.lo gorila1.lo gorila2.lo \
-	atiradorSimples.lo atiradorDuplo.lo atiradorRetardante.lo \
-	atiradorAngulado.lo atiradorMoreFire.lo agentesProtetores.lo \
-	bombardeiro.lo fortification.lo ironMan.lo muro.lo \
-	muroReforcado.lo tanque.lo
+am_libitem_la_OBJECTS = definicoesMapaLogico.lo inimigo.lo torre.lo \
+	jogador.lo util.lo SDL_Tela.lo tela.lo SDL_Mapa.lo mapa.lo \
+	fase.lo animacao.lo menuEventos.lo menus.lo jogo.lo horda.lo \
+	SDL_Sprite.lo chipanze1.lo chipanze2.lo orangotango.lo \
+	gorila1.lo gorila2.lo atiradorSimples.lo atiradorDuplo.lo \
+	atiradorRetardante.lo atiradorAngulado.lo atiradorMoreFire.lo \
+	agentesProtetores.lo bombardeiro.lo fortification.lo \
+	ironMan.lo muro.lo muroReforcado.lo tanque.lo
 libitem_la_OBJECTS = $(am_libitem_la_OBJECTS)
 libitem_la_LINK = $(LIBTOOL) --tag=CXX $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CXXLD) $(AM_CXXFLAGS) \
@@ -111,12 +108,12 @@ DIST_SOURCES = $(libitem_la_SOURCES) $(spacemonkey_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.12.0/config/missing --run aclocal-1.11
-AMTAR = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.12.0/config/missing --run tar
+ACLOCAL = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.13.0/config/missing --run aclocal-1.11
+AMTAR = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.13.0/config/missing --run tar
 AR = ar
-AUTOCONF = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.12.0/config/missing --run autoconf
-AUTOHEADER = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.12.0/config/missing --run autoheader
-AUTOMAKE = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.12.0/config/missing --run automake-1.11
+AUTOCONF = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.13.0/config/missing --run autoconf
+AUTOHEADER = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.13.0/config/missing --run autoheader
+AUTOMAKE = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.13.0/config/missing --run automake-1.11
 AWK = gawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
@@ -156,7 +153,7 @@ LTLIBOBJS =
 LT_CURRENT = 0
 LT_RELEASE = 0.12.0
 LT_REVISION = 12
-MAKEINFO = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.12.0/config/missing --run makeinfo
+MAKEINFO = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.13.0/config/missing --run makeinfo
 MANIFEST_TOOL = :
 MKDIR_P = /bin/mkdir -p
 NM = /usr/bin/nm -B
@@ -179,10 +176,10 @@ SET_MAKE =
 SHELL = /bin/bash
 STRIP = strip
 VERSION = 0.12.0
-abs_builddir = /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.12.0/src
-abs_srcdir = /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.12.0/src
-abs_top_builddir = /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.12.0
-abs_top_srcdir = /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.12.0
+abs_builddir = /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.13.0/src
+abs_srcdir = /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.13.0/src
+abs_top_builddir = /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.13.0
+abs_top_srcdir = /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.13.0
 ac_config_aux_dir = 
 ac_ct_AR = ar
 ac_ct_CC = gcc
@@ -213,7 +210,7 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.12.0/config/install-sh
+install_sh = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-0.13.0/config/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -245,7 +242,7 @@ lib_LTLIBRARIES = libitem.la
 libitem_la_LDFLAGS = -static
 
 # Library sources
-libitem_la_SOURCES = inimigo.cpp torre.cpp jogador.cpp SDL_Tela.cpp tela.cpp SDL_Mapa.cpp mapa.cpp fase.cpp animacao.cpp menuEventos.cpp menus.cpp jogo.cpp horda.cpp SDL_Sprite.cpp chipanze1.cpp chipanze2.cpp orangotango.cpp gorila1.cpp gorila2.cpp atiradorSimples.cpp atiradorDuplo.cpp atiradorRetardante.cpp atiradorAngulado.cpp atiradorMoreFire.cpp agentesProtetores.cpp bombardeiro.cpp fortification.cpp ironMan.cpp muro.cpp muroReforcado.cpp tanque.cpp
+libitem_la_SOURCES = definicoesMapaLogico.cpp inimigo.cpp torre.cpp jogador.cpp util.cpp SDL_Tela.cpp tela.cpp SDL_Mapa.cpp mapa.cpp fase.cpp animacao.cpp menuEventos.cpp menus.cpp jogo.cpp horda.cpp SDL_Sprite.cpp chipanze1.cpp chipanze2.cpp orangotango.cpp gorila1.cpp gorila2.cpp atiradorSimples.cpp atiradorDuplo.cpp atiradorRetardante.cpp atiradorAngulado.cpp atiradorMoreFire.cpp agentesProtetores.cpp bombardeiro.cpp fortification.cpp ironMan.cpp muro.cpp muroReforcado.cpp tanque.cpp
 
 # Libraries needed to build our library
 libitem_la_LIBADD = 
@@ -391,6 +388,7 @@ include ./$(DEPDIR)/atiradorSimples.Plo
 include ./$(DEPDIR)/bombardeiro.Plo
 include ./$(DEPDIR)/chipanze1.Plo
 include ./$(DEPDIR)/chipanze2.Plo
+include ./$(DEPDIR)/definicoesMapaLogico.Plo
 include ./$(DEPDIR)/fase.Plo
 include ./$(DEPDIR)/fortification.Plo
 include ./$(DEPDIR)/gorila1.Plo
@@ -410,6 +408,7 @@ include ./$(DEPDIR)/spacemonkey.Po
 include ./$(DEPDIR)/tanque.Plo
 include ./$(DEPDIR)/tela.Plo
 include ./$(DEPDIR)/torre.Plo
+include ./$(DEPDIR)/util.Plo
 
 .cpp.o:
 	$(CXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<

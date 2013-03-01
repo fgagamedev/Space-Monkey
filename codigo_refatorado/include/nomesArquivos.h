@@ -52,13 +52,11 @@ const string IMAGEM_BOTAOSAIR = "MenuSair.png";
 const string IMAGEM_BOTAOSAIR2 = "MenuSair2.png";
 
 //define as posições dos objetivos inimigos em cada fase
-const int GOALS_X[NUM_FASES_TOTAIS] = {750, 10, 10, 10, 10, 10, 10, 10};
-const int GOALS_Y[NUM_FASES_TOTAIS] = {600, 10, 10, 10, 10, 10, 10, 10};
+const int GOALS_X[NUM_FASES_TOTAIS] = {720, 360, 360, 690, 780, 510, 720, 660};
+const int GOALS_Y[NUM_FASES_TOTAIS] = {570, 0, 570, 510, 510, 570, 540, 510};
 //define as posições iniciais dos inimigos em cada fase
-const int INITS_X[NUM_FASES_TOTAIS] = {0, 10, 10, 10, 10, 10, 10, 10};
-const int INITS_Y[NUM_FASES_TOTAIS] = {30, 10, 10, 10, 10, 10, 10, 10};
-
-
+const int INITS_X[NUM_FASES_TOTAIS] = {0, 120, 300, 30, 90, 0, 90, 0};
+const int INITS_Y[NUM_FASES_TOTAIS] = {30, 600, 0, 0, 0, 30, 0, 30};
 
 
 #endif

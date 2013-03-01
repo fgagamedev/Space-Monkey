@@ -6,12 +6,14 @@
 #include "fase.h"
 #include "constantes.h"
 #include "initException.h"
+#include "gameOverException.h"
 #include "jogador.h"
 #include "SDL_Mapa.h"
 #include "fileNotFoundException.h"
 #include "horda.h"
+#include "util.h"
 
-int Fase::faseAtual = -1;
+int Fase::faseAtual = 0;
 
 //faz os calculos das hordas e dos inimigos
 Fase::Fase(string nome_mapa, int num_fase, Jogador *jogador)
@@ -23,16 +25,17 @@ Fase::Fase(string nome_mapa, int num_fase, Jogador *jogador)
 	this->num_hordas = num_fase*3 + rand()%5;
 	this->num_medio_inimigos_por_horda = num_fase*5 + rand()%(num_fase+5);
 	this->jogador = jogador;
+	this->life = VIDA_FASE;
 	
 	faseAtual++;
 	this->hordas=NULL;	
 }
 
 //inicializa o mapa e o desenha na tela, além de inicializar as hordas e seus inimigos
-void Fase::init() throw (FileNotFoundException, InitException)
+void Fase::init() throw (FileNotFoundException, InitException, GameOverException)
 {
 	int inimigos_horda;
-
+cout << "\nFASE " << this->num_fase << endl;
 	//inicializa o mapa
 	try{
 		Mapa::loadMap(nome_mapa);
@@ -58,6 +61,7 @@ cout << "horda "<< i+1 << endl;
 			
 			this->hordas->push_back(new Horda(inimigos_horda, this->num_fase));
 			this->hordas->at(i)->init();
+			this->execHorda(i);
 		}
 	}catch(bad_alloc ba){
 		throw InitException("falha ao alocar memoria para as hordas da fase!");
@@ -77,6 +81,23 @@ Fase::~Fase()
 		int i,loops=this->hordas->size();
 		for(i=0; i<loops; i++)
 			delete this->hordas->at(i);
+		delete this->hordas;
 	}
 }
+
+//após inicializar tudo, executa a fase até seu fim
+void Fase::execHorda(int i) throw(GameOverException)
+{
+	this->hordas->at(i)->exec();
+	while(this->hordas->at(i)->getInimigosSobrando() > 0)
+	{
+		this->life -= this->hordas->at(i)->verificaEstadoInimigos();
+		//verifica se deu game over
+		if(this->life <= 0)
+			throw GameOverException("");
+		//executa a horda
+		this->hordas->at(i)->exec1();
+	}
+}
+
 

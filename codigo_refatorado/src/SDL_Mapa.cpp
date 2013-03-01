@@ -2,6 +2,7 @@
 #include "SDL_Mapa.h"
 #include "constantes.h"
 #include "nomesArquivos.h"
+#include "definicoesMapaLogico.cpp"
 #include "tela.h"
 #include "fase.h"
 #include "fileNotFoundException.h"
@@ -47,25 +48,7 @@ void SDL_Mapa::inicializaMapaLogico()
 		}
 	}
 	//bota 1 onde for estrada
-	for(i=0; i<6; i++)
-		mapaLogico[i][1] = mapaLogico[i][2] = ESTRADA;
-	mapaLogico[6][2] = mapaLogico[5][3] = mapaLogico[6][3] = mapaLogico[7][3] = mapaLogico[6][4] = mapaLogico[7][4] = mapaLogico[8][4] = mapaLogico[6][5] = mapaLogico[12][6] = ESTRADA;	
-	for(i=7; i<12; i++)
-		mapaLogico[i][5] = mapaLogico[i][6] =ESTRADA;	
-	for(i=6; i<9; i++)
-		mapaLogico[13][i] =mapaLogico[14][i] = ESTRADA;
-	mapaLogico[15][7] =mapaLogico[15][8] = ESTRADA;
-	for(i=14; i<=16; i++)
-		mapaLogico[i][9] =mapaLogico[i][10] = ESTRADA;
-	mapaLogico[17][10] = mapaLogico[18][9] = mapaLogico[19][9] = ESTRADA;
-	for(i=18; i<=20; i++)
-		mapaLogico[i][11] =mapaLogico[i][12] = ESTRADA;
-	mapaLogico[20][12] = mapaLogico[19][13] = mapaLogico[18][13] = ESTRADA;
-	for(i=13; i<18; i++)
-		mapaLogico[19][i] = mapaLogico[20][i] = ESTRADA;
-	mapaLogico[21][17] = ESTRADA;
-	for(i=20; i<24; i++)
-		mapaLogico[i][18] =mapaLogico[i][19]= ESTRADA;
+	nomesArquivos_montaMapaLogico(mapaLogico, Fase::getFaseAtual() );
 		
 }
 

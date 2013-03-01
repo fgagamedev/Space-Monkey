@@ -38,7 +38,7 @@ void SDL_Sprite::ativarTransparencia()
 void SDL_Sprite::init(Direcao dir)
 {
 	int rand1 = rand()%2 ? 1 : -1;
-	int rand2 = rand()%15;
+	int rand2 = rand()%30;
 	int fase = Fase::getFaseAtual();
 	this->x = INITS_X[fase]+(rand1*rand2), this->y = INITS_Y[fase]+(rand1*rand2);
 	
@@ -98,7 +98,7 @@ void SDL_Sprite::apagarSprite()
 void SDL_Sprite::mover(Direcao dir, int numPixels)
 {
 	//apaga o sprite atual da tela
-	this->apagarSprite();
+//	this->apagarSprite();
 	//altera o desenho que aparece do sprite
 	SDL_Rect retangulo;//retangulo que informa a area que será atualizada
 	retangulo.w = this->w, retangulo.h = this->h;
@@ -174,5 +174,7 @@ int SDL_Sprite::getY()
 
 SDL_Sprite::~SDL_Sprite()
 {
+	this->apagarSprite();
 	SDL_FreeSurface(sprite);	
 }
+

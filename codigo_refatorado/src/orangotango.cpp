@@ -1,4 +1,4 @@
-#include <iostream>
+
 #include <math.h>
 #include "mapa.h"
 #include "inimigo.h"
@@ -27,10 +27,6 @@ void Orangotango::init() throw (InitException, FileNotFoundException)
 	
 }
 
-//limpa a memoria
-Orangotango::~Orangotango()
-{
-	delete this->img;
-}
+
 
 

@@ -26,9 +26,3 @@ void Chipanze1::init() throw (InitException, FileNotFoundException)
 	
 }
 
-//limpa a memoria
-Chipanze1::~Chipanze1()
-{
-	delete this->img;
-}
-

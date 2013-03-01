@@ -15,19 +15,15 @@ void Gorila1::init() throw (InitException, FileNotFoundException)
 	this->vel = 2*INIMIGO_VEL_PADRAO/3;
 	this->hp_restante  = this->HP;
 	
-/*	try{
-		this->img = new SDL_Sprite("inimigo.bmp",48, 32);//nome do arquivo e as dimensões de cada desenho da sprite
-		this->img->init(Direcao dir=BAIXO);
+	try{
+		this->img = new SDL_Sprite(ARQUIVO_GORILA1,28, 45);//nome do arquivo e as dimensões de cada desenho da sprite
+		Direcao dir=BAIXO;
+		this->img->init(dir);
 	}catch(bad_alloc ba){
 		throw InitException("falha ao alocar o sprite do orangotango! não houve memoria suficiente!");
-	}*/
+	}
 	
 }
 
-//limpa a memoria
-Gorila1::~Gorila1()
-{
-	delete this->img;
-}
 
 

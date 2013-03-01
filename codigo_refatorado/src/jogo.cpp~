@@ -1,29 +1,97 @@
 
 #include "jogo.h"
 #include "menus.h"
+#include "jogador.h"
 #include "initException.h"
+#include "gameOverException.h"
+#include "exitException.h"
+#include "nomesArquivos.h"
+#include "tela.h"
+#include "fase.h"
+//#include "thread.h"
+#include "constantes.h"
 #include <iostream>
+#include <string>
 
 using namespace std;
+
 
 //inicia de fato o jogo
 void Jogo::rodarJogo()
 {
-cout << "entrei no rodarJogo" << endl;
 	Menus *menus;
-	//cria os menus
-	try{
+	Botoes botao;
+	
+	//cria os menus e inicia a thread de Eventos
+	try{	
+		this->jogador = new Jogador();
 		menus = new Menus();
 		menus->init();
-	}catch(InitException e){
+	}catch(bad_alloc ba){
+		cout << "falha ao alocar memoria para o jogador!" << endl;
+		return;
+	}catch(InitException &e){
 		cout << "falha ao iniciar o jogo! " << e.getMessage().c_str() << endl;
+		return;
+	}catch(ExitException &e2){
+		cout << e2.getMessage().c_str() << endl;
+		return;
 	}
 	
-	//os erros que podem vir a ocorrer durante o jogo são tratados na classe menus!
-	menus->apresentacaoInicial();
+	try{
+		menus->apresentacaoInicial();
+		botao = menus->menuInicial();
+	}catch(Exception &e){
+		delete this->jogador;
+		delete menus;
+		cout << e.getMessage().c_str() << endl;
+		return;
+	}
+	
+	switch(botao)
+	{
+	case Jogar:
+		iniciaJogo();
+		break;
+	case Extras:
+		
+		break;
+	case Sair:
+		break;
+	}
 	
 	//finaliza o jogo
-	menus->~Menus();
-cout << "sai do rodarJogo" << endl;
+	delete this->jogador;
+	delete menus;
 }
+
+//função realizada ao clicar em iniciar jogo no menu Inicial
+void Jogo::iniciaJogo()
+{
+	Fase *fases[NUM_FASES_TOTAIS];
+	
+	string nome_mapa;
+	int i=0;
+	try
+	{
+		for(i=0; i<NUM_FASES_TOTAIS; i++)
+		{
+			nome_mapa = NOME_MAPAS[i];
+			fases[i] = new Fase(nome_mapa, i+1, this->jogador);
+			fases[i]->init();
+			delete fases[i];			
+		}
+	}catch(GameOverException &go){
+		cout << "voce perdeu!!!!" << endl;
+		if(fases[i])	
+			delete fases[i];
+		break;
+	}catch(Exception &e){
+		//caso ocorra alguma falha em alguma fase, avisa qual o erro e encerra o jogo
+		cout << "Falha na fase " << i+1 << ": " << e.getMessage().c_str() << endl;
+		if(fases[i])	
+			delete fases[i];
+		break;
+	}
+}//fim da função
 

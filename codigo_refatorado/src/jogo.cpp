@@ -3,6 +3,7 @@
 #include "menus.h"
 #include "jogador.h"
 #include "initException.h"
+#include "gameOverException.h"
 #include "exitException.h"
 #include "nomesArquivos.h"
 #include "tela.h"
@@ -38,7 +39,7 @@ void Jogo::rodarJogo()
 	}
 	
 	try{
-		menus->apresentacaoInicial();
+	//	menus->apresentacaoInicial();
 		botao = menus->menuInicial();
 	}catch(Exception &e){
 		delete this->jogador;
@@ -70,23 +71,25 @@ void Jogo::iniciaJogo()
 	Fase *fases[NUM_FASES_TOTAIS];
 	
 	string nome_mapa;
-	int i;
-	for(i=0; i<NUM_FASES_TOTAIS; i++)
+	int i=0;
+	try
 	{
-		try
+		for(i=1; i<NUM_FASES_TOTAIS; i++)
 		{
 			nome_mapa = NOME_MAPAS[i];
 			fases[i] = new Fase(nome_mapa, i+1, this->jogador);
 			fases[i]->init();
-			delete fases[i];	
-		
-		}catch(Exception &e){
-			//caso ocorra alguma falha em alguma fase, avisa qual o erro e encerra o jogo
-			cout << "Falha na fase " << i+1 << ": " << e.getMessage().c_str() << endl;
-			if(fases[i])	
-				delete fases[i];
-			break;
-		}//fim do catch
-	}//fim do for
+			delete fases[i];			
+		}
+	}catch(GameOverException &go){
+		cout << "voce perdeu!!!!" << endl;
+		if(fases[i])	
+			delete fases[i];
+	}catch(Exception &e){
+		//caso ocorra alguma falha em alguma fase, avisa qual o erro e encerra o jogo
+		cout << "Falha na fase " << i+1 << ": " << e.getMessage().c_str() << endl;
+		if(fases[i])	
+			delete fases[i];
+	}
 }//fim da função
 

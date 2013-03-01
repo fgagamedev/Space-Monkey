@@ -57,10 +57,10 @@ void Animacao::fadeIn(SDL_Surface* imagem, int i)
 	SDL_Surface *tela = (SDL_Surface*)Tela::getTela();
 	int passo = 256/NUM_FRAMES_FADE_IN;
 	int cont;
-	Uint8 alpha=0;
+	int alpha=0;
 	for(cont=0; cont<NUM_FRAMES_FADE_IN; cont++)
 	{
-		SDL_SetAlpha(imagem, SDL_SRCALPHA | SDL_SRCCOLORKEY | SDL_RLEACCEL, alpha);
+		SDL_SetAlpha(imagem, SDL_SRCALPHA | SDL_RLEACCEL, (Uint8)alpha);
 		SDL_BlitSurface(imagem,NULL, tela,&area);
 		SDL_UpdateRect(tela, area.x, area.y, area.w, area.h);
 		//SDL_Flip(tela);
@@ -94,7 +94,8 @@ void Animacao::rodar()
 	{
 		if(imagens[i]!=NULL)
 		{
-			SDL_Delay( (momento[i]-timer)*1000 );
+			if(momento[i]!=0)
+				SDL_Delay( (momento[i]-timer-1)*1000 );
 			timer += momento[i];
 			fadeIn(imagens[i], i);
 		}

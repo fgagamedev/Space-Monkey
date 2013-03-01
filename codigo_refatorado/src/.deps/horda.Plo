@@ -80,7 +80,11 @@ horda.lo: horda.cpp /usr/include/c++/4.4/iostream \
  /usr/include/c++/4.4/bits/stl_algo.h /usr/include/c++/4.4/cstdlib \
  /usr/include/c++/4.4/bits/algorithmfwd.h \
  /usr/include/c++/4.4/bits/stl_heap.h \
- /usr/include/c++/4.4/bits/stl_tempbuf.h /usr/include/SDL/SDL.h \
+ /usr/include/c++/4.4/bits/stl_tempbuf.h ../include/util.h \
+ ../include/mapa.h ../include/constantes.h \
+ ../include/fileNotFoundException.h ../include/exception.h \
+ ../include/horda.h ../include/inimigo.h ../include/initException.h \
+ ../include/sprite.h ../include/SDL_Sprite.h /usr/include/SDL/SDL.h \
  /usr/include/SDL/SDL_main.h /usr/include/SDL/SDL_stdinc.h \
  /usr/include/SDL/SDL_config.h /usr/include/SDL/SDL_platform.h \
  /usr/include/libio.h /usr/include/_G_config.h \
@@ -98,10 +102,7 @@ horda.lo: horda.cpp /usr/include/c++/4.4/iostream \
  /usr/include/SDL/SDL_mouse.h /usr/include/SDL/SDL_video.h \
  /usr/include/SDL/SDL_joystick.h /usr/include/SDL/SDL_quit.h \
  /usr/include/SDL/SDL_loadso.h /usr/include/SDL/SDL_timer.h \
- /usr/include/SDL/SDL_version.h ../include/horda.h \
- ../include/constantes.h ../include/inimigo.h ../include/initException.h \
- ../include/exception.h ../include/sprite.h \
- ../include/fileNotFoundException.h ../include/constantes.h \
+ /usr/include/SDL/SDL_version.h ../include/constantes.h \
  ../include/inimigo.h ../include/chipanze1.h ../include/chipanze2.h \
  ../include/orangotango.h ../include/gorila1.h ../include/gorila2.h
 
@@ -345,6 +346,26 @@ horda.lo: horda.cpp /usr/include/c++/4.4/iostream \
 
 /usr/include/c++/4.4/bits/stl_tempbuf.h:
 
+../include/util.h:
+
+../include/mapa.h:
+
+../include/constantes.h:
+
+../include/fileNotFoundException.h:
+
+../include/exception.h:
+
+../include/horda.h:
+
+../include/inimigo.h:
+
+../include/initException.h:
+
+../include/sprite.h:
+
+../include/SDL_Sprite.h:
+
 /usr/include/SDL/SDL.h:
 
 /usr/include/SDL/SDL_main.h:
@@ -420,20 +441,6 @@ horda.lo: horda.cpp /usr/include/c++/4.4/iostream \
 /usr/include/SDL/SDL_timer.h:
 
 /usr/include/SDL/SDL_version.h:
-
-../include/horda.h:
-
-../include/constantes.h:
-
-../include/inimigo.h:
-
-../include/initException.h:
-
-../include/exception.h:
-
-../include/sprite.h:
-
-../include/fileNotFoundException.h:
 
 ../include/constantes.h:
 

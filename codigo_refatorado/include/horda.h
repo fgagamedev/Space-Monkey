@@ -29,9 +29,13 @@ public:
 	void init() throw (InitException, FileNotFoundException);
 	//retorna um inimigo especifico
 	Inimigo* getInimigo(int pos);
-	
-	//TO - DO
-	//void eliminarInimigo(		)
+	//verifica o estado de cada inimigo da horda e os libera caso tenham morrido ou chegado ao objetivo. Retorna o número de inimigos que alcançaram o objetivo final
+	unsigned int verificaEstadoInimigos();
+	//retorna o numero de inimigos vivos
+	int getInimigosSobrando();
+	//executa a movimentação de toda horda, sendo que cada uma decide pra onde vai sozinha
+	void exec();
+	void exec1();
 };
 
 #endif

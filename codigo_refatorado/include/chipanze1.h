@@ -10,7 +10,6 @@ class Chipanze1 : public Inimigo
 {
 public:
 	void init() throw (InitException, FileNotFoundException);
-	~Chipanze1();
 };
 
 #endif

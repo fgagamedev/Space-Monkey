@@ -10,7 +10,7 @@ class Gorila1 : public Inimigo
 {
 public:
 	void init() throw (InitException, FileNotFoundException);
-	~Gorila1();
+	
 };
 
 #endif

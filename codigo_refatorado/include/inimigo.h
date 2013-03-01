@@ -4,6 +4,7 @@
 #include "initException.h"
 #include "constantes.h"
 #include "sprite.h"
+#include "SDL_Sprite.h"
 #include "fileNotFoundException.h"
 
 class Inimigo
@@ -13,10 +14,12 @@ protected:
 	int dano;
 	int vel;
 	int hp_restante;
-	Sprite *img;
+	SDL_Sprite *img;
 public:
 	//inicializa os valores do inimigo
 	virtual void init() throw (InitException, FileNotFoundException) = 0;
+	//destrutor
+	~Inimigo();
 	//retorna o quanto de vida resta
 	int getHp() const;
 	//retorna o dano que o inimigo causa
@@ -27,6 +30,10 @@ public:
 	void mover(Direcao dir);
 	void mover();
 	Direcao direcao_a_ser_movido(int dirX, int dirY);
+	//verifica se o HP restante é 0 (se morreu)
+	bool isDead();
+	//verifica se chegou ao ponto final
+	bool chegouPontoFinal();
 };
 
 

@@ -10,7 +10,6 @@ class Orangotango : public Inimigo
 {
 public:
 	void init() throw (InitException, FileNotFoundException);
-	~Orangotango();
 };
 
 #endif
