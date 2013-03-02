@@ -448,11 +448,11 @@ Copyright (C) 2010 Free Software Foundation, Inc.
 This config.status script is free software; the Free Software Foundation
 gives unlimited permission to copy, distribute and modify it."
 
-ac_pwd='/home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-1.0.3'
+ac_pwd='/home/rodrigo/spacemonkey-1.0.3'
 srcdir='.'
 INSTALL='/usr/bin/install -c'
 MKDIR_P='/bin/mkdir -p'
-AWK='gawk'
+AWK='mawk'
 test -n "$AWK" || AWK=awk
 # The default lists apply if the user does not specify any file.
 ac_need_defaults=:
@@ -685,8 +685,8 @@ postuninstall_cmds=''
 finish_cmds='PATH="\$PATH:/sbin" ldconfig -n $libdir'
 finish_eval=''
 hardcode_into_libs='yes'
-sys_lib_search_path_spec='/usr/lib/gcc/x86_64-linux-gnu/4.4.3 /usr/lib /lib /usr/lib/x86_64-linux-gnu '
-sys_lib_dlsearch_path_spec='/lib /usr/lib /usr/lib/mesa /usr/lib32/mesa /usr/lib32/alsa-lib /usr/lib/alsa-lib /usr/local/lib /lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu '
+sys_lib_search_path_spec='/usr/lib/gcc/x86_64-linux-gnu/4.6.1 /usr/lib/x86_64-linux-gnu /usr/lib /lib/x86_64-linux-gnu /lib '
+sys_lib_dlsearch_path_spec='/lib /usr/lib /usr/local/lib /lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu/mesa '
 hardcode_action='immediate'
 enable_dlopen='unknown'
 enable_dlopen_self='unknown'
@@ -742,12 +742,12 @@ prelink_cmds_CXX=''
 postlink_cmds_CXX=''
 file_list_spec_CXX=''
 hardcode_action_CXX='immediate'
-compiler_lib_search_dirs_CXX='/usr/lib/gcc/x86_64-linux-gnu/4.4.3 /usr/lib/gcc/x86_64-linux-gnu/4.4.3 /usr/lib/gcc/x86_64-linux-gnu/4.4.3/../../../../lib /lib/../lib /usr/lib/../lib /usr/lib/gcc/x86_64-linux-gnu/4.4.3/../../.. /usr/lib/x86_64-linux-gnu'
-predep_objects_CXX='/usr/lib/gcc/x86_64-linux-gnu/4.4.3/../../../../lib/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.4.3/crtbeginS.o'
-postdep_objects_CXX='/usr/lib/gcc/x86_64-linux-gnu/4.4.3/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/4.4.3/../../../../lib/crtn.o'
+compiler_lib_search_dirs_CXX='/usr/lib/gcc/x86_64-linux-gnu/4.6.1 /usr/lib/gcc/x86_64-linux-gnu/4.6.1/../../../x86_64-linux-gnu /usr/lib/gcc/x86_64-linux-gnu/4.6.1/../../../../lib /lib/x86_64-linux-gnu /lib/../lib /usr/lib/x86_64-linux-gnu /usr/lib/../lib /usr/lib/gcc/x86_64-linux-gnu/4.6.1/../../..'
+predep_objects_CXX='/usr/lib/gcc/x86_64-linux-gnu/4.6.1/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.6.1/crtbeginS.o'
+postdep_objects_CXX='/usr/lib/gcc/x86_64-linux-gnu/4.6.1/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/4.6.1/../../../x86_64-linux-gnu/crtn.o'
 predeps_CXX=''
 postdeps_CXX='-lstdc++ -lm -lgcc_s -lc -lgcc_s'
-compiler_lib_search_path_CXX='-L/usr/lib/gcc/x86_64-linux-gnu/4.4.3 -L/usr/lib/gcc/x86_64-linux-gnu/4.4.3 -L/usr/lib/gcc/x86_64-linux-gnu/4.4.3/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.4.3/../../.. -L/usr/lib/x86_64-linux-gnu'
+compiler_lib_search_path_CXX='-L/usr/lib/gcc/x86_64-linux-gnu/4.6.1 -L/usr/lib/gcc/x86_64-linux-gnu/4.6.1/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.6.1/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.6.1/../../..'
 
 LTCC='gcc'
 LTCFLAGS='-g -O2'
@@ -933,20 +933,20 @@ S["CC"]="gcc"
 S["LIBTOOL"]="$(SHELL) $(top_builddir)/libtool"
 S["am__untar"]="${AMTAR} xf -"
 S["am__tar"]="${AMTAR} chof - \"$$tardir\""
-S["AMTAR"]="${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-1.0.3/config/missing --run tar"
+S["AMTAR"]="${SHELL} /home/rodrigo/spacemonkey-1.0.3/config/missing --run tar"
 S["am__leading_dot"]="."
 S["SET_MAKE"]=""
-S["AWK"]="gawk"
+S["AWK"]="mawk"
 S["mkdir_p"]="/bin/mkdir -p"
 S["MKDIR_P"]="/bin/mkdir -p"
 S["INSTALL_STRIP_PROGRAM"]="$(install_sh) -c -s"
 S["STRIP"]="strip"
-S["install_sh"]="${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-1.0.3/config/install-sh"
-S["MAKEINFO"]="${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-1.0.3/config/missing --run makeinfo"
-S["AUTOHEADER"]="${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-1.0.3/config/missing --run autoheader"
-S["AUTOMAKE"]="${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-1.0.3/config/missing --run automake-1.11"
-S["AUTOCONF"]="${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-1.0.3/config/missing --run autoconf"
-S["ACLOCAL"]="${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/space/spacemonkey-1.0.3/config/missing --run aclocal-1.11"
+S["install_sh"]="${SHELL} /home/rodrigo/spacemonkey-1.0.3/config/install-sh"
+S["MAKEINFO"]="${SHELL} /home/rodrigo/spacemonkey-1.0.3/config/missing --run makeinfo"
+S["AUTOHEADER"]="${SHELL} /home/rodrigo/spacemonkey-1.0.3/config/missing --run autoheader"
+S["AUTOMAKE"]="${SHELL} /home/rodrigo/spacemonkey-1.0.3/config/missing --run automake-1.11"
+S["AUTOCONF"]="${SHELL} /home/rodrigo/spacemonkey-1.0.3/config/missing --run autoconf"
+S["ACLOCAL"]="${SHELL} /home/rodrigo/spacemonkey-1.0.3/config/missing --run aclocal-1.11"
 S["VERSION"]="1.0.3"
 S["PACKAGE"]="spacemonkey"
 S["CYGPATH_W"]="echo"
