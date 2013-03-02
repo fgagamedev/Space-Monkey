@@ -149,16 +149,21 @@ void MenuEventos::rodaMusica(string nome_musica){
 	}	
 }
 
+void MenuEventos::pausaMusica(int volume){
+	Audio::setVolume(volume);
+}
+
 Botoes MenuEventos::getBotaoPressionado() throw (ExitException)
 {
 	Botoes bt = Sair;
 	SDL_Event event;
 
 	SDL_EnableKeyRepeat(SDL_DEFAULT_REPEAT_DELAY, SDL_DEFAULT_REPEAT_INTERVAL);
-	
-	rodaMusica(MUSICA_MENU_INICIAL);
-	
+		
 	int indiceBt=0;
+	bool musicaRodando = false; 
+
+	rodaMusica(MUSICA_MENU_INICIAL);
 	
 	while(true)
 	{
@@ -254,6 +259,19 @@ Botoes MenuEventos::getBotaoPressionado() throw (ExitException)
 						Audio::stopAudio();
 						return bt = Sair;
 					}					
+					break;
+				case SDLK_m:
+					if(musicaRodando){
+						cout << "Mute desapertado" << endl;
+						pausaMusica(5);
+						musicaRodando = false;					
+					}
+					else{
+						cout << "Mute apertado" << endl;
+						pausaMusica(0);
+						musicaRodando = true;
+					}
+						
 					break;
 				default:
 					break;

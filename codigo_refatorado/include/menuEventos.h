@@ -24,6 +24,7 @@ private:
 	void trocarImgSair();
 	//Audio
 	void rodaMusica(string nome_musica);
+	void pausaMusica(int volume);
 public:
 	MenuEventos() throw (FileNotFoundException);
 	~MenuEventos();

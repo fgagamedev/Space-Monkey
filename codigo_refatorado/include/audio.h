@@ -19,6 +19,10 @@ private:
 	static int position;
 	//booleano que diz se há algo tocando ou não
 	static bool isPlaying;
+	// Volume Áudio
+	static int volume;
+	static int minVolume;
+	
 public:
 	//inicializa o SDL Audio
 	static void init()throw(InitException);
@@ -29,6 +33,8 @@ public:
 	//para a execução do áudio corrente e libera a memória da musica
 	static void stopAudio();
 	static void closeAudio();
+	static void setVolume(int volumeRecebido);
+	static int getVolume();
 };
 
 #endif

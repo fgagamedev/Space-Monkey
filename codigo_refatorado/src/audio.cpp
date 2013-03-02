@@ -10,6 +10,8 @@ Uint8* Audio::bufferAudio = 0;
 int Audio::size = 0;
 int Audio::position = 0;
 bool Audio::isPlaying = false;
+int Audio::volume = 5;
+int Audio::minVolume = volume*(SDL_MIX_MAXVOLUME / 10);
 
 //inicializa o SDL Audio
 void Audio::init()throw(InitException)
@@ -50,7 +52,7 @@ void Audio::callback(void *userdata, Uint8 *audioFinal, int TamanhoBuffer)
 		tamanho_prox_amostra = TamanhoBuffer;
 
 	//mixa os dados
-	SDL_MixAudio(audioFinal, bufferAudio + position, tamanho_prox_amostra, SDL_MIX_MAXVOLUME / 2);
+	SDL_MixAudio(audioFinal, bufferAudio + position, tamanho_prox_amostra, minVolume);
 
 	//muda a posição do cursor
 	position += tamanho_prox_amostra;
@@ -104,6 +106,7 @@ void Audio::setAudio(string nome_audio)throw (FileNotFoundException, InitExcepti
 	SDL_LockAudio();
 	position = 0;
 	size = cvt.len * cvt.len_mult;
+	wavSpec.callback = Audio::callback;
 	SDL_UnlockAudio();
 	
 	//por fim, toca a bagaça
@@ -128,5 +131,13 @@ void Audio::closeAudio()
 	if(audio_spec_obtido)
 		free(audio_spec_obtido);
 	audio_spec_obtido=NULL;
+}
+
+void Audio::setVolume(int volumeRecebido){
+	volume = volumeRecebido;
+}
+
+int Audio::getVolume(){
+	return volume;
 }
 
