@@ -1,0 +1,16 @@
+TODO List
+
+1 - Refatorar código
+	a - Mudar Path(Modularizar em pastas)
+2 - Fazer torres
+	xa - Criar Torre com click
+	a.1- Fazer criação no local do click
+	b - Criar menu para qual torre criar
+	c - Criar menu para evolução de torre
+3 - Mexer SDL_mixer
+	a - Verificar loop de música
+	b - verificar formatos aceitos
+	c - Ver como funciona mixagem
+4 - Consertar movimentação de macacos
+	a - Fazer eles andarem não-ciclicamente
+	b - Consertar mapa(Talvez!! Se tudo der errado!!)
