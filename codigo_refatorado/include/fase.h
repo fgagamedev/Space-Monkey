@@ -11,6 +11,7 @@
 #include "fileNotFoundException.h"
 #include "mapa.h"
 #include "horda.h"
+#include "torre.h"
 
 using namespace std;
 
@@ -46,6 +47,10 @@ public:
 	static int getFaseAtual();
 	//zera o contador de fases em caso de game over ou de encerrá-lo
 	static int zerarContadorFases();
+
+	//referencia para torre
+	Torre *torre;
+
 };
 
 #endif

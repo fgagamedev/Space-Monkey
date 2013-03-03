@@ -77,6 +77,9 @@ fase.lo: fase.cpp /usr/include/c++/4.4/iostream \
  /usr/include/c++/4.4/bits/stl_vector.h \
  /usr/include/c++/4.4/bits/stl_bvector.h \
  /usr/include/c++/4.4/bits/vector.tcc ../include/jogador.h \
+ /usr/include/libio.h /usr/include/_G_config.h \
+ /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h \
+ /usr/include/bits/stdio.h /usr/include/bits/stdio2.h \
  ../include/initException.h ../include/exception.h \
  ../include/exitException.h ../include/gameOverException.h \
  ../include/fileNotFoundException.h ../include/mapa.h \
@@ -84,9 +87,6 @@ fase.lo: fase.cpp /usr/include/c++/4.4/iostream \
  ../include/sprite.h ../include/SDL_Sprite.h /usr/include/SDL/SDL.h \
  /usr/include/SDL/SDL_main.h /usr/include/SDL/SDL_stdinc.h \
  /usr/include/SDL/SDL_config.h /usr/include/SDL/SDL_platform.h \
- /usr/include/libio.h /usr/include/_G_config.h \
- /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h \
- /usr/include/bits/stdio.h /usr/include/bits/stdio2.h \
  /usr/include/string.h /usr/include/bits/string3.h /usr/include/strings.h \
  /usr/include/inttypes.h /usr/include/stdint.h /usr/include/iconv.h \
  /usr/include/SDL/begin_code.h /usr/include/SDL/close_code.h \
@@ -99,13 +99,14 @@ fase.lo: fase.cpp /usr/include/c++/4.4/iostream \
  /usr/include/SDL/SDL_mouse.h /usr/include/SDL/SDL_video.h \
  /usr/include/SDL/SDL_joystick.h /usr/include/SDL/SDL_quit.h \
  /usr/include/SDL/SDL_loadso.h /usr/include/SDL/SDL_timer.h \
- /usr/include/SDL/SDL_version.h ../include/eventos.h ../include/fase.h \
- ../include/constantes.h ../include/nomesArquivos.h \
+ /usr/include/SDL/SDL_version.h ../include/torre.h ../include/eventos.h \
+ ../include/fase.h ../include/constantes.h ../include/nomesArquivos.h \
  ../include/exitException.h ../include/exception.h \
  ../include/initException.h ../include/gameOverException.h \
  ../include/audio.h ../include/jogador.h ../include/SDL_Mapa.h \
  ../include/fileNotFoundException.h ../include/horda.h ../include/util.h \
- /usr/include/SDL/SDL_ttf.h /usr/include/SDL/SDL.h
+ /usr/include/SDL/SDL_ttf.h /usr/include/SDL/SDL.h ../include/torre.h \
+ ../include/atiradorSimples.h
 
 /usr/include/c++/4.4/iostream:
 
@@ -339,6 +340,18 @@ fase.lo: fase.cpp /usr/include/c++/4.4/iostream \
 
 ../include/jogador.h:
 
+/usr/include/libio.h:
+
+/usr/include/_G_config.h:
+
+/usr/include/bits/stdio_lim.h:
+
+/usr/include/bits/sys_errlist.h:
+
+/usr/include/bits/stdio.h:
+
+/usr/include/bits/stdio2.h:
+
 ../include/initException.h:
 
 ../include/exception.h:
@@ -370,18 +383,6 @@ fase.lo: fase.cpp /usr/include/c++/4.4/iostream \
 /usr/include/SDL/SDL_config.h:
 
 /usr/include/SDL/SDL_platform.h:
-
-/usr/include/libio.h:
-
-/usr/include/_G_config.h:
-
-/usr/include/bits/stdio_lim.h:
-
-/usr/include/bits/sys_errlist.h:
-
-/usr/include/bits/stdio.h:
-
-/usr/include/bits/stdio2.h:
 
 /usr/include/string.h:
 
@@ -437,6 +438,8 @@ fase.lo: fase.cpp /usr/include/c++/4.4/iostream \
 
 /usr/include/SDL/SDL_version.h:
 
+../include/torre.h:
+
 ../include/eventos.h:
 
 ../include/fase.h:
@@ -468,3 +471,7 @@ fase.lo: fase.cpp /usr/include/c++/4.4/iostream \
 /usr/include/SDL/SDL_ttf.h:
 
 /usr/include/SDL/SDL.h:
+
+../include/torre.h:
+
+../include/atiradorSimples.h:

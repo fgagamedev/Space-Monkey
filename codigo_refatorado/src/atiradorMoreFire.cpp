@@ -14,7 +14,7 @@ void AtiradorMoreFire::init() throw(InitException, FileNotFoundException)
 	this->dano = TORRE_DANO_PADRAO*2;
 	this->tempoRecarga = TORRE_TEMPO_RECARGUE_PADRAO;
 	this->alcance = TORRE_ALCANCE_PADRAO;
-	custo = TORRE_CUSTO_PADRAO*2;
+	custo = 2*TORRE_CUSTO_PADRAO;
 	
 	this->hp_restante  = this->HP;
 	

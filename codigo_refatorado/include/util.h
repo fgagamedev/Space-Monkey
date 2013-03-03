@@ -10,6 +10,10 @@ public:
 	//para a execução pelos milissegundos pedidos
 	static void delay(int mili);
 	static TTF_Font* getFonte(int size)throw(FileNotFoundException);
+	static void muteMusic(string musicName);
+	static void playMusic(string musicName);
+private:
+	static bool musicaRodando;
 };
 
 #endif

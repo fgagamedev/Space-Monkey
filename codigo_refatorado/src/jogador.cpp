@@ -1,13 +1,19 @@
 
-
 #include "jogador.h"
 
 int Jogador::moedas = 0;
-
+Jogador* Jogador::jogador = NULL;
 //inicia o número de moedas que ele possui
 Jogador::Jogador()
 {
-	this->moedas = MOEDAS_INICIAIS;
+	moedas = MOEDAS_INICIAIS;
+}
+
+Jogador* Jogador::obterJogador(){
+	if(jogador == NULL)
+		jogador = new Jogador();
+	
+	return jogador; 
 }
 
 //retorna o nº de moedas que ele possui

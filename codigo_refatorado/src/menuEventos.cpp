@@ -11,7 +11,7 @@
 #include <string>
 #include <SDL/SDL_image.h>
 #include "fileNotFoundException.h"
-
+#include "util.h"
 
 //construtor
 MenuEventos::MenuEventos() throw(FileNotFoundException)
@@ -140,18 +140,6 @@ void MenuEventos::trocarImgSair()
 	SDL_UpdateRect(tela,rect.x, rect.y, rect.w, rect.h);
 }
 
-void MenuEventos::rodaMusica(string nome_musica){
-	try{
-		Audio::setAudio(nome_musica);
-	}catch(Exception &e){
-		cout << "Falha a carregar a música do Menu inicial! "<<e.getMessage() <<endl;
-		Audio::stopAudio();
-	}	
-}
-
-void MenuEventos::pausaMusica(int volume){
-	Audio::setVolume(volume);
-}
 
 Botoes MenuEventos::getBotaoPressionado() throw (ExitException)
 {
@@ -161,10 +149,9 @@ Botoes MenuEventos::getBotaoPressionado() throw (ExitException)
 	SDL_EnableKeyRepeat(SDL_DEFAULT_REPEAT_DELAY, SDL_DEFAULT_REPEAT_INTERVAL);
 		
 	int indiceBt=0;
-	bool musicaRodando = false; 
 
-	rodaMusica(MUSICA_MENU_INICIAL);
-	
+	Util::playMusic(MUSICA_MENU_INICIAL);
+
 	while(true)
 	{
 		while (SDL_PollEvent(&event)) 
@@ -261,17 +248,7 @@ Botoes MenuEventos::getBotaoPressionado() throw (ExitException)
 					}					
 					break;
 				case SDLK_m:
-					if(musicaRodando){
-						cout << "Mute desapertado" << endl;
-						pausaMusica(5);
-						musicaRodando = false;					
-					}
-					else{
-						cout << "Mute apertado" << endl;
-						pausaMusica(0);
-						musicaRodando = true;
-					}
-						
+					Util::muteMusic(MUSICA_MENU_INICIAL);						
 					break;
 				default:
 					break;

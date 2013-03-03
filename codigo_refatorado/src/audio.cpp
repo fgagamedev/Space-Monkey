@@ -106,7 +106,6 @@ void Audio::setAudio(string nome_audio)throw (FileNotFoundException, InitExcepti
 	SDL_LockAudio();
 	position = 0;
 	size = cvt.len * cvt.len_mult;
-	wavSpec.callback = Audio::callback;
 	SDL_UnlockAudio();
 	
 	//por fim, toca a bagaça
@@ -141,3 +140,6 @@ int Audio::getVolume(){
 	return volume;
 }
 
+void Audio::pausaMusica(){
+	SDL_PauseAudio(1);	
+}

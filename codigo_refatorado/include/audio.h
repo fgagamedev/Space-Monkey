@@ -35,6 +35,7 @@ public:
 	static void closeAudio();
 	static void setVolume(int volumeRecebido);
 	static int getVolume();
+	static void pausaMusica();
 };
 
 #endif

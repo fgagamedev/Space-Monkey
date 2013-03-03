@@ -17,6 +17,9 @@
 #include "fileNotFoundException.h"
 #include "horda.h"
 #include "util.h"
+// Torres
+#include "torre.h"
+#include "atiradorSimples.h"
 
 int Fase::faseAtual = -1;
 
@@ -33,7 +36,8 @@ Fase::Fase(string nome_mapa, int num_fase, Jogador *jogador)
 	this->life = VIDA_FASE;
 	
 	faseAtual++;
-	this->hordas=NULL;	
+	this->hordas=NULL;
+	this->torre=NULL;	
 }
 
 //inicializa o mapa e o desenha na tela, além de inicializar as hordas e seus inimigos
@@ -49,13 +53,7 @@ cout << "\nFASE " << this->num_fase << endl;
 		throw InitException("falha ao alocar memoria para o mapa da fase!" );
 	}
 	//inicia a musica de fundo
-	try{
-		Audio::setAudio(MUSICA_FASES[faseAtual]);
-	}catch(Exception &e){
-		cout << "Falha a carregar a música da fase "<< faseAtual<<"! "<<e.getMessage() <<endl;
-		Audio::stopAudio();
-	}
-	
+	Util::playMusic(MUSICA_FASES[faseAtual]);	
 	//inicializa as hordas
 	try{
 		//cria um vetor de hordas vazios
@@ -78,6 +76,14 @@ cout << "horda "<< i+1 << endl;
 	}catch(bad_alloc ba){
 		throw InitException("falha ao alocar memoria para as hordas da fase!");
 	}
+	
+	// Inicializa Torres
+	try{
+		this->torre = new AtiradorSimples();
+		torre->init();
+	}catch(bad_alloc ba){
+		throw InitException("falha ao alocar memoria para torre!");
+	}
 }
 
 int Fase::getFaseAtual()
@@ -99,6 +105,7 @@ Fase::~Fase()
 }
 
 //após inicializar tudo, executa a fase até seu fim
+//Talvez: Mudar nome de execHorda para execFase
 void Fase::execHorda(int i) throw(GameOverException, ExitException, FileNotFoundException)
 {
 	this->hordas->at(i)->exec();
@@ -119,5 +126,6 @@ void Fase::execHorda(int i) throw(GameOverException, ExitException, FileNotFound
 int Fase::zerarContadorFases()
 {
 	faseAtual = -1;
+	return faseAtual;
 }
 

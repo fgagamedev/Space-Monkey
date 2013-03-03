@@ -101,8 +101,8 @@ SDL_Mapa.lo: SDL_Mapa.cpp /usr/include/stdio.h /usr/include/features.h \
  /usr/include/c++/4.4/bits/vector.tcc ../include/jogador.h \
  ../include/exitException.h ../include/gameOverException.h \
  ../include/horda.h ../include/inimigo.h ../include/sprite.h \
- ../include/SDL_Sprite.h ../include/fileNotFoundException.h \
- /usr/include/SDL/SDL_image.h
+ ../include/SDL_Sprite.h ../include/torre.h \
+ ../include/fileNotFoundException.h /usr/include/SDL/SDL_image.h
 
 /usr/include/stdio.h:
 
@@ -451,6 +451,8 @@ definicoesMapaLogico.cpp:
 ../include/sprite.h:
 
 ../include/SDL_Sprite.h:
+
+../include/torre.h:
 
 ../include/fileNotFoundException.h:
 

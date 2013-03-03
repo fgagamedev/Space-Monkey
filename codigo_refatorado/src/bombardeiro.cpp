@@ -14,7 +14,7 @@ void Bombardeiro::init() throw(InitException, FileNotFoundException)
 	this->dano = TORRE_DANO_PADRAO*2;
 	this->tempoRecarga = TORRE_TEMPO_RECARGUE_PADRAO;
 	this->alcance = TORRE_ALCANCE_PADRAO/2;
-	custo = TORRE_CUSTO_PADRAO*3;
+	custo = 3*TORRE_CUSTO_PADRAO;
 	
 	this->hp_restante  = this->HP;
 	

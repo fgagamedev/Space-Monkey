@@ -56,6 +56,9 @@ eventos.lo: eventos.cpp ../include/fase.h /usr/include/c++/4.4/string \
  /usr/include/c++/4.4/bits/stl_vector.h \
  /usr/include/c++/4.4/bits/stl_bvector.h \
  /usr/include/c++/4.4/bits/vector.tcc ../include/jogador.h \
+ /usr/include/libio.h /usr/include/_G_config.h \
+ /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h \
+ /usr/include/bits/stdio.h /usr/include/bits/stdio2.h \
  ../include/initException.h ../include/exception.h \
  ../include/exitException.h ../include/gameOverException.h \
  ../include/fileNotFoundException.h ../include/mapa.h \
@@ -65,9 +68,6 @@ eventos.lo: eventos.cpp ../include/fase.h /usr/include/c++/4.4/string \
  /usr/include/SDL/SDL_config.h /usr/include/SDL/SDL_platform.h \
  /usr/include/sys/types.h /usr/include/sys/select.h \
  /usr/include/bits/select.h /usr/include/sys/sysmacros.h \
- /usr/include/libio.h /usr/include/_G_config.h \
- /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h \
- /usr/include/bits/stdio.h /usr/include/bits/stdio2.h \
  /usr/include/stdlib.h /usr/include/bits/waitflags.h \
  /usr/include/bits/waitstatus.h /usr/include/alloca.h \
  /usr/include/bits/stdlib.h /usr/include/string.h \
@@ -83,8 +83,25 @@ eventos.lo: eventos.cpp ../include/fase.h /usr/include/c++/4.4/string \
  /usr/include/SDL/SDL_mouse.h /usr/include/SDL/SDL_video.h \
  /usr/include/SDL/SDL_joystick.h /usr/include/SDL/SDL_quit.h \
  /usr/include/SDL/SDL_loadso.h /usr/include/SDL/SDL_timer.h \
- /usr/include/SDL/SDL_version.h ../include/marcador.h \
- ../include/eventos.h ../include/fase.h ../include/exitException.h
+ /usr/include/SDL/SDL_version.h ../include/torre.h ../include/marcador.h \
+ ../include/eventos.h ../include/fase.h ../include/exitException.h \
+ ../include/util.h /usr/include/SDL/SDL_ttf.h /usr/include/SDL/SDL.h \
+ ../include/constantes.h ../include/nomesArquivos.h \
+ /usr/include/c++/4.4/iostream /usr/include/c++/4.4/ostream \
+ /usr/include/c++/4.4/ios /usr/include/c++/4.4/bits/ios_base.h \
+ /usr/include/c++/4.4/bits/locale_classes.h \
+ /usr/include/c++/4.4/bits/locale_classes.tcc \
+ /usr/include/c++/4.4/streambuf /usr/include/c++/4.4/bits/streambuf.tcc \
+ /usr/include/c++/4.4/bits/basic_ios.h \
+ /usr/include/c++/4.4/bits/locale_facets.h /usr/include/c++/4.4/cwctype \
+ /usr/include/wctype.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/bits/ctype_base.h \
+ /usr/include/c++/4.4/bits/streambuf_iterator.h \
+ /usr/include/c++/4.4/x86_64-linux-gnu/bits/ctype_inline.h \
+ /usr/include/c++/4.4/bits/locale_facets.tcc \
+ /usr/include/c++/4.4/bits/basic_ios.tcc \
+ /usr/include/c++/4.4/bits/ostream.tcc /usr/include/c++/4.4/istream \
+ /usr/include/c++/4.4/bits/istream.tcc
 
 ../include/fase.h:
 
@@ -260,6 +277,18 @@ eventos.lo: eventos.cpp ../include/fase.h /usr/include/c++/4.4/string \
 
 ../include/jogador.h:
 
+/usr/include/libio.h:
+
+/usr/include/_G_config.h:
+
+/usr/include/bits/stdio_lim.h:
+
+/usr/include/bits/sys_errlist.h:
+
+/usr/include/bits/stdio.h:
+
+/usr/include/bits/stdio2.h:
+
 ../include/initException.h:
 
 ../include/exception.h:
@@ -299,18 +328,6 @@ eventos.lo: eventos.cpp ../include/fase.h /usr/include/c++/4.4/string \
 /usr/include/bits/select.h:
 
 /usr/include/sys/sysmacros.h:
-
-/usr/include/libio.h:
-
-/usr/include/_G_config.h:
-
-/usr/include/bits/stdio_lim.h:
-
-/usr/include/bits/sys_errlist.h:
-
-/usr/include/bits/stdio.h:
-
-/usr/include/bits/stdio2.h:
 
 /usr/include/stdlib.h:
 
@@ -376,6 +393,8 @@ eventos.lo: eventos.cpp ../include/fase.h /usr/include/c++/4.4/string \
 
 /usr/include/SDL/SDL_version.h:
 
+../include/torre.h:
+
 ../include/marcador.h:
 
 ../include/eventos.h:
@@ -383,3 +402,53 @@ eventos.lo: eventos.cpp ../include/fase.h /usr/include/c++/4.4/string \
 ../include/fase.h:
 
 ../include/exitException.h:
+
+../include/util.h:
+
+/usr/include/SDL/SDL_ttf.h:
+
+/usr/include/SDL/SDL.h:
+
+../include/constantes.h:
+
+../include/nomesArquivos.h:
+
+/usr/include/c++/4.4/iostream:
+
+/usr/include/c++/4.4/ostream:
+
+/usr/include/c++/4.4/ios:
+
+/usr/include/c++/4.4/bits/ios_base.h:
+
+/usr/include/c++/4.4/bits/locale_classes.h:
+
+/usr/include/c++/4.4/bits/locale_classes.tcc:
+
+/usr/include/c++/4.4/streambuf:
+
+/usr/include/c++/4.4/bits/streambuf.tcc:
+
+/usr/include/c++/4.4/bits/basic_ios.h:
+
+/usr/include/c++/4.4/bits/locale_facets.h:
+
+/usr/include/c++/4.4/cwctype:
+
+/usr/include/wctype.h:
+
+/usr/include/c++/4.4/x86_64-linux-gnu/bits/ctype_base.h:
+
+/usr/include/c++/4.4/bits/streambuf_iterator.h:
+
+/usr/include/c++/4.4/x86_64-linux-gnu/bits/ctype_inline.h:
+
+/usr/include/c++/4.4/bits/locale_facets.tcc:
+
+/usr/include/c++/4.4/bits/basic_ios.tcc:
+
+/usr/include/c++/4.4/bits/ostream.tcc:
+
+/usr/include/c++/4.4/istream:
+
+/usr/include/c++/4.4/bits/istream.tcc:

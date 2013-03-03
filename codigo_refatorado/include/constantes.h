@@ -53,6 +53,21 @@ const int TORRE_DANO_PADRAO = 2;
 const int TORRE_TEMPO_RECARGUE_PADRAO = 1;//em segundos
 const int TORRE_ALCANCE_PADRAO = 15;//em pixels
 const int TORRE_CUSTO_PADRAO = 10;
+//define o valor numerico de cada torre
+const int TIPO_TORRE_SIMPLES = 1;
+const int TIPO_TORRE_DUPLO = 2;
+const int TIPO_TORRE_RETARDANTE = 3;
+const int TIPO_TORRE_ANGULADO = 4;
+const int TIPO_TORRE_MOREFIRE = 5;
+const int TIPO_TORRE_BOMBARDEIRO = 6;
+const int TIPO_TORRE_BOMBERMAN = 7;
+const int TIPO_TORRE_AGENTES_PROTETORES = 8;
+const int TIPO_TORRE_IRONMAN = 9;
+const int TIPO_TORRE_MURO = 10;
+const int TIPO_TORRE_MUROREFORCADO = 11;
+const int TIPO_TORRE_FORTIFICATION = 12;
+
+
 
 #endif
 

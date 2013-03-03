@@ -85,8 +85,9 @@ SDL_Sprite.lo: SDL_Sprite.cpp ../include/SDL_Sprite.h ../include/sprite.h \
  /usr/include/c++/4.4/bits/vector.tcc ../include/jogador.h \
  ../include/exitException.h ../include/gameOverException.h \
  ../include/horda.h ../include/inimigo.h ../include/SDL_Sprite.h \
- ../include/fileNotFoundException.h ../include/nomesArquivos.h \
- /usr/include/SDL/SDL_image.h /usr/include/SDL/SDL.h
+ ../include/torre.h ../include/fileNotFoundException.h \
+ ../include/nomesArquivos.h /usr/include/SDL/SDL_image.h \
+ /usr/include/SDL/SDL.h
 
 ../include/SDL_Sprite.h:
 
@@ -385,6 +386,8 @@ SDL_Sprite.lo: SDL_Sprite.cpp ../include/SDL_Sprite.h ../include/sprite.h \
 ../include/inimigo.h:
 
 ../include/SDL_Sprite.h:
+
+../include/torre.h:
 
 ../include/fileNotFoundException.h:
 

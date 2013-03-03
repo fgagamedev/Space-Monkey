@@ -11,7 +11,6 @@ private:
 
 public:
 	void init() throw (InitException, FileNotFoundException);
-	static Torre* createTorre();
 	~AtiradorSimples();
 };
 

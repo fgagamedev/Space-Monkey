@@ -88,8 +88,8 @@ spacemonkey.o: spacemonkey.cpp jogo.cpp ../include/animacao.h \
  /usr/include/c++/4.4/bits/stl_bvector.h \
  /usr/include/c++/4.4/bits/vector.tcc ../include/gameOverException.h \
  ../include/mapa.h ../include/horda.h ../include/inimigo.h \
- ../include/sprite.h ../include/SDL_Sprite.h ../include/marcador.h \
- ../include/inicializador.h ../include/constantes.h \
+ ../include/sprite.h ../include/SDL_Sprite.h ../include/torre.h \
+ ../include/marcador.h ../include/inicializador.h ../include/constantes.h \
  /usr/include/c++/4.4/iostream /usr/include/c++/4.4/ostream \
  /usr/include/c++/4.4/ios /usr/include/c++/4.4/bits/ios_base.h \
  /usr/include/c++/4.4/bits/locale_classes.h \
@@ -425,6 +425,8 @@ jogo.cpp:
 ../include/sprite.h:
 
 ../include/SDL_Sprite.h:
+
+../include/torre.h:
 
 ../include/marcador.h:
 

@@ -96,7 +96,8 @@ menuEventos.lo: menuEventos.cpp /usr/include/c++/4.4/iostream \
  ../include/initException.h ../include/constantes.h \
  ../include/nomesArquivos.h ../include/tela.h ../include/exception.h \
  ../include/exitException.h /usr/include/SDL/SDL_image.h \
- /usr/include/SDL/SDL.h ../include/fileNotFoundException.h
+ /usr/include/SDL/SDL.h ../include/fileNotFoundException.h \
+ ../include/util.h /usr/include/SDL/SDL_ttf.h
 
 /usr/include/c++/4.4/iostream:
 
@@ -419,3 +420,7 @@ menuEventos.lo: menuEventos.cpp /usr/include/c++/4.4/iostream \
 /usr/include/SDL/SDL.h:
 
 ../include/fileNotFoundException.h:
+
+../include/util.h:
+
+/usr/include/SDL/SDL_ttf.h:

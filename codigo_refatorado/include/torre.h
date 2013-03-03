@@ -23,7 +23,8 @@ public:
 	//reorna o custo de construção da torre
 	static int getCusto();
 	//chama o new para criar a torre caso haja dinheiro
-	static Torre* createTorre();
+	static Torre* createTorre(int tipoTorre);
+	static bool possoCriar(int tipoTorre);
 };
 
 #endif

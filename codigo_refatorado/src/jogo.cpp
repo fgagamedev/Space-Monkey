@@ -29,7 +29,7 @@ void Jogo::rodarJogo()
 		Inicializador::initGrafico();
 		Inicializador::initSom();
 	cout <<"som inicializado"<<endl;	
-		this->jogador = new Jogador();
+		this->jogador = Jogador::obterJogador();
 		menus = new Menus();
 		menus->init();
 	}catch(bad_alloc ba){

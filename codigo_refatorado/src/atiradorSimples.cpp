@@ -27,14 +27,10 @@ void AtiradorSimples::init() throw(InitException, FileNotFoundException)
 	}
 }
 
-//cria uma nova torre e decrescenta o nº de moedas do jogador
-Torre* AtiradorSimples::createTorre()
-{
-	if(Jogador::getMoedas() < custo)
-		return NULL;
-	Jogador::perderMoedas(custo);
-	return new AtiradorSimples();
-}
+#include <iostream>
+using namespace std;
+
+
 
 //limpa a memoria
 AtiradorSimples::~AtiradorSimples()
