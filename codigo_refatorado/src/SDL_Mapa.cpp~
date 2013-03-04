@@ -4,8 +4,7 @@ using namespace std;
 
 #include "SDL_Mapa.h"
 #include "constantes.h"
-#include "util.h"
-#include "jogador.h"
+#include"jogador.h"
 #include "nomesArquivos.h"
 #include "definicoesMapaLogico.cpp"
 #include "tela.h"
@@ -45,7 +44,17 @@ void SDL_Mapa::inicializaMapaLogico()
 	for(i=0; i<TAMANHO_MATRIZ_LOGICA_X; i++)
 		mapaLogico[i] = new char[TAMANHO_MATRIZ_LOGICA_Y];	
 	
-	nomesArquivos_montaMapaLogicoGeral(Fase::getFaseAtual(), mapaLogico);
+	//bota 0 em tudo
+	for(i=0; i<TAMANHO_MATRIZ_LOGICA_X; i++)
+	{
+		for(j=0; j<TAMANHO_MATRIZ_LOGICA_Y; j++)
+		{
+			mapaLogico[i][j] = MAPA;
+		}
+	}
+	//bota 1 onde for estrada
+	nomesArquivos_montaMapaLogico(mapaLogico, Fase::getFaseAtual() );
+		
 }
 
 //retorna o valor de uma pos
@@ -176,19 +185,5 @@ void SDL_Mapa::printCoins() throw(FileNotFoundException)
 	
 	SDL_FreeSurface(renderedText);
 	TTF_CloseFont(font);
-}
-
-void SDL_Mapa::verificaPosicaoTorre(int xMouse, int yMouse){
-	int posicaoRealX = xMouse/TAMANHO_QUADRADO;
-	int posicaoRealY = yMouse/TAMANHO_QUADRADO;
-
-	if(possoPorTorre(posicaoRealX, posicaoRealY))
-		return true;
-	else
-		return false;
-}
-
-void SDL_Mapa::alteraEstadoMapaLogico(int posX, int posY, char novoEstado){
-	mapaLogico[posX][posY] = novoEstado;
 }
 

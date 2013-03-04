@@ -1,15 +1,12 @@
 
 #include "exitException.h"
 #include "audio.h"
-#include "util.h"
-#include "mapa.h"
 #include "animacao.h"
 #include "constantes.h"
 #include "nomesArquivos.h"
 #include "tela.h"
 #include <SDL/SDL_image.h>
 #include <iostream>
-#include <SDL/SDL_ttf.h>
 
 //construtor que inicializa o vetor de imagens
 Animacao::Animacao()
@@ -141,38 +138,6 @@ void Animacao::gameOver()
 
 void Animacao::creditos()
 {
-	//carrega a fonte e o texto
-	TTF_Font *font = Util::getFonte(30);
-	
-	SDL_Color white = {0, 0, 0, 255};	 
-	SDL_Surface *renderedText = TTF_RenderText_Blended(font, "VOCE GANHOU!!", white);
 
-	if (!renderedText) {
-		TTF_CloseFont(font);
-		return;
-	}
-
-	//determina area de trabalho
-	SDL_Rect dest;
-	SDL_Surface *tela = (SDL_Surface*)Tela::getTela();
-	dest.x = tela->w/2 - 10, dest.y = tela->h/2 - 10, dest.w = renderedText->w, dest.h = renderedText->h;
-	//apaga o texto atual
-	SDL_BlitSurface((SDL_Surface*)Mapa::getMapa(), &dest, tela, &dest);
-	
-	//escreve o texto certo
-	SDL_BlitSurface(renderedText, NULL, tela, &dest);
-	SDL_UpdateRect(tela,dest.x,dest.y,dest.w, dest.h);
-	
-	SDL_FreeSurface(renderedText);
-	TTF_CloseFont(font);
-
-	SDL_Delay(2000);
-	
-	SDL_Color preto = {0,0,0};
-	Uint32 cor = SDL_MapRGB(tela->format, preto.r, preto.g, preto.b);
-	SDL_Rect rect;
-	rect.x = rect.y =0, rect.w = TELA_WIDTH, rect.h = TELA_HEIGHT;
-	SDL_FillRect(tela, &rect, cor);
-	SDL_UpdateRect(tela,0,0,0,0);
 }
 

@@ -137,7 +137,7 @@ void Horda::exec()throw(ExitException,FileNotFoundException)
 			this->redesenhaMapa();
 			for(k=0; k<i; k++)
 				vetorInimigos->at(k)->mover();
-			Util::delay(5);
+			Util::delay(50);
 		}
 	}
 }
@@ -148,7 +148,7 @@ void Horda::exec1()throw(ExitException,FileNotFoundException)
 	this->redesenhaMapa();
 	for(i=0; i<vetorInimigos->size(); i++)
 		vetorInimigos->at(i)->mover();
-	Util::delay(5);
+	Util::delay(50);
 }
 
 //verifica o estado de cada inimigo da horda e os libera caso tenham morrido ou chegado ao objetivo. Retorna o número de inimigos que alcançaram o objetivo final

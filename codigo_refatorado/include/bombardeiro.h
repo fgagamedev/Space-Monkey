@@ -10,7 +10,8 @@ class Bombardeiro : public Torre
 private:
 
 public:
-	void init(int posX, int posY) throw (InitException, FileNotFoundException);
+	void init() throw (InitException, FileNotFoundException);
+	static Torre* createTorre();
 	~Bombardeiro();
 };
 

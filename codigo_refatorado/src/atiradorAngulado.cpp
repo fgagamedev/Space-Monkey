@@ -8,7 +8,7 @@
 #include "initException.h"
 
 
-void AtiradorAngulado::init(int posX, int posY) throw(InitException, FileNotFoundException)
+void AtiradorAngulado::init() throw(InitException, FileNotFoundException)
 {
 	this->HP = TORRE_HP_PADRAO;
 	this->dano = TORRE_DANO_PADRAO;
@@ -19,12 +19,21 @@ void AtiradorAngulado::init(int posX, int posY) throw(InitException, FileNotFoun
 	this->hp_restante  = this->HP;
 	
 	try{
-		this->img = new SDL_Sprite(ARQUIVO_TORRE_ANGULADO,posX, posY);//nome do arquivo e as dimensões de cada desenho da sprite
+		this->img = new SDL_Sprite(ARQUIVO_TORRE_ANGULADO,30, 30);//nome do arquivo e as dimensões de cada desenho da sprite
 		Direcao dir=BAIXO;
 		this->img->init(dir);
 	}catch(bad_alloc ba){
 		throw InitException("falha ao alocar o sprite do atiradorSimples! não houve memoria suficiente!");
 	}
+}
+
+//cria uma nova torre e decrescenta o nº de moedas do jogador
+Torre* AtiradorAngulado::createTorre()
+{
+	if(Jogador::getMoedas() < custo)
+		return NULL;
+	Jogador::perderMoedas(custo);
+	return new AtiradorAngulado();
 }
 
 //limpa a memoria

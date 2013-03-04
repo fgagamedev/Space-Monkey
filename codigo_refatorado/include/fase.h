@@ -23,7 +23,6 @@ class Fase
 private:
 	//vetor de hordas inimigas
 	vector<Horda*> *hordas;
-	
 	//referência ao jogador, puxado da classe menu
 	Jogador *jogador;
 	//nome do arquivo de imagem do mapa
@@ -39,7 +38,7 @@ private:
 	//"vida" da fase. Diz quantos inimigos podem chegar no final até dar game over
 	int life;
 	//após inicializar tudo, executa a horda até seu fim
-	void execFase(int i) throw (GameOverException, ExitException, FileNotFoundException);
+	void execHorda(int i) throw (GameOverException, ExitException, FileNotFoundException);
 public:
 	Fase(string nome_mapa, int num_fase, Jogador *jogador);
 	//inicia o mapa e o desenha na tela, além de iniciar as hordas e seus inimigos
@@ -48,9 +47,9 @@ public:
 	static int getFaseAtual();
 	//zera o contador de fases em caso de game over ou de encerrá-lo
 	static int zerarContadorFases();
-	//vetor de torres
-	vector<Torre*> *torres;
-	void redesenharTorres();
+
+	//referencia para torre
+	Torre *torre;
 
 };
 

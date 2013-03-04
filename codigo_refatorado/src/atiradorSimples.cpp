@@ -8,7 +8,7 @@
 #include "initException.h"
 
 
-void AtiradorSimples::init(int posX,int posY) throw(InitException, FileNotFoundException)
+void AtiradorSimples::init() throw(InitException, FileNotFoundException)
 {
 	this->HP = TORRE_HP_PADRAO;
 	this->dano = TORRE_DANO_PADRAO;
@@ -19,9 +19,9 @@ void AtiradorSimples::init(int posX,int posY) throw(InitException, FileNotFoundE
 	this->hp_restante  = this->HP;
 	
 	try{
-		this->img = new SDL_Sprite(ARQUIVO_TORRE_SIMPLES,TAMANHO_QUADRADO, TAMANHO_QUADRADO);//nome do arquivo e as dimensões de cada desenho da sprite
+		this->img = new SDL_Sprite(ARQUIVO_TORRE_SIMPLES,30, 30);//nome do arquivo e as dimensões de cada desenho da sprite
 		Direcao dir=BAIXO;
-		this->img->initTorre(posX,posY,dir);
+		this->img->init(dir);
 	}catch(bad_alloc ba){
 		throw InitException("falha ao alocar o sprite do atiradorSimples! não houve memoria suficiente!");
 	}

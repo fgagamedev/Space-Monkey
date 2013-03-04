@@ -4,18 +4,6 @@
 #include <string>
 #include "constantes.h"
 
-//define o nome do arquivo de mapeamento bmp de cada mapa2
-const string BMP_MAPA1 = "mapa1Bmp.txt";
-const string BMP_MAPA2 = "mapa2Bmp.txt";
-const string BMP_MAPA3 = "mapa3Bmp.txt";
-const string BMP_MAPA4 = "mapa4Bmp.txt";
-const string BMP_MAPA5 = "mapa5Bmp.txt";
-const string BMP_MAPA6 = "mapa6Bmp.txt";
-const string BMP_MAPA7 = "mapa7Bmp.txt";
-const string BMP_MAPA8 = "mapa8Bmp.txt";
-
-const string BMP_MAPAS[] = {BMP_MAPA1, BMP_MAPA2, BMP_MAPA3, BMP_MAPA4, BMP_MAPA5, BMP_MAPA6, BMP_MAPA7, BMP_MAPA8};
-
 //define o nome do arquivo de cada mapa do jogo
 const string NOME_MAPA1 = "mapa1.png";
 const string NOME_MAPA2 = "mapa2.png";
@@ -92,11 +80,11 @@ const string MUSICA_FASES[] = {MUSICA_FASE1, MUSICA_FASE2, MUSICA_FASE3, MUSICA_
 
 
 //define as posições dos objetivos inimigos em cada fase
-const int GOALS_X[NUM_FASES_TOTAIS] = {720, 780, 390, 30,  30,  570, 690, 690};
-const int GOALS_Y[NUM_FASES_TOTAIS] = {570, 0,   570, 570, 540, 570, 540, 30};
+const int GOALS_X[NUM_FASES_TOTAIS] = {720, 360, 360, 690, 780, 510, 720, 660};
+const int GOALS_Y[NUM_FASES_TOTAIS] = {570, 0, 570, 510, 510, 570, 540, 510};
 //define as posições iniciais dos inimigos em cada fase
-const int INITS_X[NUM_FASES_TOTAIS] = {0,  210, 90, 750, 750, 0, 90, 0};
-const int INITS_Y[NUM_FASES_TOTAIS] = {30, 600, 0,  0,   30,   0, 0,  510};
+const int INITS_X[NUM_FASES_TOTAIS] = {0, 120, 300, 30, 90, 0, 90, 0};
+const int INITS_Y[NUM_FASES_TOTAIS] = {30, 600, 0, 0, 0, 30, 0, 30};
 
 
 #endif

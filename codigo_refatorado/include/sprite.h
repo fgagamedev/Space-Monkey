@@ -11,8 +11,6 @@ protected:
 public:
 	//o coloca na tela, fazendo-o aparecer  pela primeira vez no jogo virado pro lado certo (dir)
 	virtual void init(Direcao dir) = 0;
-	//TORRE
-	virtual void initTorre(int posX,int posY, Direcao dir) = 0;
 	//ativa a colorkey, sumindo com a cor de fundo
 	virtual void ativarTransparencia() = 0;	
 	//pega uma parte especifica da sprite (um dos desenhos)e a atualiza na tela

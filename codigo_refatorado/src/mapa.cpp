@@ -65,6 +65,3 @@ void Mapa::printCoins()throw(FileNotFoundException)
 	SDL_Mapa::printCoins();
 }
 
-void Mapa::alteraEstadoMapaLogico(int posX, int posY, char novoEstado){
-	SDL_Mapa::alteraEstadoMapaLogico(posX, posY, novoEstado);
-}

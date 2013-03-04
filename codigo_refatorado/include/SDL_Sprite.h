@@ -17,8 +17,6 @@ private:
 public:
 	//o coloca na tela, fazendo-o aparecer  pela primeira vez no jogo virado pro lado certo (dir)
 	void init(Direcao dir);
-	// TORRE
-	void initTorre(int posX,int posY, Direcao dir);
 	//construtor que carrega a imagem especificada no programa e guarda o tamanho de cada imagem dela (w e h)
 	SDL_Sprite(string nome_arquivo, int w, int h) throw (FileNotFoundException);
 	//deleta o sprite

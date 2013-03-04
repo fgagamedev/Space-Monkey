@@ -55,6 +55,7 @@ Direcao Inimigo::direcao_a_ser_movido(int dirX, int dirY)
 	return dir;
 }
 
+
 void Inimigo::mover(){
 	//vê a direção do objetivo da fase
 	int direcaoX = Mapa::getGoalX();
@@ -78,10 +79,10 @@ void Inimigo::mover(){
 		{
 		case 1:
 		case -1:
-			dy = -dy;
+			dy = 0;
 			break;
 		case 0:
-			dy = rand()%2 ? 1 : -1;
+			dy = 0;
 			break;
 		} 
 		dir = direcao_a_ser_movido(dirX, dy);
@@ -95,10 +96,10 @@ void Inimigo::mover(){
 			{
 			case 1:
 			case -1:
-				dx= -dx;
+				dx= 0;
 				break;
 			case 0:
-				dx = rand()%2 ? 1 : -1;
+				dx = 0;
 				break;
 			}
 			dir = direcao_a_ser_movido(dx, dirY);
@@ -116,6 +117,101 @@ void Inimigo::mover(){
 	}
 	
 }
+/*
+void Inimigo::mover(){
+	//vê a direção do objetivo da fase
+	int direcaoX = Mapa::getGoalX();
+	int direcaoY = Mapa::getGoalY();
+	//vê sua posição
+	int x = this->img->getX();
+	int y = this->img->getY();
+	//compara as duas pra ver pra onde vai
+	int dirX = (direcaoX>x ? 1: (direcaoX<x ? -1: 0));
+	int dirY = (direcaoY>y ? 1: (direcaoY<y ? -1: 0));
+	
+	Direcao dir = direcao_a_ser_movido(dirX,dirY);
+	//verifica se pode ir nessa direção
+	bool pode = Mapa::getMapaLogico(x/TAMANHO_QUADRADO, y/TAMANHO_QUADRADO, dir);
+	if(pode)
+		this->mover(dir);
+	else
+	{
+		//caso o movimento desejado não possa, tenta pros movimentos semelhantes
+		int dy;
+		switch(dirY)
+		{
+		//caso tenha tentado ir para cima ou ára baixo, tenta ir reto em y
+		case 1:
+		case -1:
+			dy = 0;
+			break;
+		//caso tenha tentado ir reto em y vai para baixo
+		case 0:
+			dy = 1;
+			break;
+		} 
+		dir = direcao_a_ser_movido(dirX, dy);
+		pode = Mapa::getMapaLogico(x/TAMANHO_QUADRADO, y/TAMANHO_QUADRADO, dir);
+		if(pode)
+			this->mover(dir);
+		else
+		{
+			//última tentativa em y, se na direção certa e reto nao deu, vai pro lado opsoto em y
+			dirY = -dirY;
+			dir = direcao_a_ser_movido(dirX,dirY);
+			pode = Mapa::getMapaLogico(x/TAMANHO_QUADRADO, y/TAMANHO_QUADRADO, dir);
+			if(pode)
+				this->mover(dir);
+			else
+			{
+				//o problema é em X
+				int dx;
+				switch(dirX)
+				{
+				//caso tenha tentado ir para esquerda ou para direita, tenta ir reto em x
+				case 1:
+				case -1:
+					dx= 0;
+					break;
+				case 0:
+				//caso tenha tentado ir reto em x vai para esquerda
+					dx = 1;
+					break;
+				}
+				dir = direcao_a_ser_movido(dx, dirY);
+				pode = Mapa::getMapaLogico(x/TAMANHO_QUADRADO, y/TAMANHO_QUADRADO, dir);
+				if(pode)
+					this->mover(dir);
+				else
+				{
+					//última tentativa em x, se na direção certa e reto nao deu, vai pro lado opsoto em x
+					dirX = -dirX;
+					dir = direcao_a_ser_movido(dirX,-dirY);
+					pode = Mapa::getMapaLogico(x/TAMANHO_QUADRADO, y/TAMANHO_QUADRADO, dir);
+					if(pode)
+						this->mover(dir);
+					else
+					{
+						dir = direcao_a_ser_movido(dx, dy);
+						pode = Mapa::getMapaLogico(x/TAMANHO_QUADRADO, y/TAMANHO_QUADRADO, dir);
+						if(pode)
+							this->mover(dir);
+						else
+						{
+							dir = direcao_a_ser_movido(dirX, dirY);
+							pode = Mapa::getMapaLogico(x/TAMANHO_QUADRADO, y/TAMANHO_QUADRADO, dir);
+							if(pode)
+								this->mover(dir);
+						}
+					}
+				}
+			}
+		}
+	}
+	
+}
+
+*/
 
 //retira o desenho do inimig da tela
 void Inimigo::limparTela()
