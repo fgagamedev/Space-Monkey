@@ -8,7 +8,7 @@
 #include "initException.h"
 
 
-void AtiradorDuplo::init() throw(InitException, FileNotFoundException)
+void AtiradorDuplo::init(int posX, int posY) throw(InitException, FileNotFoundException)
 {
 	this->HP = TORRE_HP_PADRAO;
 	this->dano = 2*TORRE_DANO_PADRAO;
@@ -19,21 +19,12 @@ void AtiradorDuplo::init() throw(InitException, FileNotFoundException)
 	this->hp_restante  = this->HP;
 	
 	try{
-		this->img = new SDL_Sprite(ARQUIVO_TORRE_DUPLO,30, 30);//nome do arquivo e as dimensões de cada desenho da sprite
+		this->img = new SDL_Sprite(ARQUIVO_TORRE_DUPLO,posX, posY);//nome do arquivo e as dimensões de cada desenho da sprite
 		Direcao dir=BAIXO;
 		this->img->init(dir);
 	}catch(bad_alloc ba){
 		throw InitException("falha ao alocar o sprite do atiradorDuplo! não houve memoria suficiente!");
 	}
-}
-
-//cria uma nova torre e decrescenta o nº de moedas do jogador
-Torre* AtiradorDuplo::createTorre()
-{
-	if(Jogador::getMoedas() < custo)
-		return NULL;
-	Jogador::perderMoedas(custo);
-	return new AtiradorDuplo();
 }
 
 //limpa a memoria

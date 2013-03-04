@@ -1,4 +1,55 @@
 #include "constantes.h"
+#include "nomesArquivos.h"
+#include <iostream>
+#include <string>
+#include <stdlib.h>
+#include <stdio.h>
+#include <fstream>
+
+void nomesArquivos_montaMapaLogicoGeral(int num_fase, char** mapaLogico){
+
+	ifstream bmpMapa;
+	bmpMapa.open( (PATH+BMP_MAPAS[num_fase]).c_str() );
+
+	if(!bmpMapa.is_open()){
+		cout << "Nao foi possivel abrir arquivo" << endl;
+		exit(1);
+	}
+
+	int i,j;
+	for(i=0; i<20; i++){
+		if(bmpMapa.good()){	
+			string linha;
+			getline(bmpMapa,linha);
+			char *linhaArray = (char*) linha.c_str();	
+			for(j=0; j<27; j++){
+				switch (linhaArray[j]){
+					case '0': 
+						mapaLogico[j][i] = linhaArray[j];
+						break;
+					case '1': 
+						mapaLogico[j][i] = linhaArray[j];
+						break;
+					case '2': 
+						mapaLogico[j][i] = linhaArray[j];
+						break;
+					case '3': 
+						mapaLogico[j][i] = linhaArray[j];
+						break;
+				}
+			}
+		}
+	}
+
+	bmpMapa.close();
+
+	for(i=0; i<20; i++){
+		for(j=0; j<27; j++)
+			cout << mapaLogico[j][i];
+		cout << endl;
+	}
+
+}
 
 //funções que montam o mapa lógico de cada fase
 void nomesArquivos_montaMapaLogico1(char** mapaLogico)
@@ -32,16 +83,10 @@ void nomesArquivos_montaMapaLogico1(char** mapaLogico)
 }
 void nomesArquivos_montaMapaLogico2(char** mapaLogico)
 {
-	int x,x2;
-	for(x=0;x<=5;x++){
-		mapaLogico[x][3]=ESTRADA;
-	}
-	mapaLogico[5][4]=mapaLogico[6][4]=mapaLogico[5][5]=mapaLogico[6][5]=ESTRADA;
-	
-	for(x=6;x<=14;x++){
-		mapaLogico[6][x]=mapaLogico[7][x]=ESTRADA;
-	}
-	for(x=8;x<=22;x++){
+	int x;
+	for(x=13;x<=19;x++)
+		mapaLogico[7][x]=mapaLogico[8][x]=ESTRADA;
+	for(x=9;x<=22;x++){
 		mapaLogico[x][13]=mapaLogico[x][14]=ESTRADA;
 	}
 	mapaLogico[22][12]=mapaLogico[23][12]=mapaLogico[22][11]=mapaLogico[23][11]=ESTRADA;
@@ -54,13 +99,15 @@ void nomesArquivos_montaMapaLogico2(char** mapaLogico)
 	mapaLogico[25][1]=mapaLogico[26][1]=mapaLogico[26][0]=ESTRADA;
 	
 	//Torres
-	mapaLogico[3][4]=mapaLogico[4][4]=mapaLogico[4][5]=mapaLogico[24][1]=mapaLogico[21][11]=mapaLogico[3][2]=
-	mapaLogico[4][2]=mapaLogico[7][4]=mapaLogico[7][5]=TORRE;
-	for(x=6;x<=14;x++){
-		mapaLogico[5][x]=TORRE;
+	mapaLogico[24][1]=mapaLogico[21][11]=TORRE;
+	for(x=13;x<=19;x++){
+		mapaLogico[6][x]=TORRE;
+	}
+	for(x=15;x<=19;x++){
+		mapaLogico[9][x]=TORRE;
 	}
 	mapaLogico[23][14]=mapaLogico[23][13]=mapaLogico[24][12]=mapaLogico[24][11]=TORRE;
-	for(x=6;x<=22;x++){
+	for(x=9;x<=22;x++){
 		mapaLogico[x][15]=TORRE;
 	}
 	for(x=2;x<=6;x++){
@@ -209,11 +256,95 @@ void nomesArquivos_montaMapaLogico5(char** mapaLogico)
 	}
 }
 void nomesArquivos_montaMapaLogico6(char** mapaLogico)
-{}
+{
+	int x;
+	mapaLogico[0][1] = mapaLogico[0][2] = mapaLogico[1][1] = mapaLogico[1][2] = mapaLogico[1][3] = mapaLogico[2][3] = mapaLogico[2][4] = mapaLogico[3][4] = mapaLogico[5][16] = ESTRADA;
+	for(x=5; x<=13; x++)
+		mapaLogico[3][x] = ESTRADA;
+	for(x=5;x<=9;x++)
+		mapaLogico[4][x] = ESTRADA;
+	for(x=13;x<=16;x++)
+		mapaLogico[4][x] = ESTRADA;
+	for(x=5;x<=13;x++)
+		mapaLogico[x][17] = ESTRADA;
+	for(x=13;x<=17;x++)
+		mapaLogico[x][16] = ESTRADA;
+	mapaLogico[17][17] = mapaLogico[18][17] = mapaLogico[18][18] = mapaLogico[18][19] = mapaLogico[19][19] = mapaLogico[19][18] = mapaLogico[20][18] = mapaLogico[20][19] = ESTRADA;
+	
+	//Torres
+	mapaLogico[2][2] = mapaLogico[3][3] = mapaLogico[1][4] = mapaLogico[2][5] = mapaLogico[2][6] = mapaLogico[2][8] = mapaLogico[2][10] = mapaLogico[2][12] = mapaLogico[3][14] = mapaLogico[3][15] = mapaLogico[4][17] = mapaLogico[18][16] = mapaLogico[19][17] = mapaLogico[20][17] = TORRE;
+	for(x=5;x<=12;x++)
+		mapaLogico[x][18] = TORRE;
+	for(x=14;x<=17;x++)
+		mapaLogico[x][15] = TORRE;
+}
 void nomesArquivos_montaMapaLogico7(char** mapaLogico)
-{}
+{
+	int x;
+	for(x=0;x<=11;x++)
+		mapaLogico[3][x]= ESTRADA;
+	mapaLogico[4][10] = mapaLogico[4][11] = mapaLogico[4][12] = mapaLogico[5][12] = mapaLogico[6][12] = mapaLogico[6][13] = mapaLogico[7][13] = mapaLogico[7][14] = mapaLogico[8][14] = mapaLogico[9][14] = mapaLogico[14][15] = mapaLogico[23][17] = mapaLogico[23][18] = mapaLogico[19][16] = mapaLogico[20][16] = mapaLogico[21][16] = mapaLogico[21][17] = mapaLogico[22][17] = ESTRADA;
+	for(x=13; x<=17;x++)
+		mapaLogico[x][14] = ESTRADA;
+	for(x=15;x<=19;x++)
+		mapaLogico[x][15] = ESTRADA;
+	for(x=9;x<=13;x++)
+		mapaLogico[x][15] = ESTRADA;
+	
+	//Torres
+	for(x=1;x<=10;x++)
+		mapaLogico[2][x] = TORRE;
+	mapaLogico[4][13] = mapaLogico[5][13] = mapaLogico[6][14] = mapaLogico[7][15] = mapaLogico[8][15] = mapaLogico[14][16] = mapaLogico[19][17] = mapaLogico[20][17] = mapaLogico[21][18] = TORRE;
+	for(x=15;x<=18;x++)
+		mapaLogico[x][16] = TORRE;
+	for(x=9;x<=13;x++)
+		mapaLogico[x][16] = TORRE;
+	for(x=1;x<=6;x++)
+		mapaLogico[4][x] = TORRE;
+	mapaLogico[4][8] = mapaLogico[5][10] = mapaLogico[6][11] = mapaLogico[7][12] = mapaLogico[8][13] = mapaLogico[9][13] = TORRE;
+	for(x=10;x<=13;x++)
+		mapaLogico[x][14] = TORRE;
+	for(x=13;x<=17;x++)
+		mapaLogico[x][13]= TORRE;
+	mapaLogico[18][14] = mapaLogico[19][14] = mapaLogico[20][15] = mapaLogico[21][15] = mapaLogico[22][15] = mapaLogico[22][16] = TORRE;
+}
 void nomesArquivos_montaMapaLogico8(char** mapaLogico)
-{}
+{
+	int x;
+	for(x=0;x<=10;x++)
+		mapaLogico[x][16] = ESTRADA;
+	for(x=0;x<=8;x++)
+		mapaLogico[x][17] = ESTRADA;
+	for(x=1;x<=15;x++)
+		mapaLogico[10][x] = ESTRADA;
+	for(x=12;x<=15;x++)
+		mapaLogico[11][x] = TORRE;
+	for(x=3;x<=10;x++)
+		mapaLogico[9][x] = ESTRADA;
+	mapaLogico[11][2] = ESTRADA;
+	for(x=11;x<=19;x++)
+		mapaLogico[x][1] = ESTRADA;
+	mapaLogico[18][2] = mapaLogico[19][2] =mapaLogico[20][2] = mapaLogico[20][3] = mapaLogico[21][3] = mapaLogico[20][4] = mapaLogico[21][4] = mapaLogico[21][5] = mapaLogico[22][5] = mapaLogico[23][5] = ESTRADA;
+	
+	//TORRE
+	for(x=4;x<=8;x++)
+		mapaLogico[x][18] = TORRE;
+	for(x=9;x<=12;x++)
+		mapaLogico[x][17] = TORRE;
+	mapaLogico[13][16] = mapaLogico[13][15] = TORRE;
+	for(x=12;x<=14;x++)
+		mapaLogico[12][x] = TORRE;
+	for(x=8;x<=10;x++)
+		mapaLogico[11][x] = TORRE;
+	for(x=12;x<=17;x++)
+		mapaLogico[x][2] = TORRE;
+	mapaLogico[18][3] = mapaLogico[19][3] = mapaLogico[19][4] = TORRE;
+	for(x=3;x<=9;x++)
+		mapaLogico[x][15] = TORRE;
+	mapaLogico[8][10] = mapaLogico[8][3] = mapaLogico[9][2] = mapaLogico[9][1] = TORRE;
+}
+
+
 void nomesArquivos_montaMapaLogico(char** mapaLogico, int num_fase)
 {
 	switch(num_fase)

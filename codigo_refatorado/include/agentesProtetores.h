@@ -10,8 +10,7 @@ class AgentesProtetores : public Torre
 private:
 
 public:
-	void init() throw (InitException, FileNotFoundException);
-	static Torre* createTorre();
+	void init(int posX, int posY) throw (InitException, FileNotFoundException);
 	~AgentesProtetores();
 };
 

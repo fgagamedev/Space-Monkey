@@ -10,7 +10,7 @@ class AtiradorSimples : public Torre
 private:
 
 public:
-	void init() throw (InitException, FileNotFoundException);
+	void init(int posX,int posY) throw (InitException, FileNotFoundException);
 	~AtiradorSimples();
 };
 

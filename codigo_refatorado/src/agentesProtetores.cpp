@@ -8,7 +8,7 @@
 #include "initException.h"
 
 
-void AgentesProtetores::init() throw(InitException, FileNotFoundException)
+void AgentesProtetores::init(int posX, int posY) throw(InitException, FileNotFoundException)
 {
 	this->HP = TORRE_HP_PADRAO;
 	this->dano = 0;
@@ -19,21 +19,12 @@ void AgentesProtetores::init() throw(InitException, FileNotFoundException)
 	this->hp_restante  = this->HP;
 	
 	try{
-		this->img = new SDL_Sprite(ARQUIVO_TORRE_AGENTES_PROTETORES,30, 30);//nome do arquivo e as dimensões de cada desenho da sprite
+		this->img = new SDL_Sprite(ARQUIVO_TORRE_AGENTES_PROTETORES,posX, posY);//nome do arquivo e as dimensões de cada desenho da sprite
 		Direcao dir=BAIXO;
 		this->img->init(dir);
 	}catch(bad_alloc ba){
 		throw InitException("falha ao alocar o sprite do AgentesProtetores! não houve memoria suficiente!");
 	}
-}
-
-//cria uma nova torre e decrescenta o nº de moedas do jogador
-Torre* AgentesProtetores::createTorre()
-{
-	if(Jogador::getMoedas() < custo)
-		return NULL;
-	Jogador::perderMoedas(custo);
-	return new AgentesProtetores();
 }
 
 //limpa a memoria
