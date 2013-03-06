@@ -1,17 +1,20 @@
 
 #include "exitException.h"
 #include "audio.h"
+#include "util.h"
+#include "mapa.h"
 #include "animacao.h"
 #include "constantes.h"
 #include "nomesArquivos.h"
 #include "tela.h"
 #include <SDL/SDL_image.h>
 #include <iostream>
+#include <SDL/SDL_ttf.h>
 
 //construtor que inicializa o vetor de imagens
 Animacao::Animacao()
 {
-	num_img = 0;
+	num_img_carregadas = QUANTIDADE_INICIAL_IMAGENS;
 	int i;
 	for(i=0; i<NUM_MAX_IMG_POR_ANIMACAO; i++)
 		imagens[i] = NULL;
@@ -30,19 +33,27 @@ Animacao::~Animacao()
 }
 
 //carrega uma imagem e coloca na 1ª posição livre do vetor
-void Animacao::carregarImagem(string nome, int x, int y, int tempo) throw (FileNotFoundException, AnimaException)
+void Animacao::carregarImagem(string nome, int linha, int coluna, int tempo) throw (FileNotFoundException, AnimaException)
 {
-	if(num_img == NUM_MAX_IMG_POR_ANIMACAO)
+	if(num_img_carregadas == NUM_MAX_IMG_POR_ANIMACAO)
 		throw AnimaException("Ultrapassado o numero maximo de imagens a serem carregadas na mesma animacao!");
 	
-	imagens[num_img] = IMG_Load( (PATH+nome).c_str() );
-	if(!imagens[num_img])
+	imagens[num_img_carregadas] = IMG_Load( (PATH+nome).c_str() );
+	if(!imagens[num_img_carregadas])
 		throw FileNotFoundException( string("Nao foi possivel carregar o seguinte arquivo: ")+nome);
 		
-	posX[num_img] = (x==CENTRALIZAR ? (TELA_WIDTH-imagens[num_img]->w)/2: x);
-	posY[num_img] = (y==CENTRALIZAR ? (TELA_HEIGHT-imagens[num_img]->h)/2: y);
-	momento[num_img] = tempo;	
-	num_img++;
+	if(linha == CENTRALIZAR)
+		posX[num_img_carregadas] = (TELA_WIDTH-imagens[num_img_carregadas]->w)/2;
+	else
+		posX[num_img_carregadas]=linha;
+	
+	if(coluna == CENTRALIZAR)
+		posY[num_img_carregadas] = (TELA_HEIGHT-imagens[num_img_carregadas]->h)/2;
+	else
+		posY[num_img_carregadas] = coluna;
+		
+	momento[num_img_carregadas] = tempo;	
+	num_img_carregadas++;
 }
 
 //determina o tempo de duração da animação
@@ -51,11 +62,11 @@ void Animacao::setTime(int tempo)
 	this->duracao = tempo;
 }
 
-void Animacao::print(SDL_Surface* imagem,int i)
+void Animacao::print(SDL_Surface* imagem,int imagem_desejada)
 {
 	SDL_Rect area;
-	area.x = posX[i];
-	area.y = posY[i];
+	area.x = posX[imagem_desejada];
+	area.y = posY[imagem_desejada];
 	area.w = imagem->w;
 	area.h = imagem->h;
 	
@@ -68,7 +79,8 @@ void Animacao::print(SDL_Surface* imagem,int i)
 //roda a apresentação
 void Animacao::rodar() throw (ExitException)
 {
-	int i, timer=0;
+	int i, timer=VALOR_DEFAULT_ZERO;
+	int delayMomento=1000;
 	SDL_Event event;
 	for(i=0; i<NUM_MAX_IMG_POR_ANIMACAO; i++)
 	{
@@ -95,12 +107,12 @@ void Animacao::rodar() throw (ExitException)
 		if(imagens[i]!=NULL)
 		{
 			if(momento[i]!=0)
-				SDL_Delay( (momento[i]-timer-1)*1000 );
+				SDL_Delay( (momento[i]-timer-1)*delayMomento );
 			timer += momento[i];
 			print(imagens[i],i);
 		}
 	}
-	SDL_Delay( (this->duracao-timer)*1000 );
+	SDL_Delay( (this->duracao-timer)*delayMomento );
 
 }
 
@@ -118,19 +130,22 @@ void Animacao::gameOver()
 	SDL_Surface *gameOver = IMG_Load( (PATH+GAMEOVERIMG).c_str() );
 	SDL_Surface *preto = IMG_Load( (PATH+IMAGEM_FUNDO_PRETO).c_str() );
 	int alpha;
-	for(alpha=0; alpha<256; alpha+=8)
+	int valorMaximoAlpha=256;
+	int incrementoFadeOut = 8;
+	int tempoEspera = 75;
+	for(alpha=0; alpha<valorMaximoAlpha; alpha+=incrementoFadeOut)
 	{
 		SDL_SetAlpha(gameOver, SDL_SRCALPHA | SDL_RLEACCEL, (Uint8)alpha);
 		SDL_BlitSurface(gameOver,NULL,tela,NULL);
 		SDL_UpdateRect(tela,0,0,0,0);
-		SDL_Delay(75);
+		SDL_Delay(tempoEspera);
 	}
-	for(alpha=0; alpha<256; alpha+=8)
+	for(alpha=0; alpha<valorMaximoAlpha; alpha+=incrementoFadeOut)
 	{
 		SDL_SetAlpha(preto, SDL_SRCALPHA | SDL_RLEACCEL, (Uint8)alpha);
 		SDL_BlitSurface(preto,NULL,tela,NULL);
 		SDL_UpdateRect(tela,0,0,0,0);
-		SDL_Delay(75);
+		SDL_Delay(tempoEspera);
 	}
 	SDL_FreeSurface(gameOver);
 	SDL_FreeSurface(preto);
@@ -138,6 +153,43 @@ void Animacao::gameOver()
 
 void Animacao::creditos()
 {
+	//carrega a fonte e o texto
+	TTF_Font *font = Util::getFonte(TAMANHO_FONTE);
+	
+	int alpha=255;	
+	SDL_Color white = {0, 0, 0, alpha};	 
+	SDL_Surface *renderedText = TTF_RenderText_Blended(font, "VOCE GANHOU!!", white);
 
+	if (!renderedText) {
+		TTF_CloseFont(font);
+		return;
+	}
+
+	//determina area de trabalho
+	SDL_Rect dest;
+	SDL_Surface *tela = (SDL_Surface*)Tela::getTela();
+	dest.x = tela->w/2 - QUANTIDADE_CELULAS_DISTANTE_BORDA_ESQ, 
+	dest.y = tela->h/2 - QUANTIDADE_CELULAS_DISTANTE_BORDA_ESQ, 
+	dest.w = renderedText->w, 
+	dest.h = renderedText->h;
+	
+	//apaga o texto atual
+	SDL_BlitSurface((SDL_Surface*)Mapa::getMapa(), &dest, tela, &dest);
+	
+	//escreve o texto certo
+	SDL_BlitSurface(renderedText, NULL, tela, &dest);
+	SDL_UpdateRect(tela,dest.x,dest.y,dest.w, dest.h);
+	
+	SDL_FreeSurface(renderedText);
+	TTF_CloseFont(font);
+
+	SDL_Delay(2000);
+	
+	SDL_Color preto = {0,0,0};
+	Uint32 cor = SDL_MapRGB(tela->format, preto.r, preto.g, preto.b);
+	SDL_Rect rect;
+	rect.x = rect.y =0, rect.w = TELA_WIDTH, rect.h = TELA_HEIGHT;
+	SDL_FillRect(tela, &rect, cor);
+	SDL_UpdateRect(tela,0,0,0,0);
 }
 

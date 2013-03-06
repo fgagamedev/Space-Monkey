@@ -21,7 +21,7 @@
 #include "torre.h"
 #include "atiradorSimples.h"
 
-int Fase::faseAtual = -1;
+int Fase::faseAtual = VALOR_DEFAULT_MINUS_ONE;
 
 //faz os calculos das hordas e dos inimigos
 Fase::Fase(string nome_mapa, int num_fase, Jogador *jogador)
@@ -31,13 +31,14 @@ Fase::Fase(string nome_mapa, int num_fase, Jogador *jogador)
 	this->nome_mapa = nome_mapa;
 	this->num_fase = num_fase;
 	this->num_hordas = num_fase*3 + rand()%5;
+//this->num_hordas = 2;
 	this->num_medio_inimigos_por_horda = num_fase*5 + rand()%(num_fase+5);
 	this->jogador = jogador;
 	this->life = VIDA_FASE;
 	
 	faseAtual++;
 	this->hordas=NULL;
-	this->torre=NULL;	
+	this->torres=NULL;
 }
 
 //inicializa o mapa e o desenha na tela, além de inicializar as hordas e seus inimigos
@@ -59,31 +60,37 @@ cout << "\nFASE " << this->num_fase << endl;
 		//cria um vetor de hordas vazios
 		this->hordas = new vector<Horda*>();
 		
+		//cria vetor de torres
+		this->torres = new vector<Torre*>();
+		
 		int i;
 		for(i=0; i<this->num_hordas; i++)
 		{
 			//determina o numero exato de inimigos em cada horda
-			inimigos_horda = rand()%5 + 1;
-			inimigos_horda *= rand()%2 ? 1 : -1;		
+			inimigos_horda = rand()%QTD_WAVES_BASE_CALCULO + 1;
+			int verificaSePar = rand()%2; 
+			if(verificaSePar)
+				inimigos_horda *= 1;
+			else
+				inimigos_horda *= -1;
+				
 			inimigos_horda += this->num_medio_inimigos_por_horda;
-			inimigos_horda < 5 ? inimigos_horda=5 : inimigos_horda=inimigos_horda;
+			
+			if(inimigos_horda < QTD_WAVES_BASE_CALCULO)
+				inimigos_horda = QTD_WAVES_BASE_CALCULO;
+			else			
+				inimigos_horda = inimigos_horda;
+
 cout << "horda "<< i+1 << endl;
 			
 			this->hordas->push_back(new Horda(inimigos_horda, this->num_fase));
 			this->hordas->at(i)->init();
-			this->execHorda(i);
+			this->execFase(i);
 		}
 	}catch(bad_alloc ba){
 		throw InitException("falha ao alocar memoria para as hordas da fase!");
 	}
 	
-	// Inicializa Torres
-	try{
-		this->torre = new AtiradorSimples();
-		torre->init();
-	}catch(bad_alloc ba){
-		throw InitException("falha ao alocar memoria para torre!");
-	}
 }
 
 int Fase::getFaseAtual()
@@ -106,7 +113,7 @@ Fase::~Fase()
 
 //após inicializar tudo, executa a fase até seu fim
 //Talvez: Mudar nome de execHorda para execFase
-void Fase::execHorda(int i) throw(GameOverException, ExitException, FileNotFoundException)
+void Fase::execFase(int i) throw(GameOverException, ExitException, FileNotFoundException)
 {
 	this->hordas->at(i)->exec();
 	while(this->hordas->at(i)->getInimigosSobrando() > 0)
@@ -125,7 +132,7 @@ void Fase::execHorda(int i) throw(GameOverException, ExitException, FileNotFound
 
 int Fase::zerarContadorFases()
 {
-	faseAtual = -1;
+	faseAtual = VALOR_DEFAULT_MINUS_ONE;
 	return faseAtual;
 }
 

@@ -16,7 +16,7 @@ void Gorila1::init() throw (InitException, FileNotFoundException)
 	this->hp_restante  = this->HP;
 	
 	try{
-		this->img = new SDL_Sprite(ARQUIVO_GORILA1,28, 45);//nome do arquivo e as dimensões de cada desenho da sprite
+		this->img = new SDL_Sprite(ARQUIVO_GORILA1,TAM_X_SPRITE_CHIMPANZE, TAM_Y_SPRITE_CHIMPANZE);
 		Direcao dir=BAIXO;
 		this->img->init(dir);
 	}catch(bad_alloc ba){

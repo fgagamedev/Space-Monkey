@@ -4,3 +4,4 @@
 # Subdirs
 SUBDIRS = src include resources
 ACLOCAL_AMFLAGS = -I m4
+

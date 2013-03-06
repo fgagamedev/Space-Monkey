@@ -97,7 +97,6 @@ CXXFLAGS = -g -O2
 CYGPATH_W = echo
 DEFS = -DHAVE_CONFIG_H
 DEPDIR = .deps
-DLLTOOL = false
 DSYMUTIL = 
 DUMPBIN = 
 ECHO_C = 
@@ -124,7 +123,6 @@ LT_CURRENT = 1
 LT_RELEASE = 1.0.3
 LT_REVISION = 0
 MAKEINFO = ${SHELL} /home/cotrim/Unb/jogos/SPACEMONKEYS/codigo_refatorado/config/missing --run makeinfo
-MANIFEST_TOOL = :
 MKDIR_P = /bin/mkdir -p
 NM = /usr/bin/nm -B
 NMEDIT = 
@@ -151,7 +149,6 @@ abs_srcdir = /home/cotrim/Unb/jogos/SPACEMONKEYS/codigo_refatorado/resources
 abs_top_builddir = /home/cotrim/Unb/jogos/SPACEMONKEYS/codigo_refatorado
 abs_top_srcdir = /home/cotrim/Unb/jogos/SPACEMONKEYS/codigo_refatorado
 ac_config_aux_dir = 
-ac_ct_AR = ar
 ac_ct_CC = gcc
 ac_ct_CXX = g++
 ac_ct_DUMPBIN = 
@@ -185,6 +182,7 @@ libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
 localstatedir = ${prefix}/var
+lt_ECHO = echo
 mandir = ${datarootdir}/man
 mkdir_p = /bin/mkdir -p
 oldincludedir = /usr/include
@@ -207,7 +205,7 @@ top_srcdir = ..
 
 # Resources
 spacemonkeydir = /opt/$(PACKAGE)/resources
-dist_spacemonkey_DATA = DownMonkeyLogo.png mapa1.png mapa2.png mapa3.png mapa4.png mapa5.png mapa6.png mapa7.png mapa8.png marcadorAzul.png marcadorVermelho.png inimigo.png inimigo2.png inimigo3.png apresenta.png logo.png menu.png MenuExtras.png MenuExtras2.png MenuJogar.png MenuJogar2.png MenuSair.png MenuSair2.png torreSimples.png KGFeeling22.ttf gameOver.bmp preto.bmp tango.wav
+dist_spacemonkey_DATA = DownMonkeyLogo.png mapa1.png mapa2.png mapa3.png mapa4.png mapa5.png mapa6.png mapa7.png mapa8.png marcadorAzul.png marcadorVermelho.png inimigo.png inimigo2.png inimigo3.png apresenta.png logo.png menu.png MenuExtras.png MenuExtras2.png MenuJogar.png MenuJogar2.png MenuSair.png MenuSair2.png torreSimples.png KGFeeling22.ttf gameOver.bmp preto.bmp tango.wav mapa1Bmp.txt mapa2Bmp.txt mapa3Bmp.txt mapa4Bmp.txt mapa5Bmp.txt mapa6Bmp.txt mapa7Bmp.txt mapa8Bmp.txt
 all: all-am
 
 .SUFFIXES:

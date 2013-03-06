@@ -56,15 +56,15 @@ muro.lo: muro.cpp ../include/jogador.h /usr/include/stdio.h \
  /usr/include/c++/4.4/initializer_list \
  /usr/include/c++/4.4/bits/basic_string.tcc ../include/constantes.h \
  ../include/initException.h ../include/exception.h \
- ../include/fileNotFoundException.h ../include/fileNotFoundException.h \
- ../include/SDL_Sprite.h /usr/include/SDL/SDL.h \
- /usr/include/SDL/SDL_main.h /usr/include/SDL/SDL_stdinc.h \
- /usr/include/SDL/SDL_config.h /usr/include/SDL/SDL_platform.h \
- /usr/include/sys/types.h /usr/include/sys/select.h \
- /usr/include/bits/select.h /usr/include/sys/sysmacros.h \
- /usr/include/stdlib.h /usr/include/bits/waitflags.h \
- /usr/include/bits/waitstatus.h /usr/include/alloca.h \
- /usr/include/bits/stdlib.h /usr/include/string.h \
+ ../include/fileNotFoundException.h ../include/mapa.h \
+ ../include/fileNotFoundException.h ../include/SDL_Sprite.h \
+ /usr/include/SDL/SDL.h /usr/include/SDL/SDL_main.h \
+ /usr/include/SDL/SDL_stdinc.h /usr/include/SDL/SDL_config.h \
+ /usr/include/SDL/SDL_platform.h /usr/include/sys/types.h \
+ /usr/include/sys/select.h /usr/include/bits/select.h \
+ /usr/include/sys/sysmacros.h /usr/include/stdlib.h \
+ /usr/include/bits/waitflags.h /usr/include/bits/waitstatus.h \
+ /usr/include/alloca.h /usr/include/bits/stdlib.h /usr/include/string.h \
  /usr/include/bits/string3.h /usr/include/strings.h \
  /usr/include/inttypes.h /usr/include/stdint.h /usr/include/iconv.h \
  /usr/include/SDL/begin_code.h /usr/include/SDL/close_code.h \
@@ -265,6 +265,8 @@ muro.lo: muro.cpp ../include/jogador.h /usr/include/stdio.h \
 ../include/exception.h:
 
 ../include/fileNotFoundException.h:
+
+../include/mapa.h:
 
 ../include/fileNotFoundException.h:
 

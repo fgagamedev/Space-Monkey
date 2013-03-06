@@ -5,13 +5,12 @@
 #include "constantes.h"
 #include "fileNotFoundException.h"
 
-using namespace std;
-
 /**
 Interface que representa o mapa (background) de cada fase. Isola a API gráfica do resto do sistema
 */
 class Mapa
 {
+private:
 public:
 	static void loadMap(string nome_mapa) throw (FileNotFoundException);
 	static void desenhaMapa();	
@@ -25,6 +24,8 @@ public:
 	static int getGoalX();
 	static int getGoalY();
 	static void printCoins()throw(FileNotFoundException);
+	static bool verificaPosicaoTorre(int xMouse, int yMouse);
+	static void alteraEstadoMapaLogico(int posX,int posY, char novoEstado);
 };
 
 #endif

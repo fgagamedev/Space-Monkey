@@ -4,8 +4,6 @@
 #include <string>
 #include "exception.h"
 
-using namespace std;
-
 class AnimaException : public Exception {
 private:
 	

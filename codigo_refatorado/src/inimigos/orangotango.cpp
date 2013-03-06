@@ -18,7 +18,7 @@ void Orangotango::init() throw (InitException, FileNotFoundException)
 	this->hp_restante  = this->HP;
 	
 	try{
-		this->img = new SDL_Sprite(ARQUIVO_ORANGOTANGO,28, 45);//nome do arquivo e as dimensões de cada desenho da sprite
+		this->img = new SDL_Sprite(ARQUIVO_ORANGOTANGO,TAM_X_SPRITE_CHIMPANZE, TAM_X_SPRITE_CHIMPANZE);
 		Direcao dir=DIREITA;
 		this->img->init(dir);
 	}catch(bad_alloc ba){

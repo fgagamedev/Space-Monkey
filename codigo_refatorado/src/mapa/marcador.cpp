@@ -12,8 +12,8 @@
 SDL_Surface* Marcador::marcadorUsado = NULL;
 SDL_Surface* Marcador::marcadorAzul = NULL;
 SDL_Surface* Marcador::marcadorVermelho = NULL;
-int Marcador::posX = -50;
-int Marcador::posY = -50;
+int Marcador::posX = VALOR_DEFAULT_X;
+int Marcador::posY = VALOR_DEFAULT_Y;
 	
 //construtor privado para implementação do singleton (essa classe não deve ter objetos, apenas chamadas estáticas)
 Marcador::Marcador(){}

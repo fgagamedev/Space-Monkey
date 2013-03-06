@@ -26,16 +26,16 @@ private:
 	//momento em que cada imagem irá aparecer
 	int momento[NUM_MAX_IMG_POR_ANIMACAO];
 	//numero de imagens carregadas até o momento
-	int num_img;
+	int num_img_carregadas;
 	//método que coloca a imagem na tela com fade-in
-	void print(SDL_Surface* imagem,int i);
+	void print(SDL_Surface* imagem,int imagem_desejada);
 public:
 	//construtor
 	Animacao();
 	//destrutor
 	~Animacao();
 	//carrega uma imagem e coloca na 1ª posição livre do vetor. retorna Exceções ao não carregar a imagem ou ao ultrapassar o nº de imagens maxima
-	void carregarImagem(string nome, int x, int y, int tempo) throw (FileNotFoundException, AnimaException);
+	void carregarImagem(string nome, int linha, int coluna, int tempo) throw (FileNotFoundException, AnimaException);
 	//determina o tempo de duração da animação
 	void setTime(int tempo);
 	//roda a apresentação

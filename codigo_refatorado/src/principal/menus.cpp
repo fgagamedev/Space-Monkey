@@ -37,8 +37,12 @@ void Menus::apresentacaoInicial() throw(InitException, FileNotFoundException, Ex
 	
 	apresentacao->setTime(5);
 	//carrega as imagens que a animação mostrará, suas posições e o momento em que cada uma aparecerá
-	apresentacao->carregarImagem(IMAGEM_APRESENTACAO_INICIAL,CENTRALIZAR,0,0);
-	apresentacao->carregarImagem(IMAGEM_PRESENTS,CENTRALIZAR,510,3);
+	int posicaoInicialImagemX = 0;
+	int tempoInicial=0;
+	int posicaoImagemX = 510;
+	int tempoApresentacao = 3;
+	apresentacao->carregarImagem(IMAGEM_APRESENTACAO_INICIAL,CENTRALIZAR,posicaoInicialImagemX,tempoInicial);
+	apresentacao->carregarImagem(IMAGEM_PRESENTS,CENTRALIZAR,posicaoImagemX,tempoApresentacao);
 	
 	apresentacao->rodar();	
 	

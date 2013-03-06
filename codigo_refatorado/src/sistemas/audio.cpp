@@ -6,12 +6,12 @@
 #include "initException.h"
 
 SDL_AudioSpec* Audio::audio_spec_obtido = NULL;
-Uint8* Audio::bufferAudio = 0;
-int Audio::size = 0;
-int Audio::position = 0;
+Uint8* Audio::bufferAudio = VALOR_INICIAL_BUFFER_AUDIO;
+int Audio::size = VALOR_DEFAULT_ZERO;
+int Audio::position = VALOR_DEFAULT_ZERO;
 bool Audio::isPlaying = false;
-int Audio::volume = 5;
-int Audio::minVolume = volume*(SDL_MIX_MAXVOLUME / 10);
+int Audio::volume = VOLUME_DEFAULT;
+int Audio::minVolume = volume*(SDL_MIX_MAXVOLUME / GRADUACAO_VOLUME);
 
 //inicializa o SDL Audio
 void Audio::init()throw(InitException)
@@ -27,7 +27,9 @@ void Audio::init()throw(InitException)
 	if(obtained == NULL)
 		throw InitException("erro ao inicializar o som! Pouca memoria para alocar espaco para o audioSpec");
 	
-	if(SDL_OpenAudio(&desired, obtained) < 0)
+	int iniciaSom = SDL_OpenAudio(&desired, obtained); 
+	
+	if( iniciaSom < 0)
 		throw InitException( string("Erro ao inicializar o som: ") + string(SDL_GetError()) );
 		
 	audio_spec_obtido = obtained;
@@ -62,9 +64,9 @@ void Audio::callback(void *userdata, Uint8 *audioFinal, int TamanhoBuffer)
 void Audio::setAudio(string nome_audio)throw (FileNotFoundException, InitException)
 {
 	//inicializa os valores da classe
-	position = -1;
-	size = 0;
-	bufferAudio = 0;
+	position = VALOR_DEFAULT_CURSOR_MUSICA;
+	size = VALOR_DEFAULT_ZERO;
+	bufferAudio = VALOR_DEFAULT_ZERO;
 	isPlaying = false;
 	
 	//carrego o áudio
@@ -77,8 +79,8 @@ void Audio::setAudio(string nome_audio)throw (FileNotFoundException, InitExcepti
 
 	//construindo o conversor de áudio para o formato da placa
 	SDL_AudioCVT cvt;
-	int rc = SDL_BuildAudioCVT(&cvt, wavSpec.format, wavSpec.channels, wavSpec.freq, audio_spec_obtido->format, audio_spec_obtido->channels, audio_spec_obtido->freq);
-	if (rc != 0) {
+	int iniciaConversor = SDL_BuildAudioCVT(&cvt, wavSpec.format, wavSpec.channels, wavSpec.freq, audio_spec_obtido->format, audio_spec_obtido->channels, audio_spec_obtido->freq);
+	if (iniciaConversor != 0) {
 		SDL_FreeWAV(wavBuffer);
 		throw InitException("falha ao converter o audio para o formato da placa de audio: "+string(SDL_GetError()));
   	}
@@ -104,12 +106,12 @@ void Audio::setAudio(string nome_audio)throw (FileNotFoundException, InitExcepti
 	
 	//setta os valores do áudio nos atributos da classe
 	SDL_LockAudio();
-	position = 0;
+	position = VALOR_DEFAULT_ZERO;
 	size = cvt.len * cvt.len_mult;
 	SDL_UnlockAudio();
 	
 	//por fim, toca a bagaça
-	SDL_PauseAudio(0);
+	SDL_PauseAudio(TOCANDO_MUSICA);
 	isPlaying = true;
 }
 
@@ -118,7 +120,7 @@ void Audio::stopAudio()
 {
 	//código para faze-lo parar
 	if(isPlaying)
-		SDL_PauseAudio(1);
+		SDL_PauseAudio(NAO_TOCANDO_MUSICA);
 	//fecha tudo
 	if(bufferAudio)
 		SDL_FreeWAV(bufferAudio);
@@ -141,5 +143,5 @@ int Audio::getVolume(){
 }
 
 void Audio::pausaMusica(){
-	SDL_PauseAudio(1);	
+	SDL_PauseAudio(NAO_TOCANDO_MUSICA);	
 }

@@ -28,7 +28,6 @@ void Eventos::trataEventos() throw(ExitException)
 				break;
 			}
 		case SDL_MOUSEMOTION:
-			//move o marcador
 			Marcador::mover(event.motion.x, event.motion.y);		
 			break;
 		case SDL_MOUSEBUTTONUP:
@@ -67,21 +66,27 @@ void Eventos::trataEventos(Fase *faseCorrente) throw(ExitException)
 			}
 			break;
 		case SDL_MOUSEMOTION:
-			//move o marcador
 			Marcador::mover(event.motion.x, event.motion.y);		
 			break;
 		case SDL_MOUSEBUTTONUP:
 			switch (event.button.button) {
 				case SDL_BUTTON_LEFT:
-					//código de inserir torre Aqui
+				{
 cout << "Moedas antes da compra: " <<Jogador::getMoedas() << endl;
-					faseCorrente->torre->createTorre(TIPO_TORRE_SIMPLES);
-					if(faseCorrente->torre == NULL)
-						cout << "torre nao criada!!"<<endl;
-cout << "Moedas depois da compra: " <<Jogador::getMoedas() << endl;
-				break;
-			default:
-				break;
+					Torre *temp = Torre::createTorre(TIPO_TORRE_SIMPLES,event.motion.x,event.motion.y);
+					
+					if(temp == NULL)
+						cout << "torre nao criada!!" << endl;
+					else
+						faseCorrente->torres->push_back(temp);
+						
+cout << "Numero atual de torres: " << faseCorrente->torres->size() << endl;
+					
+cout << "Moedas depois da compra: " << Jogador::getMoedas() << endl;
+					break;
+				}
+				default:
+					break;
 			}
 			break;
 		default:

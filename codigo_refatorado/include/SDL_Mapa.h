@@ -31,6 +31,8 @@ public:
 	static int getGoalX();
 	static int getGoalY();
 	static void printCoins()throw(FileNotFoundException);
+	static bool verificaPosicaoTorre(int xMouse, int yMouse);
+	static void alteraEstadoMapaLogico(int posX,int posY, char novoEstado);
 };
 
 #endif

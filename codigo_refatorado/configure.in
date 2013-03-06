@@ -45,6 +45,17 @@ AC_OUTPUT(
 Makefile
 include/Makefile
 src/Makefile
+src/animacao/Makefile
+src/eventos/Makefile
+src/fase/Makefile
+src/game/Makefile
+src/inimigos/Makefile
+src/mapa/Makefile
+src/SDL/Makefile
+src/sistemas/Makefile
+src/torres/Makefile
+src/util/Makefile
+src/principal/Makefile
 resources/Makefile
 )
 

@@ -12,7 +12,7 @@ const int TELA_HEIGHT = 600;
 //define o número de bits por pixel da tela
 const int TELA_BPP = 32;
 //determina o número de inmigos que podem chegar ao ponto final
-const int VIDA_FASE = 900;
+const int VIDA_FASE = 9000;
 //define o caminho onde estão os resources usados
 const string PATH = "/opt/spacemonkey/resources/";
 //define o texto que aparecerá na barra superior do jogo
@@ -47,6 +47,8 @@ typedef enum _Botoes {Jogar, Extras, Sair}Botoes;
 const int INIMIGO_HP_PADRAO = 6;
 const int INIMIGO_DANO_PADRAO = 2;
 const int INIMIGO_VEL_PADRAO = 3;
+const int INIMIGO_DANO_INICIAL = 0;
+const int INIMIGO_ALCANCE_INICIAL=0;
 //define os valores padrão dos atributos das torres
 const int TORRE_HP_PADRAO = 8;
 const int TORRE_DANO_PADRAO = 2;
@@ -66,8 +68,44 @@ const int TIPO_TORRE_IRONMAN = 9;
 const int TIPO_TORRE_MURO = 10;
 const int TIPO_TORRE_MUROREFORCADO = 11;
 const int TIPO_TORRE_FORTIFICATION = 12;
-
-
-
+//define valor numérico 
+const int NORMAL = 0;
+const int ATACADO = 1;
+const int DESTRUIDO = 2;
+// classe animacao
+const int QUANTIDADE_INICIAL_IMAGENS = 0;
+const int TAMANHO_FONTE = 30;
+const int QUANTIDADE_CELULAS_DISTANTE_BORDA_ESQ = 10;
+// classe audio
+const int VALOR_INICIAL_BUFFER_AUDIO = 0;
+const int VALOR_DEFAULT_ZERO = 0;
+const int VOLUME_DEFAULT = 5;
+const int GRADUACAO_VOLUME = 10;
+const int VALOR_DEFAULT_CURSOR_MUSICA = -1;
+const int TOCANDO_MUSICA = 0;
+const int NAO_TOCANDO_MUSICA = 1;
+// classe chipanze
+const int TAM_X_SPRITE_CHIMPANZE = 19;
+const int TAM_Y_SPRITE_CHIMPANZE = 30;
+// classe definicoesMapaLogico
+const int ERRO_ABRIR_ARQUIVO = 1;
+const int QTD_COLUNAS_ARQUIVO = 20;
+const int QTD_LINHAS_ARQUIVO = 27;
+// classe fase
+const int VALOR_DEFAULT_MINUS_ONE = -1;
+const int QTD_WAVES_BASE_CALCULO = 5;
+// classe horda
+const int QTD_DIFICULDADES = 3;
+// classe menuEventos
+const int LIMITE_INFERIOR_BT = 0;
+const int LIMITE_SUPERIOR_BT = 4;
+const int BOTAO1 = 1;
+const int BOTAO2 = 2;
+const int BOTAO3 = 3;
+// classe jogador
+const int VALOR_INICIAL_MOEDAS = 0;4
+// classe marcador
+const int VALOR_DEFAULT_X= -50;
+const int VALOR_DEFAULT_Y= -50;
 #endif
 

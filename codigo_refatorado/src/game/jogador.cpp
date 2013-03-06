@@ -1,7 +1,7 @@
 
 #include "jogador.h"
 
-int Jogador::moedas = 0;
+int Jogador::moedas = VALOR_INICIAL_MOEDAS;
 Jogador* Jogador::jogador = NULL;
 //inicia o número de moedas que ele possui
 Jogador::Jogador()

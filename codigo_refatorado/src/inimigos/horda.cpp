@@ -24,16 +24,16 @@ Horda::Horda(int numInimigos, int numFase)
 	this->inimigosSobrando = numInimigos;
 	
 	//determina se é uma fase facil ou dificil, dependendo da resposta determina um maior numero de inimigos fortes
-	if(numFase < (NUM_FASES_TOTAIS/3))
+	if(numFase < (NUM_FASES_TOTAIS/QTD_DIFICULDADES))
 	{
 		this->numChipanzes1 = rand()%numInimigos;
 		this->numChipanzes2 = rand()%(numInimigos-numChipanzes1);
 		this->numOragotangos = rand()%(numInimigos-numChipanzes1-numChipanzes2);
 		this->numGorilas1 = numInimigos-numChipanzes1-numChipanzes2-numOragotangos;
-		this->numGorilas2 = 0;
+		this->numGorilas2 = VALOR_DEFAULT_ZERO;
 		
 	}
-	else if(numFase > (NUM_FASES_TOTAIS/3) && numFase < (2*NUM_FASES_TOTAIS/3))
+	else if(numFase > (NUM_FASES_TOTAIS/QTD_DIFICULDADES) && numFase < (2*NUM_FASES_TOTAIS/QTD_DIFICULDADES))
 	{
 		this->numChipanzes1 = rand()%numInimigos;
 		this->numChipanzes2 = rand()%(numInimigos-numChipanzes1);

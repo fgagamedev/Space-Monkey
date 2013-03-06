@@ -53,16 +53,17 @@ torre.lo: torre.cpp ../include/torre.h ../include/sprite.h \
  /usr/include/c++/4.4/initializer_list \
  /usr/include/c++/4.4/bits/basic_string.tcc ../include/constantes.h \
  ../include/initException.h ../include/exception.h \
- ../include/fileNotFoundException.h ../include/constantes.h \
- ../include/jogador.h /usr/include/libio.h /usr/include/_G_config.h \
- /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h \
- /usr/include/bits/stdio.h /usr/include/bits/stdio2.h \
- ../include/atiradorSimples.h ../include/torre.h \
- ../include/atiradorDuplo.h ../include/atiradorRetardante.h \
- ../include/atiradorAngulado.h ../include/atiradorMoreFire.h \
- ../include/bombardeiro.h ../include/tanque.h \
- ../include/agentesProtetores.h ../include/ironMan.h ../include/muro.h \
- ../include/muroReforcado.h ../include/fortification.h
+ ../include/fileNotFoundException.h ../include/mapa.h \
+ ../include/constantes.h ../include/jogador.h /usr/include/libio.h \
+ /usr/include/_G_config.h /usr/include/bits/stdio_lim.h \
+ /usr/include/bits/sys_errlist.h /usr/include/bits/stdio.h \
+ /usr/include/bits/stdio2.h ../include/atiradorSimples.h \
+ ../include/torre.h ../include/atiradorDuplo.h \
+ ../include/atiradorRetardante.h ../include/atiradorAngulado.h \
+ ../include/atiradorMoreFire.h ../include/bombardeiro.h \
+ ../include/tanque.h ../include/agentesProtetores.h ../include/ironMan.h \
+ ../include/muro.h ../include/muroReforcado.h ../include/fortification.h \
+ ../include/mapa.h
 
 ../include/torre.h:
 
@@ -234,6 +235,8 @@ torre.lo: torre.cpp ../include/torre.h ../include/sprite.h \
 
 ../include/fileNotFoundException.h:
 
+../include/mapa.h:
+
 ../include/constantes.h:
 
 ../include/jogador.h:
@@ -275,3 +278,5 @@ torre.lo: torre.cpp ../include/torre.h ../include/sprite.h \
 ../include/muroReforcado.h:
 
 ../include/fortification.h:
+
+../include/mapa.h:

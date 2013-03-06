@@ -148,7 +148,7 @@ Botoes MenuEventos::getBotaoPressionado() throw (ExitException)
 
 	SDL_EnableKeyRepeat(SDL_DEFAULT_REPEAT_DELAY, SDL_DEFAULT_REPEAT_INTERVAL);
 		
-	int indiceBt=0;
+	int indiceBt=VALOR_DEFAULT_ZERO;
 
 	Util::playMusic(MUSICA_MENU_INICIAL);
 
@@ -172,10 +172,10 @@ Botoes MenuEventos::getBotaoPressionado() throw (ExitException)
 				
 					indiceBt--;
 
-					if(indiceBt <= 0)
-						indiceBt = 3;
+					if(indiceBt <= LIMITE_INFERIOR_BT)
+						indiceBt = BOTAO3;
       					
-					if(indiceBt == 1){
+					if(indiceBt == BOTAO1){
 						emcimaJogar = true;
 						emcimaExtra = false;
 						emcimaSair = false;
@@ -183,7 +183,7 @@ Botoes MenuEventos::getBotaoPressionado() throw (ExitException)
 						trocarImgExtra();
 						trocarImgSair();
 					}
-					if(indiceBt == 2){
+					if(indiceBt == BOTAO2){
 						emcimaJogar = false;
 						emcimaExtra = true;
 						emcimaSair = false;
@@ -191,7 +191,7 @@ Botoes MenuEventos::getBotaoPressionado() throw (ExitException)
 						trocarImgExtra();
 						trocarImgSair();
 					}
-					if(indiceBt == 3){
+					if(indiceBt == BOTAO3){
 						emcimaJogar = false;
 						emcimaExtra = false;
 						emcimaSair = true;
@@ -205,10 +205,10 @@ Botoes MenuEventos::getBotaoPressionado() throw (ExitException)
 					
 					indiceBt++;
 
-					if(indiceBt >= 4)
-						indiceBt=1;
+					if(indiceBt >= LIMITE_SUPERIOR_BT)
+						indiceBt=BOTAO1;
 
-					if(indiceBt == 1){
+					if(indiceBt == BOTAO1){
 						emcimaJogar = true;
 						emcimaExtra = false;
 						emcimaSair = false;
@@ -216,7 +216,7 @@ Botoes MenuEventos::getBotaoPressionado() throw (ExitException)
 						trocarImgExtra();
 						trocarImgSair();
 					}
-					if(indiceBt == 2){
+					if(indiceBt == BOTAO2){
 						emcimaJogar = false;
 						emcimaExtra = true;
 						emcimaSair = false;
@@ -224,7 +224,7 @@ Botoes MenuEventos::getBotaoPressionado() throw (ExitException)
 						trocarImgExtra();
 						trocarImgSair();
 					}
-					if(indiceBt == 3){
+					if(indiceBt == BOTAO3){
 						emcimaJogar = false;
 						emcimaExtra = false;
 						emcimaSair = true;
@@ -262,7 +262,7 @@ Botoes MenuEventos::getBotaoPressionado() throw (ExitException)
 				trocarImgJogar();
 				trocarImgExtra();
 				trocarImgSair();
-				indiceBt=0;	
+				indiceBt=VALOR_DEFAULT_ZERO;	
 				break;
 			case SDL_MOUSEBUTTONDOWN:
 				switch (event.button.button) 

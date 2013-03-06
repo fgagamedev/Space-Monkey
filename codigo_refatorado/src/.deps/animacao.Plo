@@ -75,9 +75,10 @@ animacao.lo: animacao.cpp ../include/exitException.h \
  /usr/include/SDL/SDL_joystick.h /usr/include/SDL/SDL_quit.h \
  /usr/include/SDL/SDL_loadso.h /usr/include/SDL/SDL_timer.h \
  /usr/include/SDL/SDL_version.h ../include/fileNotFoundException.h \
- ../include/initException.h ../include/animacao.h ../include/constantes.h \
- ../include/animaException.h ../include/exitException.h \
- /usr/include/SDL/SDL_image.h /usr/include/SDL/SDL.h \
+ ../include/initException.h ../include/util.h /usr/include/SDL/SDL_ttf.h \
+ /usr/include/SDL/SDL.h ../include/mapa.h ../include/constantes.h \
+ ../include/animacao.h ../include/animaException.h \
+ ../include/exitException.h /usr/include/SDL/SDL_image.h \
  ../include/constantes.h ../include/nomesArquivos.h ../include/tela.h \
  /usr/include/c++/4.4/iostream /usr/include/c++/4.4/ostream \
  /usr/include/c++/4.4/ios /usr/include/c++/4.4/bits/ios_base.h \
@@ -357,17 +358,23 @@ animacao.lo: animacao.cpp ../include/exitException.h \
 
 ../include/initException.h:
 
-../include/animacao.h:
+../include/util.h:
+
+/usr/include/SDL/SDL_ttf.h:
+
+/usr/include/SDL/SDL.h:
+
+../include/mapa.h:
 
 ../include/constantes.h:
+
+../include/animacao.h:
 
 ../include/animaException.h:
 
 ../include/exitException.h:
 
 /usr/include/SDL/SDL_image.h:
-
-/usr/include/SDL/SDL.h:
 
 ../include/constantes.h:
 
