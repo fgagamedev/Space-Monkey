@@ -1,3 +1,0 @@
-jogador.lo: jogador.cpp ../include/jogador.h
-
-../include/jogador.h:

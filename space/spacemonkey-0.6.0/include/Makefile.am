@@ -1,8 +1,0 @@
-# Author: Edson Alves - edsonalves@unb.br
-# Date: 21/12/2012
-
-# Includes dir
-libitemincludedir = $(includedir)/
-
-# Include files
-include_HEADERS = constantes.h exception.h initException.h fileNotFoundException.h jogador.h mapa.h SDL_Mapa.h tela.h SDL_Tela.h fase.h menus.h jogo.h 
