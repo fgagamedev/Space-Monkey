@@ -25,6 +25,7 @@ public:
 	static int getCusto();
 	//chama o new para criar a torre caso haja dinheiro
 	static Torre* createTorre(int tipoTorre,int xMouse, int yMouse);
+	static Torre* createTorre();
 	static bool possoCriar(int tipoTorre);
 };
 
