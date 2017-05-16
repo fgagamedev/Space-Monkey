@@ -14,7 +14,7 @@ const int TELA_BPP = 32;
 //determina o número de inmigos que podem chegar ao ponto final
 const int VIDA_FASE = 9000;
 //define o caminho onde estão os resources usados
-const string PATH = "/opt/spacemonkey/resources/";
+const string PATH = "resources/";
 //define o texto que aparecerá na barra superior do jogo
 const string NOME_BARRA_SUPERIOR = "SpaceMonkey";
 
@@ -40,7 +40,7 @@ const int TAMANHO_QUADRADO = 30;
 const int TAMANHO_MATRIZ_LOGICA_X = (TELA_WIDTH%TAMANHO_QUADRADO)==0? TELA_WIDTH/TAMANHO_QUADRADO : ((int)(TELA_WIDTH/TAMANHO_QUADRADO)+1);
 const int TAMANHO_MATRIZ_LOGICA_Y = (TELA_HEIGHT%TAMANHO_QUADRADO)==0? TELA_HEIGHT/TAMANHO_QUADRADO : ((int)(TELA_HEIGHT/TAMANHO_QUADRADO)+1);
 //define uma estrutura que diz os tipos de movimentos possiveis
-typedef enum _Direcao {BAIXO, ACIMA, ESQUERDA, DIREITA, ACIMA_ESQUERDA, ACIMA_DIREITA, BAIXO_ESQUERDA, BAIXO_DIREITA}Direcao; 
+typedef enum _Direcao {BAIXO, ACIMA, ESQUERDA, DIREITA, ACIMA_ESQUERDA, ACIMA_DIREITA, BAIXO_ESQUERDA, BAIXO_DIREITA}Direcao;
 //define os botões do menu inicial
 typedef enum _Botoes {Jogar, Extras, Sair}Botoes;
 //define os valores padrão dos atributos inimigos
@@ -68,7 +68,7 @@ const int TIPO_TORRE_IRONMAN = 9;
 const int TIPO_TORRE_MURO = 10;
 const int TIPO_TORRE_MUROREFORCADO = 11;
 const int TIPO_TORRE_FORTIFICATION = 12;
-//define valor numérico 
+//define valor numérico
 const int NORMAL = 0;
 const int ATACADO = 1;
 const int DESTRUIDO = 2;

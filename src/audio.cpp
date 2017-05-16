@@ -22,14 +22,15 @@ void Audio::init()throw(InitException)
 	desired.channels = NUM_CANAIS;
 	desired.samples = SIZE_SAMPLE;
 	desired.callback = Audio::callback;
-	
+
 	obtained = (SDL_AudioSpec*) malloc(sizeof(SDL_AudioSpec));
 	if(obtained == NULL)
 		throw InitException("erro ao inicializar o som! Pouca memoria para alocar espaco para o audioSpec");
-	
+
 	if(SDL_OpenAudio(&desired, obtained) < 0)
-		throw InitException( string("Erro ao inicializar o som: ") + string(SDL_GetError()) );
-		
+		cout << string("Erro ao inicializar o som: ") + string(SDL_GetError()) << endl;
+		// throw InitException( string("Erro ao inicializar o som: ") + string(SDL_GetError()) );
+
 	audio_spec_obtido = obtained;
 }
 
@@ -66,14 +67,14 @@ void Audio::setAudio(string nome_audio)throw (FileNotFoundException, InitExcepti
 	size = 0;
 	bufferAudio = 0;
 	isPlaying = false;
-	
+
 	//carrego o áudio
 	SDL_AudioSpec wavSpec;
 	Uint32 wavLen;
 	Uint8 *wavBuffer;
 
 	if (SDL_LoadWAV( ( PATH+nome_audio).c_str() , &wavSpec, &wavBuffer, &wavLen) == NULL)
-		throw FileNotFoundException( string("Erro ao inicializar a musica: ") + string(SDL_GetError()));	
+		throw FileNotFoundException( string("Erro ao inicializar a musica: ") + string(SDL_GetError()));
 
 	//construindo o conversor de áudio para o formato da placa
 	SDL_AudioCVT cvt;
@@ -101,13 +102,13 @@ void Audio::setAudio(string nome_audio)throw (FileNotFoundException, InitExcepti
 	//como já apontei o buffer da estrutura convertida para o buffer novo, este pode ser liberado
 	SDL_FreeWAV(wavBuffer);
 	bufferAudio = wavNewBuf;
-	
+
 	//setta os valores do áudio nos atributos da classe
 	SDL_LockAudio();
 	position = 0;
 	size = cvt.len * cvt.len_mult;
 	SDL_UnlockAudio();
-	
+
 	//por fim, toca a bagaça
 	SDL_PauseAudio(0);
 	isPlaying = true;
@@ -141,5 +142,5 @@ int Audio::getVolume(){
 }
 
 void Audio::pausaMusica(){
-	SDL_PauseAudio(1);	
+	SDL_PauseAudio(1);
 }

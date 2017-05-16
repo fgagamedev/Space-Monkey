@@ -31,7 +31,7 @@ int iniciarMapa1(){
 	towerColor.b = 255;
 
 	int rc;
-	
+
 	rc = SDL_Init(SDL_INIT_VIDEO);
 
 	if(rc ==-1){
@@ -42,7 +42,7 @@ int iniciarMapa1(){
 	atexit(SDL_Quit);
 
 	SDL_WM_SetCaption("SpaceMonkey", "SpaceMonkey");
-	SDL_WM_SetIcon(SDL_LoadBMP("/opt/spacemonkey/resources/DownMonkeyLogo.bmp"), NULL);
+	SDL_WM_SetIcon(SDL_LoadBMP("resources/DownMonkeyLogo.bmp"), NULL);
 
 	screen = SDL_SetVideoMode(width, height, bpp, video_options);
 
@@ -76,7 +76,7 @@ SDL_Rect *setTowerRect(){
 		rectTower[cont].w = RECTTOWER_WIDTH;
 		rectTower[cont].h = RECTTOWER_HEIGHT;
 	}
-	
+
 	rectTower[0].x = 160;
 	rectTower[0].y = 80;
 	rectTower[1].x = 200;
@@ -97,7 +97,7 @@ void drawMap(SDL_Surface *screen, SDL_Rect rectMap, Uint32 valMapColor){
 	int j;
 
 	for(i=0; i<15; i++){
-	
+
 		if(i<5){
 			for(j=0; j<2; j++){
 				SDL_FillRect(screen, &rectMap, valMapColor);

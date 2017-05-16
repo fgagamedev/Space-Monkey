@@ -4,9 +4,9 @@
 #include "video.h"
 
 void init_sdl(){
-	
+
 	int rc = SDL_Init(SDL_INIT_VIDEO);
-	
+
 	if(rc==-1){
 		fprintf(stdout, "Erro ao inicializar SDL: %s", SDL_GetError());
 		exit(1);
@@ -16,9 +16,9 @@ void init_sdl(){
 }
 
 void setup_window(){
-	
+
 	SDL_WM_SetCaption("SpaceMonkey", "SpaceMonkey");
-	SDL_WM_SetIcon(SDL_LoadBMP("/opt/spacemonkey/resources/DownMonkeyLogo.bmp"), NULL);
+	SDL_WM_SetIcon(SDL_LoadBMP("resources/DownMonkeyLogo.bmp"), NULL);
 
 }
 
