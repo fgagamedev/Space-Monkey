@@ -23,7 +23,7 @@ class Fase
 private:
 	//vetor de hordas inimigas
 	vector<Horda*> *hordas;
-	
+
 	//referência ao jogador, puxado da classe menu
 	Jogador *jogador;
 	//nome do arquivo de imagem do mapa
@@ -50,6 +50,7 @@ public:
 	static int zerarContadorFases();
 	//vetor de torres
 	vector<Torre*> *torres;
+	Torre* torre;
 	void redesenharTorres();
 
 };

@@ -15,9 +15,9 @@ void IronMan::init(int posX, int posY) throw(InitException, FileNotFoundExceptio
 	this->tempoRecarga = 3*TORRE_TEMPO_RECARGUE_PADRAO;
 	this->alcance = 0*TORRE_ALCANCE_PADRAO;
 	custo = 3*TORRE_CUSTO_PADRAO;
-
+	
 	this->hp_restante  = this->HP;
-
+	
 	try{
 		this->img = new SDL_Sprite(ARQUIVO_TORRE_IRONMAN,posX, posY);//nome do arquivo e as dimensões de cada desenho da sprite
 		Direcao dir=BAIXO;
@@ -25,16 +25,6 @@ void IronMan::init(int posX, int posY) throw(InitException, FileNotFoundExceptio
 	}catch(bad_alloc ba){
 		throw InitException("falha ao alocar o sprite do IronMan! não houve memoria suficiente!");
 	}
-}
-
-
-//cria uma nova torre e decrescenta o nº de moedas do jogador
-Torre* IronMan::createTorre()
-{
-	if(Jogador::getMoedas() < custo)
-		return NULL;
-	Jogador::perderMoedas(custo);
-	return new IronMan();
 }
 
 //limpa a memoria

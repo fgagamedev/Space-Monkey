@@ -11,7 +11,7 @@
 //construtor que inicializa o vetor de imagens
 Animacao::Animacao()
 {
-	num_img = 0;
+	num_img_carregadas = 0;
 	int i;
 	for(i=0; i<NUM_MAX_IMG_POR_ANIMACAO; i++)
 		imagens[i] = NULL;
@@ -32,17 +32,17 @@ Animacao::~Animacao()
 //carrega uma imagem e coloca na 1ª posição livre do vetor
 void Animacao::carregarImagem(string nome, int x, int y, int tempo) throw (FileNotFoundException, AnimaException)
 {
-	if(num_img == NUM_MAX_IMG_POR_ANIMACAO)
+	if(num_img_carregadas == NUM_MAX_IMG_POR_ANIMACAO)
 		throw AnimaException("Ultrapassado o numero maximo de imagens a serem carregadas na mesma animacao!");
-	
-	imagens[num_img] = IMG_Load( (PATH+nome).c_str() );
-	if(!imagens[num_img])
+
+	imagens[num_img_carregadas] = IMG_Load( (PATH+nome).c_str() );
+	if(!imagens[num_img_carregadas])
 		throw FileNotFoundException( string("Nao foi possivel carregar o seguinte arquivo: ")+nome);
-		
-	posX[num_img] = (x==CENTRALIZAR ? (TELA_WIDTH-imagens[num_img]->w)/2: x);
-	posY[num_img] = (y==CENTRALIZAR ? (TELA_HEIGHT-imagens[num_img]->h)/2: y);
-	momento[num_img] = tempo;	
-	num_img++;
+
+	posX[num_img_carregadas] = (x==CENTRALIZAR ? (TELA_WIDTH-imagens[num_img_carregadas]->w)/2: x);
+	posY[num_img_carregadas] = (y==CENTRALIZAR ? (TELA_HEIGHT-imagens[num_img_carregadas]->h)/2: y);
+	momento[num_img_carregadas] = tempo;
+	num_img_carregadas++;
 }
 
 //determina o tempo de duração da animação
@@ -58,7 +58,7 @@ void Animacao::print(SDL_Surface* imagem,int i)
 	area.y = posY[i];
 	area.w = imagem->w;
 	area.h = imagem->h;
-	
+
 	SDL_Surface *tela = (SDL_Surface*)Tela::getTela();
 	SDL_BlitSurface(imagem,NULL, tela,&area);
 	SDL_UpdateRect(tela, area.x, area.y, area.w, area.h);
@@ -72,14 +72,14 @@ void Animacao::rodar() throw (ExitException)
 	SDL_Event event;
 	for(i=0; i<NUM_MAX_IMG_POR_ANIMACAO; i++)
 	{
-		while (SDL_PollEvent(&event)) 
+		while (SDL_PollEvent(&event))
 		{
-			switch (event.type) 
+			switch (event.type)
 			{
 			case SDL_QUIT:
 				throw ExitException("saindo...");
-			case SDL_KEYDOWN: 
-				switch (event.key.keysym.sym) 
+			case SDL_KEYDOWN:
+				switch (event.key.keysym.sym)
 				{
 				case SDLK_ESCAPE:
 					throw ExitException("saindo...");

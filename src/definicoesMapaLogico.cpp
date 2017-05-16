@@ -1,4 +1,4 @@
-#include "constantes.h"
+#include "definicoesMapaLogico.h"
 
 //funções que montam o mapa lógico de cada fase
 void nomesArquivos_montaMapaLogico1(char** mapaLogico)
@@ -7,9 +7,9 @@ void nomesArquivos_montaMapaLogico1(char** mapaLogico)
 	//determina onde é estrada
 	for(i=0; i<6; i++)
 		mapaLogico[i][1] = mapaLogico[i][2] = ESTRADA;
-	mapaLogico[6][2] = mapaLogico[5][3] = mapaLogico[6][3] = mapaLogico[7][3] = mapaLogico[6][4] = mapaLogico[7][4] = mapaLogico[8][4] = mapaLogico[6][5] = mapaLogico[12][6] = ESTRADA;	
+	mapaLogico[6][2] = mapaLogico[5][3] = mapaLogico[6][3] = mapaLogico[7][3] = mapaLogico[6][4] = mapaLogico[7][4] = mapaLogico[8][4] = mapaLogico[6][5] = mapaLogico[12][6] = ESTRADA;
 	for(i=7; i<12; i++)
-		mapaLogico[i][5] = mapaLogico[i][6] =ESTRADA;	
+		mapaLogico[i][5] = mapaLogico[i][6] =ESTRADA;
 	for(i=6; i<9; i++)
 		mapaLogico[13][i] =mapaLogico[14][i] = ESTRADA;
 	mapaLogico[15][7] =mapaLogico[15][8] = ESTRADA;
@@ -37,7 +37,7 @@ void nomesArquivos_montaMapaLogico2(char** mapaLogico)
 		mapaLogico[x][3]=ESTRADA;
 	}
 	mapaLogico[5][4]=mapaLogico[6][4]=mapaLogico[5][5]=mapaLogico[6][5]=ESTRADA;
-	
+
 	for(x=6;x<=14;x++){
 		mapaLogico[6][x]=mapaLogico[7][x]=ESTRADA;
 	}
@@ -52,7 +52,7 @@ void nomesArquivos_montaMapaLogico2(char** mapaLogico)
 		mapaLogico[24][x]=mapaLogico[25][x]=ESTRADA;
 	}
 	mapaLogico[25][1]=mapaLogico[26][1]=mapaLogico[26][0]=ESTRADA;
-	
+
 	//Torres
 	mapaLogico[3][4]=mapaLogico[4][4]=mapaLogico[4][5]=mapaLogico[24][1]=mapaLogico[21][11]=mapaLogico[3][2]=
 	mapaLogico[4][2]=mapaLogico[7][4]=mapaLogico[7][5]=TORRE;
@@ -98,7 +98,7 @@ void nomesArquivos_montaMapaLogico3(char** mapaLogico)
 	for(x=13;x<=19;x++){
 		mapaLogico[x][13]=ESTRADA;
 	}
-	
+
 	// Torres
 	for(x=1;x<=8;x++){
 		mapaLogico[4][x]=TORRE;
@@ -108,7 +108,7 @@ void nomesArquivos_montaMapaLogico3(char** mapaLogico)
 	for(x=4;x<=10;x++){
 		mapaLogico[x][12]=TORRE;
 	}
-	
+
 }
 void nomesArquivos_montaMapaLogico4(char** mapaLogico)
 {
@@ -134,7 +134,7 @@ void nomesArquivos_montaMapaLogico4(char** mapaLogico)
 	for(x=0;x<=13;x++){
 		mapaLogico[x][19]=ESTRADA;
 	}
-	
+
 	// Torres
 	for(x=1;x<=4;x++){
 		mapaLogico[23][x]=TORRE;
@@ -183,7 +183,7 @@ void nomesArquivos_montaMapaLogico5(char** mapaLogico)
 	for(x=0;x<=14;x++){
 		mapaLogico[x][18]=ESTRADA;
 	}
-	
+
 	//Torres
 	for(x=2;x<=13;x++){
 		mapaLogico[x][17]=TORRE;

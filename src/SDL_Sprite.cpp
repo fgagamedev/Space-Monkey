@@ -75,6 +75,46 @@ void SDL_Sprite::init(Direcao dir)
 	SDL_UpdateRect((SDL_Surface*)Tela::getTela(), retangulo2.x, retangulo2.y, retangulo2.w, retangulo2.h);
 }
 
+// Torre
+void SDL_Sprite::initTorre(int posX,int posY, Direcao dir)
+{
+	int fase = Fase::getFaseAtual();
+	this->x = posX, this->y = posY;
+	posicaoSpriteX=0;
+	
+	SDL_Rect retangulo;//retangulo que informa a area que será atualizada
+	retangulo.w = this->w, retangulo.h = this->h;
+	retangulo.x = 0;
+	switch(dir)
+	{
+	case BAIXO:
+		retangulo.y = 0;
+		break;
+	case ACIMA:
+		retangulo.y = this->h*3;
+		break;
+	case ESQUERDA:
+	case ACIMA_ESQUERDA:
+	case BAIXO_ESQUERDA:
+		retangulo.y = this->h;
+		break;
+	case DIREITA:
+	case ACIMA_DIREITA:
+	case BAIXO_DIREITA:
+		retangulo.y = this->h*2;
+		break;
+	}
+	//retangulo atualizado na tela
+	SDL_Rect retangulo2;//retangulo que informa a area que será atualizada
+	retangulo2.w = this->w, retangulo2.h = this->h;
+	retangulo2.x = this->x*TAMANHO_QUADRADO, retangulo2.y = this->y*TAMANHO_QUADRADO;
+	
+	//SDL_BlitSurface(sprite,NULL, (SDL_Surface*)Tela::getTela(),NULL);
+	SDL_BlitSurface(sprite,&retangulo, (SDL_Surface*)Tela::getTela(),&retangulo2);
+	SDL_UpdateRect((SDL_Surface*)Tela::getTela(), retangulo2.x, retangulo2.y, retangulo2.w, retangulo2.h);
+}
+
+
 //apaga o sprite da tela
 void SDL_Sprite::apagarSprite()
 {
