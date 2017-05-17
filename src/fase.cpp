@@ -27,7 +27,7 @@ int Fase::faseAtual = -1;
 Fase::Fase(string nome_mapa, int num_fase, Jogador *jogador)
 {
 	srand(time(NULL));
-	
+
 	this->nome_mapa = nome_mapa;
 	this->num_fase = num_fase;
 	//this->num_hordas = num_fase*3 + rand()%5;
@@ -35,7 +35,7 @@ this->num_hordas = 2;
 	this->num_medio_inimigos_por_horda = num_fase*5 + rand()%(num_fase+5);
 	this->jogador = jogador;
 	this->life = VIDA_FASE;
-	
+
 	faseAtual++;
 	this->hordas=NULL;
 	this->torres=NULL;
@@ -54,25 +54,25 @@ cout << "\nFASE " << this->num_fase << endl;
 		throw InitException("falha ao alocar memoria para o mapa da fase!" );
 	}
 	//inicia a musica de fundo
-	Util::playMusic(MUSICA_FASES[faseAtual]);	
+	Util::playMusic(MUSICA_FASES[faseAtual]);
 	//inicializa as hordas
 	try{
 		//cria um vetor de hordas vazios
 		this->hordas = new vector<Horda*>();
-		
+
 		//cria vetor de torres
 		this->torres = new vector<Torre*>();
-		
+
 		int i;
 		for(i=0; i<this->num_hordas; i++)
 		{
 			//determina o numero exato de inimigos em cada horda
 			inimigos_horda = rand()%5 + 1;
-			inimigos_horda *= rand()%2 ? 1 : -1;		
+			inimigos_horda *= rand()%2 ? 1 : -1;
 			inimigos_horda += this->num_medio_inimigos_por_horda;
 			inimigos_horda < 5 ? inimigos_horda=5 : inimigos_horda=inimigos_horda;
 cout << "horda "<< i+1 << endl;
-			
+
 			this->hordas->push_back(new Horda(inimigos_horda, this->num_fase));
 			this->hordas->at(i)->init();
 			this->execFase(i);
@@ -80,7 +80,7 @@ cout << "horda "<< i+1 << endl;
 	}catch(bad_alloc ba){
 		throw InitException("falha ao alocar memoria para as hordas da fase!");
 	}
-	
+
 }
 
 int Fase::getFaseAtual()
