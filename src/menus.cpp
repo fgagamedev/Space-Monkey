@@ -34,14 +34,14 @@ void Menus::apresentacaoInicial() throw(InitException, FileNotFoundException, Ex
 	}catch(bad_alloc ba){
 		throw InitException("Falha ao alocar memoria para mostrar a apresentacao inicial");
 	}
-	
+
 	apresentacao->setTime(5);
 	//carrega as imagens que a animação mostrará, suas posições e o momento em que cada uma aparecerá
 	apresentacao->carregarImagem(IMAGEM_APRESENTACAO_INICIAL,CENTRALIZAR,0,0);
 	apresentacao->carregarImagem(IMAGEM_PRESENTS,CENTRALIZAR,510,3);
-	
-	apresentacao->rodar();	
-	
+
+	apresentacao->rodar();
+
 	delete apresentacao;
 }
 
@@ -51,9 +51,9 @@ Botoes Menus::menuInicial() throw(FileNotFoundException, ExitException)
 	MenuEventos *menuEventos = new MenuEventos();
 	menuEventos->init();
 	Botoes bt = menuEventos->getBotaoPressionado();
-	
+
 	delete menuEventos;
-	
+
 	return bt;
 }
 

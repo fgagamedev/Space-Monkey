@@ -8,7 +8,7 @@
 void Mapa::desenhaMapa()
 {
 	SDL_Mapa::desenhaMapa();
-}	
+}
 
 void* Mapa::getMapa()
 {
@@ -31,7 +31,7 @@ bool Mapa::mapaCarregado()
 }
 
 void Mapa::liberaMapa()
-{	
+{
 	SDL_Mapa::liberaMapa();
 }
 
@@ -49,7 +49,7 @@ void Mapa::defineGoal()
 {
 	SDL_Mapa::defineGoal();
 }
-	
+
 int Mapa::getGoalX()
 {
 	return SDL_Mapa::getGoalX();
@@ -65,3 +65,6 @@ void Mapa::printCoins()throw(FileNotFoundException)
 	SDL_Mapa::printCoins();
 }
 
+void Mapa::alteraEstadoMapaLogico(int posX, int posY, char novoEstado){
+	SDL_Mapa::alteraEstadoMapaLogico(posX,posY,novoEstado);
+}
